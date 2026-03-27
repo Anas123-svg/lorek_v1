@@ -2,13 +2,12 @@ import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { CredentialStrip } from './components/CredentialStrip';
 import { About } from './components/About';
-import { TrustedBySlider } from './components/TrustedBySlider';
-import { Industries } from './components/Industries';
 import { Services } from './components/Services';
 import { Testimonial } from './components/Testimonial';
 import { Values } from './components/Values';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { Industries } from './components/Industries';
 
 export default function App() {
   return (
