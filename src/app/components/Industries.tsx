@@ -1,15 +1,15 @@
 export function Industries() {
   const industries = [
     {
-      name: 'Real Estate and Construction',
+      name: 'Real Estate & Construction',
       image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070',
     },
     {
-      name: 'Engineering and Robotics',
+      name: 'Engineering & Robotics',
       image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070',
     },
     {
-      name: 'Media, Arts and Advertising',
+      name: 'Media, Arts & Advertising',
       image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2070',
     },
     {
@@ -17,156 +17,269 @@ export function Industries() {
       image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070',
     },
     {
-      name: 'IT and Communication',
+      name: 'IT & Communication',
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072',
     },
   ];
 
-  const marqueeIndustries = [...industries, ...industries];
+  const marquee = [...industries, ...industries];
 
   return (
-    <section id="industries" className="px-5 sm:px-8 lg:px-20 py-12 sm:py-14 border-t border-white/10" style={{ background: '#0D0D0D' }}>
-      <div className="max-w-[1440px] mx-auto">
-        <div
-          style={{
-            fontFamily: 'DM Sans, sans-serif',
-            fontSize: '10px',
-            fontWeight: 500,
-            textTransform: 'uppercase',
-            letterSpacing: '0.18em',
-            color: '#C8102E',
-            marginBottom: '8px',
-          }}
-        >
-          INDUSTRIES
-        </div>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
 
-        <h2
-          style={{
-            fontFamily: 'Playfair Display, serif',
-            fontSize: 'clamp(30px, 4.2vw, 40px)',
-            fontWeight: 400,
-            color: '#FFFFFF',
-            marginBottom: '10px',
-          }}
-        >
-          Industries
-        </h2>
+        .ind-root {
+          background: #080808;
+          padding: 96px 0;
+          border-top: 0.5px solid rgba(200,16,46,0.12);
+          position: relative;
+          overflow: hidden;
+        }
+        .ind-root::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(200,16,46,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(200,16,46,0.025) 1px, transparent 1px);
+          background-size: 80px 80px;
+          pointer-events: none;
+        }
+        /* bottom-left glow */
+        .ind-root::after {
+          content: '';
+          position: absolute;
+          bottom: -60px; left: -100px;
+          width: 460px; height: 320px;
+          background: radial-gradient(ellipse, rgba(200,16,46,0.07) 0%, transparent 70%);
+          pointer-events: none;
+        }
 
-        <p
-          style={{
-            fontFamily: 'DM Sans, sans-serif',
-            fontSize: '15px',
-            fontWeight: 300,
-            color: '#A8A8A8',
-            maxWidth: '620px',
-            marginBottom: '20px',
-            lineHeight: '1.75',
-          }}
-        >
-          We focus on delivering holistic service, covering all aspects of business life cycle, thus becoming reliable partners for
-          companies, individuals and institutions.
-        </p>
+        .ind-header {
+          padding: 0 80px;
+          margin-bottom: 48px;
+          position: relative;
+        }
 
-        <div className="relative">
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-24 z-10"
-            style={{ background: 'linear-gradient(to right, #0D0D0D, transparent)' }}
-          />
-          <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-24 z-10"
-            style={{ background: 'linear-gradient(to left, #0D0D0D, transparent)' }}
-          />
+        .ind-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 0.3em; text-transform: uppercase;
+          color: #C8102E;
+          margin-bottom: 14px;
+        }
+        .ind-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
 
-          <div className="overflow-hidden">
-            <div className="industries-marquee flex w-max gap-4">
-              {marqueeIndustries.map((industry, index) => (
-                <article
-                  key={`${industry.name}-${index}`}
-                  className="group w-[240px] sm:w-[270px] lg:w-[290px]"
-                  style={{
-                    backgroundColor: '#C8102E',
-                    border: '0.5px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '8px',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <div className="relative h-[170px] overflow-hidden">
-                    <img
-                      src={industry.image}
-                      alt={industry.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.38)' }} />
-                    <div
-                      className="absolute left-4 right-4 bottom-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{
-                        fontFamily: 'DM Sans, sans-serif',
-                        fontSize: '10px',
-                        fontWeight: 500,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.12em',
-                        color: '#FFFFFF',
-                      }}
-                    >
-                      Check details {'->'}
-                    </div>
-                  </div>
+        .ind-h2 {
+          font-family: 'Orbitron', monospace;
+          font-weight: 700;
+          font-size: clamp(22px, 3.2vw, 38px);
+          line-height: 1.08;
+          color: #FFFFFF;
+          margin-bottom: 14px;
+          letter-spacing: -0.01em;
+        }
+        .ind-h2 em { font-style: normal; color: #C8102E; }
 
-                  <div
-                    style={{
-                      fontFamily: 'DM Sans, sans-serif',
-                      fontSize: '13px',
-                      fontWeight: 500,
-                      color: '#FFFFFF',
-                      padding: '15px 16px',
-                      lineHeight: '1.5',
-                    }}
-                  >
-                    {industry.name}
-                  </div>
-                </article>
-              ))}
-            </div>
+        .ind-sub {
+          font-family: 'DM Sans', sans-serif;
+          font-size: clamp(13px, 1.5vw, 15px);
+          font-weight: 300;
+          line-height: 1.75;
+          color: rgba(255,255,255,0.45);
+          max-width: 580px;
+        }
+
+        /* ── Marquee ── */
+        .ind-marquee-wrap {
+          position: relative;
+          overflow: hidden;
+          padding: 4px 0;
+        }
+        .ind-fade-left {
+          pointer-events: none;
+          position: absolute; left: 0; top: 0; bottom: 0;
+          width: 120px; z-index: 2;
+          background: linear-gradient(to right, #080808, transparent);
+        }
+        .ind-fade-right {
+          pointer-events: none;
+          position: absolute; right: 0; top: 0; bottom: 0;
+          width: 120px; z-index: 2;
+          background: linear-gradient(to left, #080808, transparent);
+        }
+        @keyframes ind-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .ind-track {
+          display: flex;
+          gap: 16px;
+          width: max-content;
+          animation: ind-scroll 44s linear infinite;
+          padding: 0 8px;
+        }
+        .ind-track:hover { animation-play-state: paused; }
+
+        /* ── Card ── */
+        .ind-card {
+          width: 270px;
+          flex-shrink: 0;
+          position: relative;
+          overflow: hidden;
+          border: 0.5px solid rgba(200,16,46,0.12);
+          cursor: pointer;
+          background: #0c0c0c;
+        }
+        /* left red edge */
+        .ind-card::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 2px;
+          background: #C8102E;
+          z-index: 3;
+        }
+        /* chamfered top-right corner clip */
+        .ind-card {
+          clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+        }
+
+        .ind-card-img-wrap {
+          height: 175px;
+          overflow: hidden;
+          position: relative;
+        }
+        .ind-card-img-wrap img {
+          width: 100%; height: 100%;
+          object-fit: cover;
+          transition: transform 0.55s ease;
+          display: block;
+          filter: brightness(0.75) saturate(0.7);
+        }
+        .ind-card:hover .ind-card-img-wrap img {
+          transform: scale(1.08);
+          filter: brightness(0.6) saturate(0.5);
+        }
+        /* scan-line overlay on image */
+        .ind-card-img-wrap::after {
+          content: '';
+          position: absolute; inset: 0;
+          background-image: repeating-linear-gradient(
+            0deg, transparent, transparent 2px,
+            rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 3px
+          );
+          pointer-events: none;
+        }
+        .ind-card-overlay {
+          position: absolute; inset: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+        }
+        .ind-card-hover-cta {
+          position: absolute; inset: 0;
+          background: rgba(0,0,0,0.42);
+          display: flex; align-items: flex-end;
+          padding: 14px 16px;
+          opacity: 0;
+          transition: opacity 0.25s;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 0.2em; text-transform: uppercase;
+          color: rgba(255,255,255,0.7);
+        }
+        .ind-card:hover .ind-card-hover-cta { opacity: 1; }
+
+        .ind-card-footer {
+          background: #C8102E;
+          padding: 13px 16px;
+          position: relative;
+        }
+        /* chamfered corner inside footer */
+        .ind-card-name {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 12px; font-weight: 700;
+          letter-spacing: 0.12em; text-transform: uppercase;
+          color: #FFFFFF;
+          line-height: 1.3;
+        }
+
+        /* ── Footer link ── */
+        .ind-footer {
+          padding: 32px 80px 0;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+        .ind-footer-line { flex: 1; height: 0.5px; background: rgba(255,255,255,0.06); }
+        .ind-footer-link {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 11px; font-weight: 700;
+          letter-spacing: 0.22em; text-transform: uppercase;
+          color: #C8102E;
+          text-decoration: none;
+          display: flex; align-items: center; gap: 8px;
+          transition: color 0.2s;
+        }
+        .ind-footer-link::after { content: '→'; }
+        .ind-footer-link:hover { color: #FFFFFF; }
+
+        @media (max-width: 1024px) {
+          .ind-header { padding: 0 24px; }
+          .ind-footer { padding: 32px 24px 0; }
+        }
+        @media (max-width: 640px) {
+          .ind-root { padding: 48px 0; }
+          .ind-header { padding: 0 16px; }
+          .ind-footer { padding: 24px 16px 0; }
+          .ind-card { width: 230px; }
+        }
+      `}</style>
+
+      <section id="industries" className="ind-root">
+
+        {/* Header */}
+        <div className="ind-header">
+          <div className="ind-eyebrow">
+            <span className="ind-eyebrow-line" />
+            Industries
           </div>
-
-          <style>{`
-            @keyframes industriesScroll {
-              0% {
-                transform: translateX(0);
-              }
-              100% {
-                transform: translateX(-50%);
-              }
-            }
-
-            .industries-marquee {
-              animation: industriesScroll 42s linear infinite;
-            }
-
-            .industries-marquee:hover {
-              animation-play-state: paused;
-            }
-          `}</style>
+          <h2 className="ind-h2">Sectors We <em>Serve</em></h2>
+          <p className="ind-sub">
+            We deliver holistic service covering all aspects of business life cycle — becoming reliable partners for companies, individuals, and institutions.
+          </p>
         </div>
 
-        <a
-          href="#contact"
-          style={{
-            display: 'inline-block',
-            marginTop: '18px',
-            fontFamily: 'DM Sans, sans-serif',
-            fontSize: '14px',
-            fontWeight: 400,
-            color: '#C8102E',
-            textDecoration: 'none',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.textDecoration = 'underline')}
-          onMouseLeave={(e) => (e.currentTarget.style.textDecoration = 'none')}
-        >
-          Message us {'->'}
-        </a>
-      </div>
-    </section>
+        {/* Marquee */}
+        <div className="ind-marquee-wrap">
+          <div className="ind-fade-left" />
+          <div className="ind-fade-right" />
+          <div className="ind-track">
+            {marquee.map((ind, i) => (
+              <div key={`${ind.name}-${i}`} className="ind-card">
+                <div className="ind-card-img-wrap">
+                  <img src={ind.image} alt={ind.name} />
+                  <div className="ind-card-overlay" />
+                  <div className="ind-card-hover-cta">Explore sector →</div>
+                </div>
+                <div className="ind-card-footer">
+                  <div className="ind-card-name">{ind.name}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="ind-footer">
+          <div className="ind-footer-line" />
+          <a href="#contact" className="ind-footer-link">Get in touch</a>
+        </div>
+
+      </section>
+    </>
   );
 }

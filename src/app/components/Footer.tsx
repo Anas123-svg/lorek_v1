@@ -1,158 +1,313 @@
-
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 export function Footer() {
-  const isHomePage = typeof window !== 'undefined' && window.location.pathname === "/";
+  const isHomePage = typeof window !== 'undefined' && window.location.pathname === '/';
   const homeAnchor = (hash: string) => (isHomePage ? hash : `/${hash}`);
 
+  const quickLinks = [
+    { label: 'Services',    href: '#services' },
+    { label: 'Industries',  href: '#industries' },
+    { label: 'Values',      href: '#values' },
+    { label: 'Contact',     href: '#contact' },
+    { label: 'About Us',    href: '#about' },
+  ];
+
+  const serviceLinks = [
+    'Commercialisation & Sales',
+    'Operational Transformation',
+    'Investment Sourcing',
+    'Strategy & Organisation',
+  ];
+
   return (
-    <footer className="bg-[#0A0A0A] text-white border-t-2 border-[#C8102E]">
-      {/* Main Footer */}
-      <div className="max-w-[1400px] mx-auto px-8 py-8 sm:py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.5fr] gap-8">
-          {/* Brand Column */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <span
-                style={{
-                  fontFamily: 'Playfair Display, serif',
-                  fontStyle: 'italic',
-                  fontSize: '22px',
-                  color: '#fff',
-                  letterSpacing: '0.2em',
-                  fontWeight: 700,
-                }}
-              >
-                LOREK
-              </span>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+
+        .ftr-root {
+          background: #050505;
+          border-top: 2px solid #C8102E;
+          position: relative;
+          overflow: hidden;
+        }
+        /* grid texture */
+        .ftr-root::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(200,16,46,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(200,16,46,0.025) 1px, transparent 1px);
+          background-size: 80px 80px;
+          pointer-events: none;
+        }
+        /* bottom-right ambient glow */
+        .ftr-root::after {
+          content: '';
+          position: absolute;
+          bottom: -80px; right: -100px;
+          width: 420px; height: 320px;
+          background: radial-gradient(ellipse, rgba(200,16,46,0.06) 0%, transparent 70%);
+          pointer-events: none;
+        }
+
+        .ftr-main {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 64px 80px 48px;
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr 1.5fr;
+          gap: 48px;
+          position: relative;
+        }
+
+        /* ── Brand col ── */
+        .ftr-logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 20px;
+        }
+        .ftr-logo-bar { width: 3px; height: 20px; background: #C8102E; }
+        .ftr-logo-text {
+          font-family: 'Orbitron', monospace;
+          font-weight: 700;
+          font-size: 15px;
+          letter-spacing: 0.35em;
+          color: #FFFFFF;
+        }
+
+        .ftr-brand-desc {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 13px; font-weight: 300;
+          line-height: 1.75;
+          color: rgba(255,255,255,0.4);
+          margin-bottom: 24px;
+        }
+
+        .ftr-cert {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .ftr-cert-line { width: 28px; height: 1px; background: #C8102E; }
+        .ftr-cert-label {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 9px; font-weight: 700;
+          letter-spacing: 0.26em; text-transform: uppercase;
+          color: #C8102E;
+        }
+
+        /* ── Column headings ── */
+        .ftr-col-heading {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 0.28em; text-transform: uppercase;
+          color: #FFFFFF;
+          margin-bottom: 20px;
+          display: flex; align-items: center; gap: 8px;
+        }
+        .ftr-col-heading::after {
+          content: '';
+          flex: 1;
+          height: 0.5px;
+          background: linear-gradient(90deg, rgba(200,16,46,0.3), transparent);
+        }
+
+        /* ── Links ── */
+        .ftr-link {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 13px; font-weight: 300;
+          color: rgba(255,255,255,0.38);
+          text-decoration: none;
+          display: flex; align-items: center; gap: 8px;
+          padding: 4px 0;
+          transition: color 0.2s;
+          position: relative;
+        }
+        .ftr-link::before {
+          content: '';
+          width: 3px; height: 3px;
+          background: transparent;
+          flex-shrink: 0;
+          transition: background 0.2s;
+        }
+        .ftr-link:hover { color: #FFFFFF; }
+        .ftr-link:hover::before { background: #C8102E; }
+
+        /* ── Contact items ── */
+        .ftr-contact-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 8px 0;
+          border-bottom: 0.5px solid rgba(255,255,255,0.04);
+        }
+        .ftr-contact-item:last-child { border-bottom: none; }
+        .ftr-contact-icon {
+          width: 28px; height: 28px;
+          border: 0.5px solid rgba(200,16,46,0.3);
+          display: flex; align-items: center; justify-content: center;
+          flex-shrink: 0;
+          margin-top: 2px;
+          clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%);
+        }
+        .ftr-contact-main {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 13px; font-weight: 400;
+          color: #FFFFFF;
+          text-decoration: none;
+          display: block;
+          transition: color 0.2s;
+        }
+        a.ftr-contact-main:hover { color: #C8102E; }
+        .ftr-contact-sub {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 9px; font-weight: 600;
+          letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(255,255,255,0.25);
+          margin-top: 2px;
+        }
+
+        /* ── Bottom bar ── */
+        .ftr-bottom {
+          border-top: 0.5px solid rgba(255,255,255,0.06);
+          position: relative;
+        }
+        .ftr-bottom-inner {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 16px 80px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .ftr-copyright {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 500;
+          letter-spacing: 0.14em; text-transform: uppercase;
+          color: rgba(255,255,255,0.22);
+        }
+        .ftr-legal-links {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+        .ftr-legal-link {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 600;
+          letter-spacing: 0.14em; text-transform: uppercase;
+          color: rgba(255,255,255,0.22);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+        .ftr-legal-link:hover { color: #C8102E; }
+        .ftr-legal-sep {
+          width: 1px; height: 10px;
+          background: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 1200px) {
+          .ftr-main { grid-template-columns: 1fr 1fr; padding: 48px 24px 40px; }
+        }
+        @media (max-width: 640px) {
+          .ftr-main { grid-template-columns: 1fr; padding: 40px 16px 32px; gap: 32px; }
+          .ftr-bottom-inner { padding: 14px 16px; flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+      `}</style>
+
+      <footer className="ftr-root">
+        <div className="ftr-main">
+
+          {/* Brand */}
+          <div>
+            <div className="ftr-logo">
+              <div className="ftr-logo-bar" />
+              <span className="ftr-logo-text">LOREK</span>
             </div>
-            <p className="text-[#BFC3C8] text-sm leading-relaxed mb-6">
-              Strategic advisory and private equity for ambitious organizations. We deliver sustainable growth, operational excellence, and capital access across industries.
+            <p className="ftr-brand-desc">
+              Strategic advisory and private equity for ambitious organisations. We deliver sustainable growth, operational excellence, and capital access across industries.
             </p>
-            <div className="flex items-center gap-2 max-w-full">
-              <div className="h-px flex-1 bg-[#C8102E] max-w-[60px]"></div>
-              <span className="text-[#C8102E] text-[10px] font-bold tracking-wide">CERTIFIED EXPERTS</span>
+            <div className="ftr-cert">
+              <div className="ftr-cert-line" />
+              <span className="ftr-cert-label">Certified Experts</span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-black mb-4 text-sm" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-              QUICK LINKS
-            </h4>
-            <ul className="space-y-2">
-              <li>
-                <a href={homeAnchor("#services")} className="text-[#999999] hover:text-[#C8102E] transition-colors block text-sm">
-                  Services
+            <div className="ftr-col-heading">Quick Links</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              {quickLinks.map((link) => (
+                <a key={link.label} href={homeAnchor(link.href)} className="ftr-link">
+                  {link.label}
                 </a>
-              </li>
-              <li>
-                <a href={homeAnchor("#industries")} className="text-[#999999] hover:text-[#C8102E] transition-colors block text-sm">
-                  Industries
-                </a>
-              </li>
-              <li>
-                <a href={homeAnchor("#values")} className="text-[#999999] hover:text-[#C8102E] transition-colors block text-sm">
-                  Values
-                </a>
-              </li>
-              <li>
-                <a href={homeAnchor("#contact")} className="text-[#999999] hover:text-[#C8102E] transition-colors block text-sm">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href={homeAnchor("#about")} className="text-[#999999] hover:text-[#C8102E] transition-colors block text-sm">
-                  About Us
-                </a>
-              </li>
-            </ul>
+              ))}
+            </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-black mb-4 text-sm" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-              SERVICES
-            </h4>
-            <ul className="space-y-2">
-              <li>
-                <a href={homeAnchor("#services")} className="text-[#999999] hover:text-[#C8102E] transition-colors block text-sm">
-                  Commercialisation &amp; Sales
+            <div className="ftr-col-heading">Services</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              {serviceLinks.map((svc) => (
+                <a key={svc} href={homeAnchor('#services')} className="ftr-link">
+                  {svc}
                 </a>
-              </li>
-              <li>
-                <a href={homeAnchor("#services")} className="text-[#999999] hover:text-[#C8102E] transition-colors block text-sm">
-                  Operational Transformation
-                </a>
-              </li>
-              <li>
-                <a href={homeAnchor("#services")} className="text-[#999999] hover:text-[#C8102E] transition-colors block text-sm">
-                  Investment Sourcing
-                </a>
-              </li>
-              <li>
-                <a href={homeAnchor("#services")} className="text-[#999999] hover:text-[#C8102E] transition-colors block text-sm">
-                  Strategy &amp; Organisation
-                </a>
-              </li>
-            </ul>
+              ))}
+            </div>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h4 className="text-white font-black mb-4 text-sm" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-              CONTACT
-            </h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2">
-                <Phone className="w-4 h-4 text-[#C8102E] flex-shrink-0 mt-0.5" />
-                <div className="min-w-0">
-                  <a href="tel:+442079460999" className="text-white hover:text-[#C8102E] transition-colors font-bold block text-sm">
-                    +44 20 7946 0999
-                  </a>
-                  <span className="text-[#777777] text-[10px]">Mon-Fri 8am-6pm</span>
+            <div className="ftr-col-heading">Contact</div>
+            <div>
+              <div className="ftr-contact-item">
+                <div className="ftr-contact-icon">
+                  <Phone size={12} color="#C8102E" />
                 </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <Mail className="w-4 h-4 text-[#C8102E] flex-shrink-0 mt-0.5" />
-                <div className="min-w-0">
-                  <a href="mailto:info@lorek.com" className="text-white hover:text-[#C8102E] transition-colors font-bold block text-sm break-all">
-                    info@lorek.com
-                  </a>
-                  <span className="text-[#777777] text-[10px]">24/7 email support</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#C8102E] flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-white font-bold block text-sm">London, UK</span>
-                  <span className="text-[#777777] text-[10px]">All boroughs covered</span>
+                  <a href="tel:+442079460999" className="ftr-contact-main">+44 20 7946 0999</a>
+                  <div className="ftr-contact-sub">Mon–Fri 8am–6pm</div>
                 </div>
-              </li>
-            </ul>
+              </div>
+              <div className="ftr-contact-item">
+                <div className="ftr-contact-icon">
+                  <Mail size={12} color="#C8102E" />
+                </div>
+                <div>
+                  <a href="mailto:info@lorek.com" className="ftr-contact-main">info@lorek.com</a>
+                  <div className="ftr-contact-sub">24/7 email support</div>
+                </div>
+              </div>
+              <div className="ftr-contact-item">
+                <div className="ftr-contact-icon">
+                  <MapPin size={12} color="#C8102E" />
+                </div>
+                <div>
+                  <span className="ftr-contact-main">London, UK</span>
+                  <div className="ftr-contact-sub">All boroughs covered</div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-[1400px] mx-auto px-8 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-center md:text-left">
-            <p className="text-[#777777]">
-              © 2026 LOREK Strategic Partners. All Rights Reserved.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-              <a href="#" className="text-[#777777] hover:text-[#C8102E] transition-colors">
-                Privacy Policy
-              </a>
-              <span className="text-white/20">•</span>
-              <a href="#" className="text-[#777777] hover:text-[#C8102E] transition-colors">
-                Terms & Conditions
-              </a>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="ftr-bottom">
+          <div className="ftr-bottom-inner">
+            <span className="ftr-copyright">© 2026 LOREK Strategic Partners. All Rights Reserved.</span>
+            <div className="ftr-legal-links">
+              <a href="#" className="ftr-legal-link">Privacy Policy</a>
+              <div className="ftr-legal-sep" />
+              <a href="#" className="ftr-legal-link">Terms & Conditions</a>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }

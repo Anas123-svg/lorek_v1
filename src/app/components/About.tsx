@@ -5,551 +5,445 @@ export function About() {
     "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1080",
   ];
 
+  const cards = [
+    {
+      tag: "AI Operations",
+      body: "Turning intelligent workflows into measurable outcomes through data, automation, and leadership alignment.",
+      image: images[1],
+    },
+    {
+      tag: "Tech Strategy",
+      body: "Aligning digital bets with long-term enterprise value, operational resilience, and competitive advantage.",
+      image: images[2],
+    },
+  ];
+
   return (
-    <section
-      id="about"
-      className="bg-[#0D0D0D] px-5 sm:px-8 lg:px-20 py-16 sm:py-20 lg:py-24"
-    >
-      <div className="max-w-[1440px] mx-auto">
-        <div className="text-center mb-8 sm:mb-10">
-          <div
-            style={{
-              fontFamily: "DM Sans, sans-serif",
-              fontSize: "10px",
-              fontWeight: 500,
-              textTransform: "uppercase",
-              letterSpacing: "0.2em",
-              color: "#C8102E",
-              marginBottom: "12px",
-            }}
-          >
-            ABOUT US
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+
+        .about-root {
+          background: #080808;
+          padding: 96px 80px;
+          border-top: 0.5px solid rgba(200,16,46,0.12);
+          position: relative;
+          overflow: hidden;
+        }
+        /* faint corner grid */
+        .about-root::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(200,16,46,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(200,16,46,0.03) 1px, transparent 1px);
+          background-size: 80px 80px;
+          pointer-events: none;
+        }
+
+        .about-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          color: #C8102E;
+          margin-bottom: 14px;
+        }
+        .about-eyebrow-line { width: 24px; height: 1px; background: #C8102E; flex-shrink: 0; }
+
+        .about-h2 {
+          font-family: 'Orbitron', monospace;
+          font-weight: 700;
+          font-size: clamp(22px, 3.2vw, 38px);
+          line-height: 1.08;
+          color: #FFFFFF;
+          max-width: 700px;
+          margin-bottom: 16px;
+          letter-spacing: -0.01em;
+        }
+        .about-h2 em { font-style: normal; color: #C8102E; }
+
+        .about-sub {
+          font-family: 'DM Sans', sans-serif;
+          font-size: clamp(14px, 1.6vw, 15px);
+          font-weight: 300;
+          line-height: 1.75;
+          color: rgba(255,255,255,0.48);
+          max-width: 640px;
+          margin-bottom: 48px;
+        }
+
+        /* ── Main image card ── */
+        .about-img-main {
+          position: relative;
+          border-radius: 0;
+          overflow: hidden;
+          border: 0.5px solid rgba(200,16,46,0.12);
+          min-height: 360px;
+          flex: 1;
+        }
+        .about-img-main img {
+          width: 100%; height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s ease;
+          display: block;
+        }
+        .about-img-main:hover img { transform: scale(1.04); }
+        .about-img-main-overlay {
+          position: absolute; inset: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.18) 55%, transparent 100%);
+        }
+        /* red left-edge accent on hover */
+        .about-img-main::after {
+          content: '';
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 2px;
+          background: #C8102E;
+        }
+        .about-img-main-content {
+          position: absolute;
+          bottom: 22px; left: 22px; right: 22px;
+        }
+        .about-img-tag {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 9px; font-weight: 700;
+          letter-spacing: 0.26em;
+          text-transform: uppercase;
+          color: #C8102E;
+          margin-bottom: 8px;
+          display: flex; align-items: center; gap: 8px;
+        }
+        .about-img-tag::before { content: ''; width: 14px; height: 1px; background: #C8102E; }
+        .about-img-body {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 14px; font-weight: 300;
+          line-height: 1.65; color: rgba(255,255,255,0.9);
+          max-width: 460px;
+        }
+        .about-img-cta {
+          margin-top: 12px;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 0.22em; text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
+          opacity: 0;
+          transition: opacity 0.25s;
+        }
+        .about-img-main:hover .about-img-cta { opacity: 1; }
+
+        /* ── Purpose / Mission cards ── */
+        .about-text-card {
+          background: #0e0e0e;
+          border: 0.5px solid rgba(200,16,46,0.1);
+          border-left: 2px solid #C8102E;
+          padding: 20px 18px;
+          position: relative;
+          overflow: hidden;
+        }
+        .about-text-card::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 1px;
+          background: linear-gradient(90deg, #C8102E, transparent);
+          opacity: 0.3;
+        }
+        .about-text-card-tag {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 9px; font-weight: 700;
+          letter-spacing: 0.26em; text-transform: uppercase;
+          color: #C8102E; margin-bottom: 10px;
+        }
+        .about-text-card-body {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 13px; font-weight: 300;
+          line-height: 1.7; color: rgba(255,255,255,0.65);
+        }
+
+        /* ── Small image cards ── */
+        .about-img-sm {
+          position: relative;
+          overflow: hidden;
+          border: 0.5px solid rgba(200,16,46,0.1);
+          min-height: 190px;
+        }
+        .about-img-sm img {
+          width: 100%; height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s ease;
+          display: block;
+        }
+        .about-img-sm:hover img { transform: scale(1.06); }
+        .about-img-sm-overlay {
+          position: absolute; inset: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 65%);
+        }
+        .about-img-sm::after {
+          content: '';
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 2px; background: #C8102E;
+        }
+        .about-img-sm-content {
+          position: absolute; bottom: 14px; left: 14px; right: 14px;
+        }
+        .about-img-sm-tag {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 9px; font-weight: 700;
+          letter-spacing: 0.22em; text-transform: uppercase;
+          color: #C8102E; margin-bottom: 5px;
+        }
+        .about-img-sm-body {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 12px; font-weight: 300;
+          line-height: 1.55; color: rgba(255,255,255,0.85);
+        }
+        .about-img-sm-cta {
+          position: absolute; inset: 0;
+          background: rgba(0,0,0,0.45);
+          display: flex; align-items: flex-end;
+          padding: 14px;
+          opacity: 0; transition: opacity 0.25s;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 0.2em; text-transform: uppercase;
+          color: rgba(255,255,255,0.7);
+        }
+        .about-img-sm:hover .about-img-sm-cta { opacity: 1; }
+
+        /* ── Featured capability card ── */
+        .about-feature-card {
+          background: #0c0c0c;
+          border: 0.5px solid rgba(200,16,46,0.12);
+          border-left: 2px solid #C8102E;
+          padding: 26px 22px;
+          position: relative;
+          overflow: hidden;
+        }
+        .about-feature-card::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 1px;
+          background: linear-gradient(90deg, #C8102E 0%, rgba(200,16,46,0.2) 60%, transparent 100%);
+        }
+        .about-feature-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 9px; font-weight: 700;
+          letter-spacing: 0.22em; text-transform: uppercase;
+          color: #C8102E;
+          border: 0.5px solid rgba(200,16,46,0.35);
+          padding: 4px 10px;
+          margin-bottom: 14px;
+        }
+        .about-feature-pill::before { content: ''; width: 4px; height: 4px; background: #C8102E; }
+
+        .about-feature-title {
+          font-family: 'Orbitron', monospace;
+          font-size: clamp(16px, 2vw, 22px);
+          font-weight: 700;
+          color: #FFFFFF;
+          line-height: 1.1;
+          margin-bottom: 12px;
+          letter-spacing: -0.01em;
+        }
+        .about-feature-desc {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 13px; font-weight: 300;
+          line-height: 1.7; color: rgba(255,255,255,0.6);
+          margin-bottom: 16px;
+          max-width: 500px;
+        }
+        .about-bullet-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 6px 18px;
+          margin-bottom: 18px;
+          max-width: 460px;
+        }
+        .about-bullet {
+          display: flex; align-items: center; gap: 7px;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 11px; font-weight: 500;
+          letter-spacing: 0.06em;
+          color: rgba(255,255,255,0.65);
+        }
+        .about-bullet::before { content: ''; width: 4px; height: 4px; background: #C8102E; flex-shrink: 0; }
+
+        .about-mini-stats {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 8px;
+          margin-bottom: 20px;
+        }
+        .about-mini-stat {
+          background: rgba(255,255,255,0.025);
+          border: 0.5px solid rgba(255,255,255,0.08);
+          padding: 12px 10px;
+          text-align: center;
+          display: flex; flex-direction: column; align-items: center; gap: 3px;
+        }
+        .about-mini-stat-n {
+          font-family: 'Orbitron', monospace;
+          font-size: 16px; font-weight: 700;
+          color: #C8102E; letter-spacing: -0.01em;
+        }
+        .about-mini-stat-label {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 9px; font-weight: 700;
+          letter-spacing: 0.16em; text-transform: uppercase;
+          color: #FFFFFF;
+        }
+        .about-mini-stat-desc {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 10px; font-weight: 300;
+          color: rgba(255,255,255,0.38); line-height: 1.4;
+        }
+
+        .about-link {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 11px; font-weight: 700;
+          letter-spacing: 0.22em; text-transform: uppercase;
+          color: rgba(255,255,255,0.55);
+          display: inline-flex; align-items: center; gap: 8px;
+          transition: color 0.2s;
+          cursor: pointer;
+          background: none; border: none; padding: 0;
+        }
+        .about-link::after { content: '→'; color: #C8102E; }
+        .about-link:hover { color: #FFFFFF; }
+
+        @media (max-width: 1024px) {
+          .about-root { padding: 64px 24px; }
+          .about-mini-stats { grid-template-columns: repeat(3,1fr); }
+        }
+        @media (max-width: 640px) {
+          .about-root { padding: 48px 16px; }
+          .about-mini-stats { grid-template-columns: 1fr; }
+          .about-bullet-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
+
+      <section id="about" className="about-root">
+        <div className="max-w-[1440px] mx-auto relative">
+
+          {/* Header */}
+          <div style={{ marginBottom: '48px' }}>
+            <div className="about-eyebrow">
+              <span className="about-eyebrow-line" />
+              About Us
+            </div>
+            <h2 className="about-h2">
+              Strategic advisory &<br />
+              <em>private equity.</em>
+            </h2>
+            <p className="about-sub">
+              We combine strategic advice with selective private equity participation to help organisations create sustainable, long-term value.
+            </p>
           </div>
 
-          <h2
-            className="mx-auto"
-            style={{
-              fontFamily: "Playfair Display, serif",
-              fontSize: "clamp(30px, 4vw, 44px)",
-              fontWeight: 400,
-              color: "#FFFFFF",
-              maxWidth: "860px",
-              marginBottom: "10px",
-              lineHeight: "1.2",
-            }}
-          >
-            Lorek is a strategic advisory and private equity firm.
-          </h2>
+          {/* Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5 items-stretch">
 
-          <p
-            className="mx-auto"
-            style={{
-              fontFamily: "DM Sans, sans-serif",
-              fontSize: "clamp(14px, 1.8vw, 16px)",
-              fontWeight: 300,
-              lineHeight: "1.75",
-              color: "#A8A8A8",
-              maxWidth: "760px",
-            }}
-          >
-            We combine strategic advice with selective private equity
-            participation to help organizations create sustainable, long-term
-            value.
-          </p>
-        </div>
+            {/* LEFT col */}
+            <div className="lg:col-span-7 flex flex-col gap-4">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
-          <div className="lg:col-span-7 h-full flex flex-col gap-4">
-            <div
-              className="group flex-1"
-              style={{
-                minHeight: "340px",
-                borderRadius: "8px",
-                overflow: "hidden",
-                position: "relative",
-                border: "0.5px solid rgba(255, 255, 255, 0.08)",
-              }}
-            >
-              <img
-                src={images[0]}
-                alt="Business partnership"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  backgroundColor: "rgba(0, 0, 0, 0.4)",
-                }}
-              />
-
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "20px",
-                  left: "20px",
-                  right: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "11px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.15em",
-                    color: "#C8102E",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Our Approach
+              {/* Main image */}
+              <div className="about-img-main" style={{ minHeight: '340px' }}>
+                <img src={images[0]} alt="Business partnership" />
+                <div className="about-img-main-overlay" />
+                <div className="about-img-main-content">
+                  <div className="about-img-tag">Our Approach</div>
+                  <p className="about-img-body">
+                    Building lasting partnerships through disciplined strategy and meaningful stewardship, with an unwavering focus on measurable business impact.
+                  </p>
+                  <div className="about-img-cta">View details →</div>
                 </div>
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "14px",
-                    fontWeight: 300,
-                    color: "#FFFFFF",
-                    lineHeight: "1.6",
-                    maxWidth: "460px",
-                  }}
-                >
-                  Building lasting partnerships through disciplined strategy and
-                  meaningful stewardship, with an unwavering focus on measurable
-                  business impact.
-                </div>
+              </div>
 
-                <div
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    marginTop: "12px",
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Check details {"->"}
+              {/* Purpose + Mission */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="about-text-card">
+                  <div className="about-text-card-tag">Purpose</div>
+                  <p className="about-text-card-body">
+                    To tangibly improve and empower the environments we serve through pragmatic strategy, execution discipline, and long-term partnership.
+                  </p>
+                </div>
+                <div className="about-text-card">
+                  <div className="about-text-card-tag">Mission</div>
+                  <p className="about-text-card-body">
+                    To build a company that attracts and retains exceptional talent, enabling sustainable growth for clients and communities.
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div
-                style={{
-                  backgroundColor: "#141414",
-                  border: "0.5px solid rgba(255, 255, 255, 0.08)",
-                  borderLeft: "2px solid #C8102E",
-                  borderRadius: "8px",
-                  padding: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "11px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.15em",
-                    color: "#C8102E",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Purpose
-                </div>
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "14px",
-                    fontWeight: 300,
-                    color: "#FFFFFF",
-                    lineHeight: "1.6",
-                  }}
-                >
-                  To tangibly improve and empower the environments we serve
-                  through pragmatic strategy, execution discipline, and
-                  long-term partnership.
-                </div>
+            {/* RIGHT col */}
+            <div className="lg:col-span-5 flex flex-col gap-4">
+
+              {/* Two small image cards */}
+              <div className="grid grid-cols-2 gap-4">
+                {cards.map((c, i) => (
+                  <div key={i} className="about-img-sm">
+                    <img src={c.image} alt={c.tag} />
+                    <div className="about-img-sm-overlay" />
+                    <div className="about-img-sm-content">
+                      <div className="about-img-sm-tag">{c.tag}</div>
+                      <p className="about-img-sm-body">{c.body}</p>
+                    </div>
+                    <div className="about-img-sm-cta">View details →</div>
+                  </div>
+                ))}
               </div>
 
-              <div
-                style={{
-                  backgroundColor: "#141414",
-                  border: "0.5px solid rgba(255, 255, 255, 0.08)",
-                  borderLeft: "2px solid #C8102E",
-                  borderRadius: "8px",
-                  padding: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "11px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.15em",
-                    color: "#C8102E",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Mission
-                </div>
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "14px",
-                    fontWeight: 300,
-                    color: "#FFFFFF",
-                    lineHeight: "1.6",
-                  }}
-                >
-                  To build a company that attracts and retains exceptional
-                  talent, enabling sustainable growth for clients and
-                  communities.
-                </div>
-              </div>
-            </div>
-          </div>
+              {/* Featured capability */}
+              <div className="about-feature-card" style={{ flex: 1 }}>
+                <div className="about-feature-pill">Featured Capability</div>
+                <div className="about-feature-title">Strategic Capital Advisory</div>
+                <p className="about-feature-desc">
+                  Helping leaders make confident capital decisions — from funding strategy to execution.
+                </p>
 
-          <div className="lg:col-span-5 h-full grid grid-cols-2 gap-4">
-            <div
-              className="group"
-              style={{
-                minHeight: "180px",
-                borderRadius: "8px",
-                overflow: "hidden",
-                position: "relative",
-                border: "0.5px solid rgba(255, 255, 255, 0.08)",
-              }}
-            >
-              <img
-                src={images[1]}
-                alt="Team collaboration"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  backgroundColor: "rgba(0, 0, 0, 0.35)",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  left: "14px",
-                  right: "14px",
-                  bottom: "14px",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "10px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "#C8102E",
-                    marginBottom: "6px",
-                  }}
-                >
-                  AI Operations
-                </div>
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "12px",
-                    fontWeight: 300,
-                    color: "#FFFFFF",
-                    lineHeight: "1.5",
-                  }}
-                >
-                  Turning intelligent workflows into measurable outcomes through
-                  data, automation, and leadership alignment.
-                </div>
-              </div>
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  backgroundColor: "rgba(0, 0, 0, 0.5)",
-                  display: "flex",
-                  alignItems: "flex-end",
-                  padding: "16px",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "11px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Check details {"->"}
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="group"
-              style={{
-                minHeight: "180px",
-                borderRadius: "8px",
-                overflow: "hidden",
-                position: "relative",
-                border: "0.5px solid rgba(255, 255, 255, 0.08)",
-              }}
-            >
-              <img
-                src={images[2]}
-                alt="Strategic planning"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  backgroundColor: "rgba(0, 0, 0, 0.35)",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  left: "14px",
-                  right: "14px",
-                  bottom: "14px",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "10px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "#C8102E",
-                    marginBottom: "6px",
-                  }}
-                >
-                  Tech Strategy
-                </div>
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "12px",
-                    fontWeight: 300,
-                    color: "#FFFFFF",
-                    lineHeight: "1.5",
-                  }}
-                >
-                  Aligning digital bets with long-term enterprise value,
-                  operational resilience, and competitive advantage.
-                </div>
-              </div>
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  backgroundColor: "rgba(0, 0, 0, 0.5)",
-                  display: "flex",
-                  alignItems: "flex-end",
-                  padding: "16px",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "11px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Check details {"->"}
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="col-span-2"
-              style={{
-                minHeight: "220px",
-                borderRadius: "8px",
-                border: "0.5px solid rgba(255, 255, 255, 0.12)",
-                borderLeft: "2px solid #C8102E",
-                background: "linear-gradient(135deg, #151515 0%, #101010 100%)",
-                padding: "22px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-              }}
-            >
-              <div>
-                {/* Tag */}
-                <div
-                  style={{
-                    display: "inline-block",
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "10px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "#C8102E",
-                    marginBottom: "12px",
-                    padding: "4px 10px",
-                    border: "0.5px solid rgba(200, 16, 46, 0.4)",
-                    borderRadius: "999px",
-                  }}
-                >
-                  Featured Capability
+                <div className="about-bullet-grid">
+                  {['Growth funding strategy', 'Deal structuring', 'Portfolio prioritization', 'Post-deal value creation'].map((b, i) => (
+                    <div key={i} className="about-bullet">{b}</div>
+                  ))}
                 </div>
 
-                {/* Title */}
-                <div
-                  style={{
-                    fontFamily: "Playfair Display, serif",
-                    fontSize: "26px",
-                    fontWeight: 400,
-                    color: "#FFFFFF",
-                    lineHeight: "1.2",
-                    marginBottom: "12px",
-                  }}
-                >
-                  Strategic Capital Advisory
-                </div>
+                <p className="about-feature-desc" style={{ marginBottom: '18px', fontSize: '12px' }}>
+                  We work side-by-side with founders and executives to turn strategy into clear, actionable plans with measurable impact.
+                </p>
 
-                {/* Short Intro */}
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "14px",
-                    fontWeight: 400,
-                    color: "#E5E5E5",
-                    lineHeight: "1.6",
-                    maxWidth: "580px",
-                    marginBottom: "14px",
-                  }}
-                >
-                  Helping leaders make confident capital decisions — from
-                  funding strategy to execution.
-                </div>
-
-                {/* Highlights */}
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "8px 20px",
-                    marginBottom: "16px",
-                    maxWidth: "520px",
-                  }}
-                >
+                <div className="about-mini-stats">
                   {[
-                    "Growth funding strategy",
-                    "Deal structuring",
-                    "Portfolio prioritization",
-                    "Post-deal value creation",
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        fontFamily: "DM Sans, sans-serif",
-                        fontSize: "13px",
-                        color: "#BFC3C8",
-                      }}
-                    >
-                      <span style={{ color: "#C8102E", marginRight: "8px" }}>
-                        •
-                      </span>
-                      {item}
+                    { n: '12+', label: 'Advisory Mandates', desc: 'Across growth, transformation & capital strategy' },
+                    { n: '$2B+', label: 'Capital Deployed', desc: 'For clients in diverse sectors' },
+                    { n: '3–5×', label: 'Decision Velocity', desc: 'Faster, data-driven outcomes' },
+                  ].map((s, i) => (
+                    <div key={i} className="about-mini-stat">
+                      <div className="about-mini-stat-n">{s.n}</div>
+                      <div className="about-mini-stat-label">{s.label}</div>
+                      <div className="about-mini-stat-desc">{s.desc}</div>
                     </div>
                   ))}
                 </div>
 
-                {/* Supporting Line */}
-                <div
-                  style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "13px",
-                    color: "#9CA3AF",
-                    lineHeight: "1.6",
-                    maxWidth: "560px",
-                    marginBottom: "16px",
-                  }}
-                >
-                  We work side-by-side with founders and executives to turn
-                  strategy into clear, actionable plans with measurable impact.
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                  {[
-                    {
-                      stat: "12+",
-                      label: "Advisory Mandates",
-                      desc: "Across growth, transformation, and capital strategy"
-                    },
-                    {
-                      stat: "$2B+",
-                      label: "Capital Raised / Deployed",
-                      desc: "For clients in diverse sectors"
-                    },
-                    {
-                      stat: "3-5x",
-                      label: "Decision Velocity",
-                      desc: "Faster, data-driven outcomes for leadership"
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.label}
-                      style={{
-                        fontFamily: "DM Sans, sans-serif",
-                        fontSize: "11px",
-                        fontWeight: 500,
-                        color: "#FFFFFF",
-                        border: "0.5px solid rgba(255, 255, 255, 0.16)",
-                        borderRadius: "4px",
-                        padding: "12px 10px 10px 10px",
-                        textAlign: "center",
-                        backgroundColor: "rgba(255, 255, 255, 0.03)",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "2px",
-                      }}
-                    >
-                      <span style={{ fontSize: "18px", fontWeight: 700, color: "#C8102E", letterSpacing: "0.04em", marginBottom: 2 }}>{item.stat}</span>
-                      <span style={{ textTransform: "uppercase", fontWeight: 600, fontSize: "10px", color: "#fff", letterSpacing: "0.08em", marginBottom: 2 }}>{item.label}</span>
-                      <span style={{ fontWeight: 400, fontSize: "10px", color: "#BFC3C8", letterSpacing: "0.01em" }}>{item.desc}</span>
-                    </div>
-                  ))}
-                </div>
+                <button className="about-link">Explore advisory model</button>
               </div>
 
-              <div
-                style={{
-display: "inline-flex",
-alignItems: "center",
-gap: "6px",                  fontFamily: "DM Sans, sans-serif",
-                  fontSize: "11px",
-                  fontWeight: 500,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.12em",
-                  color: "#FFFFFF",
-                  opacity: 0.95,
-                }}
-              >
-                Explore advisory model {"->"}
-              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

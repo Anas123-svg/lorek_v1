@@ -4,112 +4,254 @@ export function Testimonial() {
       name: 'Sarah Williams',
       title: 'Managing Director, Global Portfolio Company',
       photo: 'https://randomuser.me/api/portraits/women/44.jpg',
-      text: 'Effective, experienced and agile. Lorek reduced our costs and significantly improved performance of our portfolio.'
+      text: 'Effective, experienced and agile. Lorek reduced our costs and significantly improved performance of our portfolio.',
     },
     {
       name: 'James Patel',
       title: 'CEO, Tech Innovators',
       photo: 'https://randomuser.me/api/portraits/men/32.jpg',
-      text: 'Lorek’s strategic insight and hands-on approach helped us scale internationally and secure key partnerships.'
+      text: 'Lorek\'s strategic insight and hands-on approach helped us scale internationally and secure key partnerships.',
     },
     {
       name: 'Elena Rossi',
       title: 'CFO, European Real Estate Group',
       photo: 'https://randomuser.me/api/portraits/women/65.jpg',
-      text: 'Their team is responsive, knowledgeable, and truly invested in our success. Highly recommended.'
+      text: 'Their team is responsive, knowledgeable, and truly invested in our success. Highly recommended.',
     },
     {
       name: 'David Chen',
       title: 'Partner, Private Equity Firm',
       photo: 'https://randomuser.me/api/portraits/men/76.jpg',
-      text: 'Lorek delivered measurable results and built lasting value for our portfolio companies.'
+      text: 'Lorek delivered measurable results and built lasting value for our portfolio companies.',
     },
   ];
 
   return (
-    <section
-      style={{
-        backgroundColor: '#141414',
-        padding: '64px 0',
-        borderTop: '0.5px solid rgba(255, 255, 255, 0.06)',
-      }}
-    >
-      <div className="max-w-[1440px] mx-auto px-4">
-        <div className="mb-8 flex flex-col items-center">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style={{ marginBottom: '20px' }}>
-            <path d="M3 21C3 17.134 6.13401 14 10 14V17C8.34315 17 7 18.3431 7 20C7 21.6569 8.34315 23 10 23H3V21Z" fill="#C8102E" />
-            <path d="M14 21C14 17.134 17.134 14 21 14V17C19.3431 17 18 18.3431 18 20C18 21.6569 19.3431 23 21 23H14V21Z" fill="#C8102E" />
-          </svg>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '28px', color: '#fff', fontWeight: 400, marginBottom: 0 }}>What Our Clients Say</h2>
-        </div>
-        <div className="relative">
-          <div className="overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
-            <div className="flex gap-7 pb-2" style={{ minWidth: 600 }}>
-              {testimonials.map((t, idx) => (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center justify-between"
-                  style={{
-                    background: 'rgba(20,20,20,0.92)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: '12px',
-                    minWidth: 320,
-                    maxWidth: 340,
-                    padding: '32px 28px 24px 28px',
-                    boxShadow: '0 2px 12px 0 rgba(0,0,0,0.10)',
-                  }}
-                >
-                  <img
-                    src={t.photo}
-                    alt={t.name}
-                    style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover', marginBottom: 18, border: '2px solid #C8102E' }}
-                  />
-                  <p
-                    style={{
-                      fontFamily: 'Playfair Display, serif',
-                      fontStyle: 'italic',
-                      fontSize: '17px',
-                      lineHeight: '1.7',
-                      color: '#FFFFFF',
-                      textAlign: 'center',
-                      marginBottom: 18,
-                    }}
-                  >
-                    “{t.text}”
-                  </p>
-                  <div style={{ textAlign: 'center' }}>
-                    <div
-                      style={{
-                        fontFamily: 'DM Sans, sans-serif',
-                        fontSize: '13px',
-                        fontWeight: 700,
-                        color: '#C8102E',
-                        marginBottom: 2,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.08em',
-                      }}
-                    >
-                      {t.name}
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: 'DM Sans, sans-serif',
-                        fontSize: '11px',
-                        fontWeight: 400,
-                        color: '#BFC3C8',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.08em',
-                      }}
-                    >
-                      {t.title}
-                    </div>
-                  </div>
-                </div>
-              ))}
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+
+        .tst-root {
+          background: #0d0d0d;
+          padding: 96px 80px;
+          border-top: 0.5px solid rgba(200,16,46,0.12);
+          position: relative;
+          overflow: hidden;
+        }
+        /* grid texture */
+        .tst-root::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(200,16,46,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(200,16,46,0.025) 1px, transparent 1px);
+          background-size: 80px 80px;
+          pointer-events: none;
+        }
+        /* top-right beam */
+        .tst-root::after {
+          content: '';
+          position: absolute;
+          top: -100px; right: -120px;
+          width: 500px; height: 400px;
+          background: radial-gradient(ellipse, rgba(200,16,46,0.07) 0%, transparent 70%);
+          pointer-events: none;
+        }
+
+        /* ── Header ── */
+        .tst-header {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          margin-bottom: 48px;
+          gap: 24px;
+          flex-wrap: wrap;
+        }
+        .tst-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 0.3em; text-transform: uppercase;
+          color: #C8102E;
+          margin-bottom: 14px;
+        }
+        .tst-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
+
+        .tst-h2 {
+          font-family: 'Orbitron', monospace;
+          font-weight: 700;
+          font-size: clamp(22px, 3.2vw, 38px);
+          line-height: 1.08;
+          color: #FFFFFF;
+          letter-spacing: -0.01em;
+        }
+        .tst-h2 em { font-style: normal; color: #C8102E; }
+
+        /* ── Cards grid ── */
+        .tst-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+        }
+
+        .tst-card {
+          background: #0a0a0a;
+          border: 0.5px solid rgba(200,16,46,0.1);
+          border-left: 2px solid #C8102E;
+          padding: 28px 22px;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          transition: border-color 0.2s, background 0.2s;
+          /* chamfered top-right */
+          clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+        }
+        .tst-card::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 1px;
+          background: linear-gradient(90deg, #C8102E, transparent);
+          opacity: 0.3;
+        }
+        /* scan line texture */
+        .tst-card::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: repeating-linear-gradient(
+            -55deg, transparent, transparent 6px,
+            rgba(200,16,46,0.012) 6px, rgba(200,16,46,0.012) 7px
+          );
+          pointer-events: none;
+        }
+        .tst-card:hover {
+          background: #0e0e0e;
+          border-left-color: #e01535;
+        }
+
+        /* Avatar + name row */
+        .tst-avatar-row {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          margin-bottom: 20px;
+        }
+        .tst-avatar-wrap {
+          position: relative;
+          flex-shrink: 0;
+        }
+        .tst-avatar {
+          width: 48px; height: 48px;
+          border-radius: 0;
+          object-fit: cover;
+          display: block;
+          clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+          filter: grayscale(0.3);
+        }
+        /* red corner accent */
+        .tst-avatar-wrap::after {
+          content: '';
+          position: absolute;
+          bottom: -3px; left: -3px;
+          width: 14px; height: 2px;
+          background: #C8102E;
+        }
+        .tst-name {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 13px; font-weight: 700;
+          letter-spacing: 0.12em; text-transform: uppercase;
+          color: #FFFFFF;
+          line-height: 1.2;
+        }
+        .tst-title {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 10px; font-weight: 300;
+          color: rgba(255,255,255,0.35);
+          line-height: 1.4;
+          margin-top: 2px;
+        }
+
+        /* Quote mark */
+        .tst-quote-mark {
+          font-family: 'Orbitron', monospace;
+          font-size: 32px; font-weight: 700;
+          color: rgba(200,16,46,0.25);
+          line-height: 1;
+          margin-bottom: 8px;
+          letter-spacing: -0.05em;
+        }
+
+        /* Quote text */
+        .tst-text {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 13px; font-weight: 300;
+          line-height: 1.75;
+          color: rgba(255,255,255,0.65);
+          flex: 1;
+        }
+
+        /* ── Bottom divider bar ── */
+        .tst-bottom-bar {
+          margin-top: 48px;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(200,16,46,0.3) 30%, rgba(200,16,46,0.15) 70%, transparent);
+        }
+
+        @media (max-width: 1200px) {
+          .tst-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 1024px) {
+          .tst-root { padding: 64px 24px; }
+        }
+        @media (max-width: 640px) {
+          .tst-root { padding: 48px 16px; }
+          .tst-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
+
+      <section className="tst-root">
+        <div className="max-w-[1440px] mx-auto relative">
+
+          {/* Header */}
+          <div className="tst-header">
+            <div>
+              <div className="tst-eyebrow">
+                <span className="tst-eyebrow-line" />
+                Testimonials
+              </div>
+              <h2 className="tst-h2">What Clients <em>Say</em></h2>
             </div>
           </div>
+
+          {/* Cards */}
+          <div className="tst-grid">
+            {testimonials.map((t, i) => (
+              <div key={i} className="tst-card">
+                <div className="tst-avatar-row">
+                  <div className="tst-avatar-wrap">
+                    <img src={t.photo} alt={t.name} className="tst-avatar" />
+                  </div>
+                  <div>
+                    <div className="tst-name">{t.name}</div>
+                    <div className="tst-title">{t.title}</div>
+                  </div>
+                </div>
+                <div className="tst-quote-mark">"</div>
+                <p className="tst-text">{t.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="tst-bottom-bar" />
+
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

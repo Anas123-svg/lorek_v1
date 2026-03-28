@@ -1,0 +1,190 @@
+export function Values() {
+  const values = [
+    'Maintain the highest standards in client service.',
+    'Serve with discretion and sensitivity.',
+    "Manage clients' and the firm's resources transparently and effectively.",
+    "Measurably improve our clients' performance.",
+    'Use our global network to deliver solutions and source partnerships for our clients.',
+    "Build clients' capabilities to sustain continuous improvement.",
+    'Create an unrivalled environment for exceptional people.',
+    'Listen to different perspectives with curiosity and respect.',
+    'Ensure financial stability and sustainability.',
+    'Develop one another through mentoring and continually encourage self-education.',
+  ];
+  // Duplicate for smooth infinite scroll
+  const marqueeValues = [...values, ...values];
+
+  return (
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+
+        .values-root {
+          background: #0d0d0d;
+          padding: 44px 32px 36px 32px;
+          border-top: 0.5px solid rgba(200,16,46,0.12);
+          position: relative;
+          overflow: hidden;
+        }
+        .values-root::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(200,16,46,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(200,16,46,0.025) 1px, transparent 1px);
+          background-size: 80px 80px;
+          pointer-events: none;
+        }
+        .values-root::after {
+          content: '';
+          position: absolute;
+          top: -100px; right: -120px;
+          width: 500px; height: 400px;
+          background: radial-gradient(ellipse, rgba(200,16,46,0.07) 0%, transparent 70%);
+          pointer-events: none;
+        }
+
+        .values-header {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          margin-bottom: 22px;
+          gap: 18px;
+          flex-wrap: wrap;
+        }
+        .values-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 0.3em; text-transform: uppercase;
+          color: #C8102E;
+          margin-bottom: 14px;
+        }
+        .values-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
+
+        .values-h2 {
+          font-family: 'Orbitron', monospace;
+          font-weight: 700;
+          font-size: clamp(22px, 3.2vw, 38px);
+          line-height: 1.08;
+          color: #FFFFFF;
+          letter-spacing: -0.01em;
+        }
+        .values-h2 em { font-style: normal; color: #C8102E; }
+
+        .values-slider-outer {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          margin: 0 auto;
+        }
+        .values-slider {
+          display: flex;
+          gap: 18px;
+          width: max-content;
+          animation: valuesMarquee 48s linear infinite;
+        }
+        .values-slider:hover {
+          animation-play-state: paused;
+        }
+        @keyframes valuesMarquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .values-card {
+          background: #0a0a0a;
+          border: 0.5px solid rgba(200,16,46,0.1);
+          border-left: 2px solid #C8102E;
+          padding: 14px 14px 12px 14px;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          min-width: 220px;
+          max-width: 260px;
+          transition: border-color 0.2s, background 0.2s;
+          clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+        }
+        .values-card::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 1px;
+          background: linear-gradient(90deg, #C8102E, transparent);
+          opacity: 0.3;
+        }
+        .values-card::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: repeating-linear-gradient(
+            -55deg, transparent, transparent 6px,
+            rgba(200,16,46,0.012) 6px, rgba(200,16,46,0.012) 7px
+          );
+          pointer-events: none;
+        }
+        .values-card:hover {
+          background: #0e0e0e;
+          border-left-color: #e01535;
+        }
+        .values-num {
+          font-family: 'Orbitron', monospace;
+          font-size: 15px;
+          font-weight: 700;
+          color: #C8102E;
+          margin-right: 6px;
+          margin-top: 1px;
+          opacity: 0.7;
+        }
+        .values-text {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 12px;
+          font-weight: 400;
+          color: #E0E0E0;
+          line-height: 1.5;
+        }
+        .values-bottom-bar {
+          margin-top: 24px;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(200,16,46,0.3) 30%, rgba(200,16,46,0.15) 70%, transparent);
+        }
+        @media (max-width: 1024px) {
+          .values-root { padding: 32px 10px 22px 10px; }
+          .values-card { min-width: 160px; max-width: 200px; }
+        }
+        @media (max-width: 640px) {
+          .values-root { padding: 18px 4px 12px 4px; }
+          .values-card { min-width: 120px; max-width: 140px; }
+        }
+      `}</style>
+      <section className="values-root" id="values">
+        <div className="max-w-[1440px] mx-auto relative">
+          <div className="values-header">
+            <div>
+              <div className="values-eyebrow">
+                <span className="values-eyebrow-line" />
+                Values
+              </div>
+              <h2 className="values-h2">Our <em>Principles</em></h2>
+            </div>
+          </div>
+          <div className="values-slider-outer">
+            <div className="values-slider">
+              {marqueeValues.map((value, i) => (
+                <div key={i} className="values-card">
+                  <span className="values-num">{String((i % values.length) + 1).padStart(2, '0')}</span>
+                  <span className="values-text">{value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="values-bottom-bar" />
+        </div>
+      </section>
+    </>
+  );
+}

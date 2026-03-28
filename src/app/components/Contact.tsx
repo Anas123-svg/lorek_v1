@@ -1,65 +1,245 @@
 export function Contact() {
   return (
-    <section
-      id="contact"
-      className="relative py-20 px-4 sm:px-10 lg:px-32 border-t border-white/10"
-      style={{
-        background: `linear-gradient(rgba(13,13,13,0.92), rgba(13,13,13,0.92)), url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat`,
-      }}
-    >
-      <div className="max-w-[1440px] mx-auto">
-        <div className="flex flex-col items-center" style={{ maxWidth: '600px', margin: '0 auto' }}>
-          {/* Headline */}
-          <h2
-            style={{
-              fontFamily: 'Playfair Display, serif',
-              fontSize: '40px',
-              fontWeight: 400,
-              color: '#FFFFFF',
-              textAlign: 'center',
-            }}
-          >
-            Let's talk about your business.
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+
+        .contact-root {
+          position: relative;
+          background: #050505;
+          padding: 120px 80px;
+          border-top: 0.5px solid rgba(200,16,46,0.14);
+          overflow: hidden;
+        }
+
+        /* bg image layer */
+        .contact-bg-img {
+          position: absolute;
+          inset: 0;
+          background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+          opacity: 0.12;
+          pointer-events: none;
+        }
+
+        /* dark base overlay */
+        .contact-overlay {
+          position: absolute; inset: 0;
+          background: rgba(4,4,4,0.78);
+          pointer-events: none;
+        }
+
+        /* diagonal beam */
+        .contact-beam {
+          position: absolute; inset: 0;
+          background: radial-gradient(
+            ellipse 60% 40% at 50% 55%,
+            rgba(180,10,30,0.18) 0%,
+            rgba(140,0,20,0.06) 50%,
+            transparent 78%
+          );
+          pointer-events: none;
+        }
+
+        /* grid texture */
+        .contact-grid {
+          position: absolute; inset: 0;
+          background-image:
+            linear-gradient(rgba(200,16,46,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(200,16,46,0.04) 1px, transparent 1px);
+          background-size: 80px 80px;
+          pointer-events: none;
+        }
+
+        /* scanlines */
+        .contact-scanlines {
+          position: absolute; inset: 0;
+          background-image: repeating-linear-gradient(
+            -55deg, transparent, transparent 3px,
+            rgba(200,16,46,0.015) 3px, rgba(200,16,46,0.015) 4px
+          );
+          pointer-events: none;
+        }
+
+        /* vignette */
+        .contact-vignette {
+          position: absolute; inset: 0;
+          background: radial-gradient(ellipse 110% 100% at 50% 50%, transparent 30%, rgba(0,0,0,0.7) 100%);
+          pointer-events: none;
+        }
+
+        .contact-inner {
+          position: relative;
+          max-width: 680px;
+          margin: 0 auto;
+          text-align: center;
+          z-index: 2;
+        }
+
+        /* eyebrow */
+        .contact-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 700;
+          letter-spacing: 0.3em; text-transform: uppercase;
+          color: #C8102E;
+          margin-bottom: 24px;
+          justify-content: center;
+        }
+        .contact-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
+
+        .contact-h2 {
+          font-family: 'Orbitron', monospace;
+          font-weight: 700;
+          font-size: clamp(24px, 3.8vw, 46px);
+          line-height: 1.06;
+          color: #FFFFFF;
+          margin-bottom: 20px;
+          letter-spacing: -0.01em;
+        }
+        .contact-h2 em { font-style: normal; color: #C8102E; }
+
+        .contact-sub {
+          font-family: 'DM Sans', sans-serif;
+          font-size: clamp(14px, 1.7vw, 16px);
+          font-weight: 300;
+          line-height: 1.75;
+          color: rgba(255,255,255,0.48);
+          margin-bottom: 44px;
+        }
+
+        /* CTA row */
+        .contact-cta-row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          flex-wrap: wrap;
+        }
+
+        .contact-btn-primary {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 12px; font-weight: 700;
+          letter-spacing: 0.24em; text-transform: uppercase;
+          color: #FFFFFF;
+          background: #C8102E;
+          border: none;
+          padding: 14px 40px;
+          cursor: pointer;
+          transition: background 0.2s;
+          clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+        }
+        .contact-btn-primary:hover { background: #a50d25; }
+
+        .contact-btn-secondary {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 12px; font-weight: 700;
+          letter-spacing: 0.24em; text-transform: uppercase;
+          color: rgba(255,255,255,0.6);
+          background: transparent;
+          border: 1px solid rgba(255,255,255,0.2);
+          padding: 14px 32px;
+          cursor: pointer;
+          transition: all 0.2s;
+          clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+          text-decoration: none;
+          display: inline-block;
+        }
+        .contact-btn-secondary:hover {
+          border-color: #C8102E;
+          color: #C8102E;
+        }
+
+        /* detail chips below CTAs */
+        .contact-details {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 24px;
+          margin-top: 36px;
+          flex-wrap: wrap;
+        }
+        .contact-detail-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 10px; font-weight: 600;
+          letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(255,255,255,0.3);
+        }
+        .contact-detail-dot {
+          width: 4px; height: 4px;
+          background: #C8102E;
+          flex-shrink: 0;
+        }
+        .contact-detail-sep {
+          width: 1px; height: 16px;
+          background: rgba(255,255,255,0.1);
+        }
+
+        /* bottom bar */
+        .contact-bottom-bar {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #C8102E 30%, rgba(200,16,46,0.4) 70%, transparent);
+        }
+
+        @media (max-width: 1024px) { .contact-root { padding: 80px 24px; } }
+        @media (max-width: 640px)  { .contact-root { padding: 64px 16px; } }
+      `}</style>
+
+      <section id="contact" className="contact-root">
+        <div className="contact-bg-img" />
+        <div className="contact-overlay" />
+        <div className="contact-beam" />
+        <div className="contact-grid" />
+        <div className="contact-scanlines" />
+        <div className="contact-vignette" />
+
+        <div className="contact-inner">
+          <div className="contact-eyebrow">
+            <span className="contact-eyebrow-line" />
+            Get In Touch
+            <span className="contact-eyebrow-line" />
+          </div>
+
+          <h2 className="contact-h2">
+            Let's talk about<br />
+            your <em>business.</em>
           </h2>
 
-          {/* Subtext */}
-          <p
-            style={{
-              fontFamily: 'DM Sans, sans-serif',
-              fontSize: '16px',
-              fontWeight: 300,
-              lineHeight: '1.7',
-              color: '#A8A8A8',
-              textAlign: 'center',
-              marginTop: '16px',
-              marginBottom: '40px',
-            }}
-          >
-            Our experienced team will advise you on the potential way forward.
+          <p className="contact-sub">
+            Our experienced team will advise you on the potential way forward — from capital strategy to full operational transformation.
           </p>
 
-          {/* CTA Button */}
-          <button
-            className="transition-all duration-200"
-            style={{
-              fontFamily: 'DM Sans, sans-serif',
-              fontSize: '14px',
-              fontWeight: 500,
-              color: '#FFFFFF',
-              backgroundColor: '#C8102E',
-              borderRadius: '0px',
-              padding: '16px 48px',
-              border: 'none',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A50D25')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C8102E')}
-          >
-            Contact us
-          </button>
+          <div className="contact-cta-row">
+            <button className="contact-btn-primary">Contact Us</button>
+            <a href="mailto:info@lorek.com" className="contact-btn-secondary">info@lorek.com</a>
+          </div>
+
+          <div className="contact-details">
+            <div className="contact-detail-item">
+              <div className="contact-detail-dot" />
+              London, UK
+            </div>
+            <div className="contact-detail-sep" />
+            <div className="contact-detail-item">
+              <div className="contact-detail-dot" />
+              Mon–Fri 8am–6pm
+            </div>
+            <div className="contact-detail-sep" />
+            <div className="contact-detail-item">
+              <div className="contact-detail-dot" />
+              +44 20 7946 0999
+            </div>
+          </div>
         </div>
-      </div>
-      {/* Decorative overlay for visual effect */}
-      <div className="absolute inset-0 z-0" style={{ pointerEvents: 'none', background: 'radial-gradient(ellipse at 60% 40%, rgba(200,16,46,0.08) 0%, transparent 70%)' }} />
-    </section>
+
+        <div className="contact-bottom-bar" />
+      </section>
+    </>
   );
 }
