@@ -32,7 +32,7 @@ export function Services() {
     },
   ];
 
-  const [hovered, setHovered] = useState<number | null>(null);
+  const [, setHovered] = useState<number | null>(null);
 
   return (
     <>
