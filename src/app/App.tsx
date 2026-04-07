@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { CredentialStrip } from './components/CredentialStrip';
@@ -8,23 +9,30 @@ import { Values } from './components/Values';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Industries } from './components/Industries';
+import { ContactModal } from './components/ContactModal';
 
 export default function App() {
+  const [contactOpen, setContactOpen] = useState(false);
+  const openContactModal = (e?: React.MouseEvent) => {
+    if (e && e.preventDefault) e.preventDefault();
+    setContactOpen(true);
+  };
+  const closeContactModal = () => setContactOpen(false);
   return (
     <div className="w-full min-h-screen" style={{ backgroundColor: '#0D0D0D' }}>
-      <Navigation />
+      <Navigation openContactModal={openContactModal} />
       <main>
-        <Hero />
+        <Hero openContactModal={openContactModal} />
         <CredentialStrip />
         <About />
         <Services />
-                <Industries />
-
+        <Industries />
         <Testimonial />
         <Values />
-        <Contact />
+        <Contact openContactModal={openContactModal} />
       </main>
       <Footer />
+      <ContactModal open={contactOpen} onClose={closeContactModal} />
     </div>
   );
 }

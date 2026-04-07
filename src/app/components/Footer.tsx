@@ -5,11 +5,11 @@ export function Footer() {
   const homeAnchor = (hash: string) => (isHomePage ? hash : `/${hash}`);
 
   const quickLinks = [
-    { label: 'Services',    href: '#services' },
-    { label: 'Industries',  href: '#industries' },
-    { label: 'Values',      href: '#values' },
-    { label: 'Contact',     href: '#contact' },
-    { label: 'About Us',    href: '#about' },
+    { label: 'Services',   href: '#services' },
+    { label: 'Industries', href: '#industries' },
+    { label: 'Values',     href: '#values' },
+    { label: 'Contact',    href: '#contact' },
+    { label: 'About Us',   href: '#about' },
   ];
 
   const serviceLinks = [
@@ -30,7 +30,6 @@ export function Footer() {
           position: relative;
           overflow: hidden;
         }
-        /* grid texture */
         .ftr-root::before {
           content: '';
           position: absolute;
@@ -41,7 +40,6 @@ export function Footer() {
           background-size: 80px 80px;
           pointer-events: none;
         }
-        /* bottom-right ambient glow */
         .ftr-root::after {
           content: '';
           position: absolute;
@@ -51,6 +49,7 @@ export function Footer() {
           pointer-events: none;
         }
 
+        /* ── Main grid ── */
         .ftr-main {
           max-width: 1440px;
           margin: 0 auto;
@@ -68,7 +67,7 @@ export function Footer() {
           gap: 10px;
           margin-bottom: 20px;
         }
-        .ftr-logo-bar { width: 3px; height: 20px; background: #C8102E; }
+        .ftr-logo-bar { width: 3px; height: 20px; background: #C8102E; flex-shrink: 0; }
         .ftr-logo-text {
           font-family: 'Orbitron', monospace;
           font-weight: 700;
@@ -90,7 +89,7 @@ export function Footer() {
           align-items: center;
           gap: 10px;
         }
-        .ftr-cert-line { width: 28px; height: 1px; background: #C8102E; }
+        .ftr-cert-line { width: 28px; height: 1px; background: #C8102E; flex-shrink: 0; }
         .ftr-cert-label {
           font-family: 'Rajdhani', sans-serif;
           font-size: 9px; font-weight: 700;
@@ -115,6 +114,8 @@ export function Footer() {
         }
 
         /* ── Links ── */
+        .ftr-links-col { display: flex; flex-direction: column; gap: 2px; }
+
         .ftr-link {
           font-family: 'DM Sans', sans-serif;
           font-size: 13px; font-weight: 300;
@@ -123,7 +124,6 @@ export function Footer() {
           display: flex; align-items: center; gap: 8px;
           padding: 4px 0;
           transition: color 0.2s;
-          position: relative;
         }
         .ftr-link::before {
           content: '';
@@ -202,6 +202,7 @@ export function Footer() {
           color: rgba(255,255,255,0.22);
           text-decoration: none;
           transition: color 0.2s;
+          white-space: nowrap;
         }
         .ftr-legal-link:hover { color: #C8102E; }
         .ftr-legal-sep {
@@ -209,12 +210,57 @@ export function Footer() {
           background: rgba(255,255,255,0.1);
         }
 
-        @media (max-width: 1200px) {
-          .ftr-main { grid-template-columns: 1fr 1fr; padding: 48px 24px 40px; }
+        /* ── Tablet: 2-col ── */
+        @media (max-width: 1100px) {
+          .ftr-main {
+            grid-template-columns: 1fr 1fr;
+            padding: 48px 40px 40px;
+            gap: 40px 48px;
+          }
+          .ftr-bottom-inner { padding: 16px 40px; }
         }
+
+        /* ── Mobile: single col, left-aligned ── */
         @media (max-width: 640px) {
-          .ftr-main { grid-template-columns: 1fr; padding: 40px 16px 32px; gap: 32px; }
-          .ftr-bottom-inner { padding: 14px 16px; flex-direction: column; align-items: flex-start; gap: 10px; }
+          .ftr-main {
+            grid-template-columns: 1fr;
+            padding: 40px 20px 32px;
+            gap: 36px;
+          }
+
+          /* Divider between sections */
+          .ftr-main > div + div {
+            padding-top: 28px;
+            border-top: 0.5px solid rgba(255,255,255,0.06);
+          }
+
+          /* Keep heading left-aligned — the ::after line works naturally */
+          .ftr-col-heading { margin-bottom: 14px; }
+
+          /* Two-column link grid for quick links and services */
+          .ftr-links-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 16px;
+          }
+
+          .ftr-bottom-inner {
+            padding: 16px 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+          }
+          .ftr-legal-links { gap: 16px; }
+        }
+
+        /* ── Small mobile ── */
+        @media (max-width: 380px) {
+          .ftr-main { padding: 32px 16px 24px; }
+          .ftr-bottom-inner { padding: 14px 16px; }
+          .ftr-links-col { grid-template-columns: 1fr; }
+          .ftr-logo-text { font-size: 13px; }
+          .ftr-brand-desc { font-size: 12px; }
+          .ftr-contact-main { font-size: 12px; }
         }
       `}</style>
 
@@ -239,7 +285,7 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <div className="ftr-col-heading">Quick Links</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <div className="ftr-links-col">
               {quickLinks.map((link) => (
                 <a key={link.label} href={homeAnchor(link.href)} className="ftr-link">
                   {link.label}
@@ -251,7 +297,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <div className="ftr-col-heading">Services</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <div className="ftr-links-col">
               {serviceLinks.map((svc) => (
                 <a key={svc} href={homeAnchor('#services')} className="ftr-link">
                   {svc}

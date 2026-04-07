@@ -1,4 +1,8 @@
-export function Contact() {
+export function Contact({ openContactModal }: { openContactModal: (e?: React.MouseEvent) => void }) {
+  const handleContactClick = (e: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    openContactModal(e);
+  };
   return (
     <>
       <style>{`
@@ -216,9 +220,10 @@ export function Contact() {
           </p>
 
           <div className="contact-cta-row">
-            <button className="contact-btn-primary">Contact Us</button>
+            <button className="contact-btn-primary" onClick={handleContactClick}>Contact Us</button>
             <a href="mailto:info@lorek.com" className="contact-btn-secondary">info@lorek.com</a>
           </div>
+  {/* ContactModal is now rendered at App level */}
 
           <div className="contact-details">
             <div className="contact-detail-item">

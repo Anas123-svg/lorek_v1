@@ -1,14 +1,91 @@
-export function Hero() {
+interface HeroProps {
+  openContactModal: (e?: React.MouseEvent) => void;
+}
+
+export function Hero({ openContactModal }: HeroProps) {
   const companies = [
-    'MICROSOFT', 'AMAZON', 'GOLDMAN SACHS', 'BLACKROCK',
-    'JP MORGAN', 'DELOITTE', 'MCKINSEY', 'BOSTON CONSULTING',
-    'MICROSOFT', 'AMAZON', 'GOLDMAN SACHS', 'BLACKROCK',
-    'JP MORGAN', 'DELOITTE', 'MCKINSEY', 'BOSTON CONSULTING',
+    "MICROSOFT",
+    "AMAZON",
+    "GOLDMAN SACHS",
+    "BLACKROCK",
+    "JP MORGAN",
+    "DELOITTE",
+    "MCKINSEY",
+    "BOSTON CONSULTING",
+    "MICROSOFT",
+    "AMAZON",
+    "GOLDMAN SACHS",
+    "BLACKROCK",
+    "JP MORGAN",
+    "DELOITTE",
+    "MCKINSEY",
+    "BOSTON CONSULTING",
   ];
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    openContactModal(e);
+  };
 
   return (
     <>
       <style>{`
+                @media (max-width: 1023px) {
+                  .hero-root {
+                    min-height: 600px;
+                    padding-top: 70px;
+                  }
+                  .hero-h1 {
+                    font-size: clamp(22px, 7vw, 36px);
+                    margin-bottom: 18px;
+                  }
+                  .hero-sub {
+                    font-size: clamp(12px, 3vw, 15px);
+                    margin-bottom: 22px;
+                  }
+                  .stat-card {
+                    padding: 12px 8px;
+                  }
+                  .testimonial-card {
+                    padding: 14px 10px;
+                  }
+                  .trusted-label {
+                    font-size: 8px;
+                    margin-bottom: 8px;
+                  }
+                  .ticker-track {
+                    gap: 18px;
+                  }
+                }
+                @media (max-width: 767px) {
+                  .hero-root {
+                    min-height: 480px;
+                    padding-top: 60px;
+                  }
+                  .hero-h1 {
+                    font-size: clamp(18px, 8vw, 28px);
+                  }
+                  .hero-sub {
+                    font-size: clamp(11px, 4vw, 13px);
+                  }
+                  .stat-number {
+                    font-size: clamp(14px, 6vw, 18px);
+                  }
+                  .stat-label {
+                    font-size: 8px;
+                  }
+                  .testimonial-quote {
+                    font-size: 11px;
+                  }
+                  .hero-eyebrow {
+                    font-size: 8px;
+                    margin-bottom: 10px;
+                  }
+                  .hero-btn-primary, .hero-btn-secondary {
+                    padding: 9px 16px;
+                    font-size: 10px;
+                  }
+                }
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;900&family=DM+Sans:wght@200;300;400;500&display=swap');
 
         .hero-root {
@@ -285,12 +362,10 @@ export function Hero() {
           bottom: 0; left: 0; right: 0;
           height: 2px;
           background: linear-gradient(90deg, transparent 0%, #C8102E 30%, rgba(200,16,46,0.45) 70%, transparent 100%);
-          z-index: 10;
         }
       `}</style>
 
       <section className="hero-root">
-
         {/* ── Video — city skyline / financial district at night ── */}
         {/*
           Primary:  Pexels #3827392 — slow aerial drift over lit city towers (free licence)
@@ -324,51 +399,72 @@ export function Hero() {
         <div className="hero-bottom-fade" />
 
         {/* ── Content ── */}
-        <div className="relative px-8 sm:px-16 xl:px-20" style={{ zIndex: 6 }}>
+        <div className="relative px-4 sm:px-8 xl:px-20" style={{ zIndex: 6 }}>
           <div className="max-w-[1440px] mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 pt-28 sm:pt-32 pb-16 sm:pb-20">
-
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6 pt-20 sm:pt-28 pb-10 sm:pb-16">
               {/* LEFT */}
-              <div className="lg:col-span-7 flex flex-col justify-center">
+              <div className="lg:col-span-7 flex flex-col justify-center mb-8 lg:mb-0">
                 <div className="hero-eyebrow">
                   <span className="hero-eyebrow-line" />
                   STRATEGIC ADVISORY & PRIVATE EQUITY
                 </div>
 
                 <h1 className="hero-h1">
-                  Strategic<br />
-                  Partners<br />
+                  Strategic
+                  <br />
+                  Partners
+                  <br />
                   <em>Globally</em>
                 </h1>
 
                 <p className="hero-sub">
-                  We elevate organisations through disciplined strategy, meaningful stewardship, and long-term value creation.
+                  We elevate organisations through disciplined strategy,
+                  meaningful stewardship, and long-term value creation.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 mb-10">
                   <button className="hero-btn-primary">Services</button>
-                  <button className="hero-btn-secondary">Contact</button>
+                  <button
+                    className="hero-btn-secondary"
+                    onClick={handleContactClick}
+                  >
+                    Contact
+                  </button>
+                </div>
+                {/* ContactModal is now rendered at App level */}
+
+                <div className="trusted-label">
+                  Trusted by leading organizations
                 </div>
 
-                <div className="trusted-label">Trusted by leading organizations</div>
-
-                <div style={{ overflow: 'hidden', width: '100%', maxWidth: '560px' }}>
+                <div
+                  style={{
+                    overflow: "hidden",
+                    width: "100%",
+                    maxWidth: "560px",
+                  }}
+                >
                   <div className="ticker-track">
                     {companies.map((co, i) => (
-                      <span key={i} className="ticker-item">{co}</span>
+                      <span key={i} className="ticker-item">
+                        {co}
+                      </span>
                     ))}
                   </div>
                 </div>
               </div>
 
               {/* RIGHT */}
-              <div className="lg:col-span-5 flex flex-col justify-center" style={{ gap: '12px' }}>
-                <div className="grid grid-cols-2 gap-3 mb-1">
+              <div
+                className="lg:col-span-5 flex flex-col justify-center"
+                style={{ gap: "12px" }}
+              >
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-1">
                   {[
-                    { n: '$2.5B+', l: 'Assets Managed' },
-                    { n: '50+',   l: 'Global Clients' },
-                    { n: '15+',   l: 'Years Experience' },
-                    { n: '12',    l: 'Industries Served' },
+                    { n: "$2.5B+", l: "Assets Managed" },
+                    { n: "50+", l: "Global Clients" },
+                    { n: "15+", l: "Years Experience" },
+                    { n: "12", l: "Industries Served" },
                   ].map((s, i) => (
                     <div key={i} className="stat-card">
                       <div className="stat-number">{s.n}</div>
@@ -378,26 +474,43 @@ export function Hero() {
                 </div>
 
                 <div className="testimonial-card">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                    <div style={{ width: '16px', height: '2px', background: '#C8102E' }} />
-                    <span style={{
-                      fontFamily: 'Rajdhani, sans-serif',
-                      fontSize: '9px',
-                      fontWeight: 600,
-                      letterSpacing: '0.2em',
-                      color: '#C8102E',
-                      textTransform: 'uppercase' as const,
-                    }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      marginBottom: "14px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "16px",
+                        height: "2px",
+                        background: "#C8102E",
+                      }}
+                    />
+                    <span
+                      style={{
+                        fontFamily: "Rajdhani, sans-serif",
+                        fontSize: "9px",
+                        fontWeight: 600,
+                        letterSpacing: "0.2em",
+                        color: "#C8102E",
+                        textTransform: "uppercase" as const,
+                      }}
+                    >
                       Client Feedback
                     </span>
                   </div>
                   <p className="testimonial-quote">
-                    Effective, experienced and agile. Lorek reduced our costs and significantly improved performance of our portfolio.
+                    Effective, experienced and agile. Lorek reduced our costs
+                    and significantly improved performance of our portfolio.
                   </p>
-                  <div className="testimonial-attr">CEO, Fortune 500 Company</div>
+                  <div className="testimonial-attr">
+                    CEO, Fortune 500 Company
+                  </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

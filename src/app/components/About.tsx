@@ -1,4 +1,8 @@
+import { useState } from 'react';
+import { ContactModal } from './ContactModal';
+
 export function About() {
+  const [contactOpen, setContactOpen] = useState(false);
   const images = [
     "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1080",
@@ -17,6 +21,11 @@ export function About() {
       image: images[2],
     },
   ];
+
+  const handleContactOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setContactOpen(true);
+  };
 
   return (
     <>
@@ -366,7 +375,7 @@ export function About() {
                   <p className="about-img-body">
                     Building lasting partnerships through disciplined strategy and meaningful stewardship, with an unwavering focus on measurable business impact.
                   </p>
-                  <div className="about-img-cta">View details →</div>
+                  {/* <div className="about-img-cta">View details →</div> */}
                 </div>
               </div>
 
@@ -400,7 +409,7 @@ export function About() {
                       <div className="about-img-sm-tag">{c.tag}</div>
                       <p className="about-img-sm-body">{c.body}</p>
                     </div>
-                    <div className="about-img-sm-cta">View details →</div>
+                    {/* <div className="about-img-sm-cta">View details →</div> */}
                   </div>
                 ))}
               </div>
@@ -437,7 +446,8 @@ export function About() {
                   ))}
                 </div>
 
-                <button className="about-link">Explore advisory model</button>
+                <button className="about-link" onClick={handleContactOpen}>Explore advisory model</button>
+                <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
               </div>
 
             </div>

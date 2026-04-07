@@ -46,7 +46,6 @@ export function Industries() {
           background-size: 80px 80px;
           pointer-events: none;
         }
-        /* bottom-left glow */
         .ind-root::after {
           content: '';
           position: absolute;
@@ -56,6 +55,7 @@ export function Industries() {
           pointer-events: none;
         }
 
+        /* ── Header ── */
         .ind-header {
           padding: 0 80px;
           margin-bottom: 48px;
@@ -134,8 +134,8 @@ export function Industries() {
           border: 0.5px solid rgba(200,16,46,0.12);
           cursor: pointer;
           background: #0c0c0c;
+          clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
         }
-        /* left red edge */
         .ind-card::before {
           content: '';
           position: absolute;
@@ -143,10 +143,6 @@ export function Industries() {
           width: 2px;
           background: #C8102E;
           z-index: 3;
-        }
-        /* chamfered top-right corner clip */
-        .ind-card {
-          clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
         }
 
         .ind-card-img-wrap {
@@ -165,7 +161,6 @@ export function Industries() {
           transform: scale(1.08);
           filter: brightness(0.6) saturate(0.5);
         }
-        /* scan-line overlay on image */
         .ind-card-img-wrap::after {
           content: '';
           position: absolute; inset: 0;
@@ -196,9 +191,7 @@ export function Industries() {
         .ind-card-footer {
           background: #C8102E;
           padding: 13px 16px;
-          position: relative;
         }
-        /* chamfered corner inside footer */
         .ind-card-name {
           font-family: 'Rajdhani', sans-serif;
           font-size: 12px; font-weight: 700;
@@ -223,19 +216,61 @@ export function Industries() {
           text-decoration: none;
           display: flex; align-items: center; gap: 8px;
           transition: color 0.2s;
+          white-space: nowrap;
         }
         .ind-footer-link::after { content: '→'; }
         .ind-footer-link:hover { color: #FFFFFF; }
 
+        /* ── Tablet ── */
         @media (max-width: 1024px) {
-          .ind-header { padding: 0 24px; }
-          .ind-footer { padding: 32px 24px 0; }
+          .ind-root { padding: 64px 0; }
+          .ind-header { padding: 0 40px; margin-bottom: 36px; }
+          .ind-footer { padding: 28px 40px 0; }
+
+          .ind-h2 { font-size: clamp(20px, 3.5vw, 28px); }
+          .ind-sub { font-size: clamp(13px, 1.8vw, 15px); }
+
+          /* Slightly smaller cards — still readable */
+          .ind-card { width: 220px; }
+          .ind-card-img-wrap { height: 140px; }
+          .ind-card-footer { padding: 11px 14px; }
+
+          /* Narrower fades on tablet */
+          .ind-fade-left,
+          .ind-fade-right { width: 60px; }
         }
+
+        /* ── Mobile ── */
         @media (max-width: 640px) {
           .ind-root { padding: 48px 0; }
-          .ind-header { padding: 0 16px; }
-          .ind-footer { padding: 24px 16px 0; }
-          .ind-card { width: 230px; }
+          .ind-header { padding: 0 20px; margin-bottom: 28px; }
+          .ind-footer { padding: 20px 20px 0; }
+
+          .ind-h2 { font-size: clamp(18px, 5.5vw, 24px); margin-bottom: 10px; }
+          .ind-sub { font-size: 13px; line-height: 1.65; }
+
+          /* Cards comfortable to read on phone */
+          .ind-card { width: 180px; }
+          .ind-card-img-wrap { height: 110px; }
+          .ind-card-footer { padding: 10px 12px; }
+          .ind-card-name { font-size: 11px; letter-spacing: 0.08em; }
+
+          /* Faster scroll at smaller card size so motion feels consistent */
+          .ind-track { animation-duration: 32s; gap: 12px; }
+
+          /* Tighter fades so cards aren't clipped too early */
+          .ind-fade-left,
+          .ind-fade-right { width: 40px; }
+
+          .ind-marquee-wrap { padding: 0; }
+        }
+
+        /* ── Small mobile ── */
+        @media (max-width: 380px) {
+          .ind-card { width: 155px; }
+          .ind-card-img-wrap { height: 95px; }
+          .ind-track { animation-duration: 26s; gap: 10px; }
+          .ind-h2 { font-size: 16px; }
         }
       `}</style>
 
@@ -263,7 +298,7 @@ export function Industries() {
                 <div className="ind-card-img-wrap">
                   <img src={ind.image} alt={ind.name} />
                   <div className="ind-card-overlay" />
-                  <div className="ind-card-hover-cta">Explore sector →</div>
+                  {/* <div className="ind-card-hover-cta">Explore sector →</div> */}
                 </div>
                 <div className="ind-card-footer">
                   <div className="ind-card-name">{ind.name}</div>

@@ -10,7 +10,7 @@ export function Testimonial() {
       name: 'James Patel',
       title: 'CEO, Tech Innovators',
       photo: 'https://randomuser.me/api/portraits/men/32.jpg',
-      text: 'Lorek\'s strategic insight and hands-on approach helped us scale internationally and secure key partnerships.',
+      text: "Lorek's strategic insight and hands-on approach helped us scale internationally and secure key partnerships.",
     },
     {
       name: 'Elena Rossi',
@@ -38,7 +38,6 @@ export function Testimonial() {
           position: relative;
           overflow: hidden;
         }
-        /* grid texture */
         .tst-root::before {
           content: '';
           position: absolute;
@@ -49,7 +48,6 @@ export function Testimonial() {
           background-size: 80px 80px;
           pointer-events: none;
         }
-        /* top-right beam */
         .tst-root::after {
           content: '';
           position: absolute;
@@ -90,13 +88,14 @@ export function Testimonial() {
         }
         .tst-h2 em { font-style: normal; color: #C8102E; }
 
-        /* ── Cards grid ── */
+        /* ── Desktop/tablet: normal grid ── */
         .tst-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 16px;
         }
 
+        /* ── Card ── */
         .tst-card {
           background: #0a0a0a;
           border: 0.5px solid rgba(200,16,46,0.1);
@@ -106,9 +105,7 @@ export function Testimonial() {
           overflow: hidden;
           display: flex;
           flex-direction: column;
-          gap: 0;
           transition: border-color 0.2s, background 0.2s;
-          /* chamfered top-right */
           clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
         }
         .tst-card::before {
@@ -119,7 +116,6 @@ export function Testimonial() {
           background: linear-gradient(90deg, #C8102E, transparent);
           opacity: 0.3;
         }
-        /* scan line texture */
         .tst-card::after {
           content: '';
           position: absolute;
@@ -154,7 +150,6 @@ export function Testimonial() {
           clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
           filter: grayscale(0.3);
         }
-        /* red corner accent */
         .tst-avatar-wrap::after {
           content: '';
           position: absolute;
@@ -177,7 +172,6 @@ export function Testimonial() {
           margin-top: 2px;
         }
 
-        /* Quote mark */
         .tst-quote-mark {
           font-family: 'Orbitron', monospace;
           font-size: 32px; font-weight: 700;
@@ -186,8 +180,6 @@ export function Testimonial() {
           margin-bottom: 8px;
           letter-spacing: -0.05em;
         }
-
-        /* Quote text */
         .tst-text {
           font-family: 'DM Sans', sans-serif;
           font-size: 13px; font-weight: 300;
@@ -196,22 +188,84 @@ export function Testimonial() {
           flex: 1;
         }
 
-        /* ── Bottom divider bar ── */
+        /* ── Scroll hint dots (mobile only) ── */
+        .tst-scroll-hint {
+          display: none;
+          align-items: center;
+          gap: 6px;
+          margin-top: 20px;
+        }
+        .tst-dot {
+          width: 18px; height: 2px;
+          background: #C8102E;
+          opacity: 0.35;
+          transition: opacity 0.2s, width 0.2s;
+        }
+        .tst-dot:first-child { opacity: 1; width: 28px; }
+
+        /* ── Bottom divider ── */
         .tst-bottom-bar {
           margin-top: 48px;
           height: 1px;
           background: linear-gradient(90deg, transparent, rgba(200,16,46,0.3) 30%, rgba(200,16,46,0.15) 70%, transparent);
         }
 
+        /* ── Tablet: 2-col grid ── */
         @media (max-width: 1200px) {
           .tst-grid { grid-template-columns: repeat(2, 1fr); }
         }
+
         @media (max-width: 1024px) {
-          .tst-root { padding: 64px 24px; }
+          .tst-root { padding: 64px 40px; }
+          .tst-header { margin-bottom: 36px; }
         }
+
+        /* ── Mobile: kill grid, go horizontal scroll ── */
         @media (max-width: 640px) {
-          .tst-root { padding: 48px 16px; }
-          .tst-grid { grid-template-columns: 1fr; }
+          .tst-root {
+            padding: 48px 0;
+            /* allow the scroll track to bleed edge-to-edge */
+          }
+
+          /* Re-scope header and bottom bar inside padding */
+          .tst-header {
+            padding: 0 20px;
+            margin-bottom: 28px;
+          }
+          .tst-bottom-bar { margin: 28px 20px 0; }
+
+          /* Horizontal scroll track */
+          .tst-grid {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 4px 20px 16px;
+            /* hide scrollbar but keep scroll */
+            scrollbar-width: none;
+          }
+          .tst-grid::-webkit-scrollbar { display: none; }
+
+          /* Cards: fixed width so exactly ~1.1 peek on right */
+          .tst-card {
+            flex: 0 0 82vw;
+            max-width: 320px;
+            scroll-snap-align: start;
+          }
+
+          /* Show dots */
+          .tst-scroll-hint {
+            display: flex;
+            padding: 0 20px;
+          }
+
+          .tst-h2 { font-size: clamp(18px, 5.5vw, 24px); }
+        }
+
+        @media (max-width: 380px) {
+          .tst-card { flex: 0 0 88vw; }
         }
       `}</style>
 
@@ -245,6 +299,13 @@ export function Testimonial() {
                 <div className="tst-quote-mark">"</div>
                 <p className="tst-text">{t.text}</p>
               </div>
+            ))}
+          </div>
+
+          {/* Scroll hint dots — visible on mobile only */}
+          <div className="tst-scroll-hint">
+            {testimonials.map((_, i) => (
+              <div key={i} className="tst-dot" />
             ))}
           </div>
 
