@@ -1,35 +1,68 @@
+import { useRef } from 'react';
+
 export function Testimonial() {
+  const trackRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollByCard = (direction: 'left' | 'right') => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const card = track.querySelector<HTMLElement>('.tst-card');
+    const baseGap = 18;
+    const amount = card ? card.offsetWidth + baseGap : 320;
+
+    track.scrollBy({
+      left: direction === 'left' ? -amount : amount,
+      behavior: 'smooth',
+    });
+  };
+
   const testimonials = [
-    {
-      name: 'Sarah Williams',
-      title: 'Managing Director, Global Portfolio Company',
-      photo: 'https://randomuser.me/api/portraits/women/44.jpg',
-      text: 'Effective, experienced and agile. Lorek reduced our costs and significantly improved performance of our portfolio.',
+        {
+      name: 'M.Clayton',
+      title: 'CEO, Chelsminster Estates Ltd',
+      photo: 'https://media.licdn.com/dms/image/v2/C4E03AQHMPj6R5kvHQw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1532946165478?e=1777507200&v=beta&t=G_yzQ_45zi-tLHCJimwGhs3nxcDJxHeITGUVktSgFnU',
+      text: 'We have had countless encounters and managed to work together on few occasions and Lorek’s Team is always punctual, prepared, professional and carries themselves in a polite and respectable manner.',
     },
     {
-      name: 'James Patel',
-      title: 'CEO, Tech Innovators',
-      photo: 'https://randomuser.me/api/portraits/men/32.jpg',
-      text: "Lorek's strategic insight and hands-on approach helped us scale internationally and secure key partnerships.",
+      name: 'R.Walker',
+      title: 'CEO, Alexander James International',
+      photo: 'https://media.licdn.com/dms/image/v2/D4E03AQH6VQROlyfMOA/profile-displayphoto-scale_200_200/B4EZfbndjuG4AY-/0/1751736253662?e=2147483647&v=beta&t=AwGwO1_KoPYnCqekJezxU6vurt08IFeemFho8s_pZBY',
+      text: 'We can advise that Lorek provided highly professional services ranging from major structural works through to detailed quality finishes. Their attitude and knowledge were exemplary, ensuring that these complex projects were completed to program and budget.',
+
     },
     {
-      name: 'Elena Rossi',
-      title: 'CFO, European Real Estate Group',
-      photo: 'https://randomuser.me/api/portraits/women/65.jpg',
-      text: 'Their team is responsive, knowledgeable, and truly invested in our success. Highly recommended.',
+      name: 'A. Goldreich',
+      title: 'CEO, Tamart Design',
+      photo: 'https://hips.hearstapps.com/hmg-prod/images/tamart-amos-goldreich-with-tamart-central-stool-c-photographer-tom-mannion-02-661c0086a92c7.jpg?crop=0.6673913043478261xw:1xh;center,top&resize=980:*',
+      text: 'Over the course of the past decade, Lorek have continuously delivered dozens of high quality homes, on time and within the budget. Their work ethic, honesty, and hard work are commendable.',
+
     },
     {
-      name: 'David Chen',
-      title: 'Partner, Private Equity Firm',
-      photo: 'https://randomuser.me/api/portraits/men/76.jpg',
-      text: 'Lorek delivered measurable results and built lasting value for our portfolio companies.',
+      name: 'S. Lear',
+      title: 'CEO, Frasers Property',
+      photo: 'https://profile-images.xing.com/static/nobody_m.256x256.jpg',
+      text: 'Their project teams, which only ever comprise highly skilled, experienced tradespeople and project managers, are able to contend with all manner of challenges and complexities and do so effortlessly and without a modicum of fuss',
     },
+    {
+      name: 'N. Morley',
+      title: 'CEO, Secure Funding',
+      photo: 'https://profile-images.xing.com/static/nobody_m.256x256.jpg',
+      text: "Lorek has been an indispensable asset to us in sourcing, building, maintaining, and managing our portfolio across the UK.",
+    },
+    {
+      name: 'I.Chinnock',
+      title: 'CEO, Neos Creative',
+      photo: 'https://profile-images.xing.com/static/nobody_m.256x256.jpg',
+      text: 'As a contractor, Jacob was attentive, knowledgeable with a great eye for detail. He manages a successful and profitable company whilst also providing a very fair and competitively priced service. A great combination.',
+    },
+
   ];
 
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Ranade:wght@400;500;600&display=swap');
 
         .tst-root {
           background: #0d0d0d;
@@ -70,30 +103,43 @@ export function Testimonial() {
           display: flex;
           align-items: center;
           gap: 10px;
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; font-weight: 700;
-          letter-spacing: 0.3em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
           color: #C8102E;
           margin-bottom: 14px;
         }
         .tst-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
 
         .tst-h2 {
-          font-family: 'Orbitron', monospace;
+          font-family: 'Fahkwang', sans-serif;
           font-weight: 700;
-          font-size: clamp(22px, 3.2vw, 38px);
+          font-size: clamp(26px, 3.2vw, 38px);
           line-height: 1.08;
           color: #FFFFFF;
           letter-spacing: -0.01em;
         }
-        .tst-h2 em { font-style: normal; color: #C8102E; }
-
-        /* ── Desktop/tablet: normal grid ── */
-        .tst-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 16px;
+        .tst-h2 em {
+          font-style: normal;
+          color: #C8102E;
+          font-family: 'Fahkwang', sans-serif;
+          font-weight: 700;
         }
+
+        /* ── Horizontal strip: all breakpoints ── */
+        .tst-grid {
+          display: flex;
+          flex-direction: row;
+          gap: 18px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          padding: 4px 0 8px;
+          scrollbar-width: none; /* Firefox */
+        }
+        .tst-grid::-webkit-scrollbar { display: none; }
 
         /* ── Card ── */
         .tst-card {
@@ -107,6 +153,9 @@ export function Testimonial() {
           flex-direction: column;
           transition: border-color 0.2s, background 0.2s;
           clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+          flex: 0 0 320px;
+          max-width: 360px;
+          scroll-snap-align: start;
         }
         .tst-card::before {
           content: '';
@@ -158,15 +207,18 @@ export function Testimonial() {
           background: #C8102E;
         }
         .tst-name {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 13px; font-weight: 700;
-          letter-spacing: 0.12em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
           color: #FFFFFF;
           line-height: 1.2;
         }
         .tst-title {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 10px; font-weight: 300;
+          font-family: 'Ranade', sans-serif;
+          font-size: 11px;
+          font-weight: 400;
           color: rgba(255,255,255,0.35);
           line-height: 1.4;
           margin-top: 2px;
@@ -181,38 +233,55 @@ export function Testimonial() {
           letter-spacing: -0.05em;
         }
         .tst-text {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px; font-weight: 300;
-          line-height: 1.75;
+          font-family: 'Ranade', sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 1.7;
           color: rgba(255,255,255,0.65);
           flex: 1;
         }
 
-        /* ── Scroll hint dots (mobile only) ── */
+        /* ── Scroll controls ── */
         .tst-scroll-hint {
-          display: none;
+          display: flex;
           align-items: center;
-          gap: 6px;
+          justify-content: center;
+          gap: 12px;
           margin-top: 20px;
+          color: rgba(255,255,255,0.45);
+          font-family: 'Ranade', sans-serif;
+          font-size: 12px;
         }
-        .tst-dot {
-          width: 18px; height: 2px;
+
+        .tst-arrow-btn {
+          width: 32px;
+          height: 32px;
+          border-radius: 999px;
+          border: 1px solid rgba(200,16,46,0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          color: #C8102E;
+          cursor: pointer;
+          transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .tst-arrow-btn:hover {
           background: #C8102E;
-          opacity: 0.35;
-          transition: opacity 0.2s, width 0.2s;
+          color: #FFFFFF;
+          border-color: #C8102E;
+          transform: translateY(-1px);
         }
-        .tst-dot:first-child { opacity: 1; width: 28px; }
+        .tst-arrow-icon {
+          font-size: 16px;
+          line-height: 1;
+        }
 
         /* ── Bottom divider ── */
         .tst-bottom-bar {
           margin-top: 48px;
           height: 1px;
           background: linear-gradient(90deg, transparent, rgba(200,16,46,0.3) 30%, rgba(200,16,46,0.15) 70%, transparent);
-        }
-
-        /* ── Tablet: 2-col grid ── */
-        @media (max-width: 1200px) {
-          .tst-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 1024px) {
@@ -234,19 +303,11 @@ export function Testimonial() {
           }
           .tst-bottom-bar { margin: 28px 20px 0; }
 
-          /* Horizontal scroll track */
+          /* Horizontal scroll track tweaks */
           .tst-grid {
-            display: flex;
-            flex-direction: row;
             gap: 12px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
             padding: 4px 20px 16px;
-            /* hide scrollbar but keep scroll */
-            scrollbar-width: none;
           }
-          .tst-grid::-webkit-scrollbar { display: none; }
 
           /* Cards: fixed width so exactly ~1.1 peek on right */
           .tst-card {
@@ -255,9 +316,8 @@ export function Testimonial() {
             scroll-snap-align: start;
           }
 
-          /* Show dots */
+          /* Controls padding on mobile */
           .tst-scroll-hint {
-            display: flex;
             padding: 0 20px;
           }
 
@@ -284,7 +344,7 @@ export function Testimonial() {
           </div>
 
           {/* Cards */}
-          <div className="tst-grid">
+          <div className="tst-grid" ref={trackRef}>
             {testimonials.map((t, i) => (
               <div key={i} className="tst-card">
                 <div className="tst-avatar-row">
@@ -302,11 +362,25 @@ export function Testimonial() {
             ))}
           </div>
 
-          {/* Scroll hint dots — visible on mobile only */}
+          {/* Scroll controls */}
           <div className="tst-scroll-hint">
-            {testimonials.map((_, i) => (
-              <div key={i} className="tst-dot" />
-            ))}
+            <button
+              type="button"
+              className="tst-arrow-btn"
+              onClick={() => scrollByCard('left')}
+              aria-label="Scroll testimonials left"
+            >
+              <span className="tst-arrow-icon">&#x2039;</span>
+            </button>
+            <span>Scroll testimonials</span>
+            <button
+              type="button"
+              className="tst-arrow-btn"
+              onClick={() => scrollByCard('right')}
+              aria-label="Scroll testimonials right"
+            >
+              <span className="tst-arrow-icon">&#x203A;</span>
+            </button>
           </div>
 
           <div className="tst-bottom-bar" />

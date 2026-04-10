@@ -6,7 +6,7 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Ranade:wght@300;400;500;600&display=swap');
 
         .contact-root {
           position: relative;
@@ -84,9 +84,11 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; font-weight: 700;
-          letter-spacing: 0.3em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
           color: #C8102E;
           margin-bottom: 24px;
           justify-content: center;
@@ -94,21 +96,26 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
         .contact-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
 
         .contact-h2 {
-          font-family: 'Orbitron', monospace;
-          font-weight: 700;
-          font-size: clamp(24px, 3.8vw, 46px);
-          line-height: 1.06;
+          font-family: 'Fahkwang', sans-serif;
+          font-weight: 600;
+          font-size: clamp(26px, 3.6vw, 44px);
+          line-height: 1.08;
           color: #FFFFFF;
           margin-bottom: 20px;
           letter-spacing: -0.01em;
         }
-        .contact-h2 em { font-style: normal; color: #C8102E; }
+        .contact-h2 em {
+          font-style: normal;
+          color: #C8102E;
+          font-family: 'Fahkwang', sans-serif;
+          font-weight: 700;
+        }
 
         .contact-sub {
-          font-family: 'DM Sans', sans-serif;
-          font-size: clamp(14px, 1.7vw, 16px);
-          font-weight: 300;
-          line-height: 1.75;
+          font-family: 'Ranade', sans-serif;
+          font-size: clamp(14px, 1.7vw, 17px);
+          font-weight: 400;
+          line-height: 1.7;
           color: rgba(255,255,255,0.48);
           margin-bottom: 44px;
         }
@@ -123,9 +130,11 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
         }
 
         .contact-btn-primary {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 12px; font-weight: 700;
-          letter-spacing: 0.24em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.24em;
+          text-transform: uppercase;
           color: #FFFFFF;
           background: #C8102E;
           border: none;
@@ -137,9 +146,11 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
         .contact-btn-primary:hover { background: #a50d25; }
 
         .contact-btn-secondary {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 12px; font-weight: 700;
-          letter-spacing: 0.24em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.24em;
+          text-transform: uppercase;
           color: rgba(255,255,255,0.6);
           background: transparent;
           border: 1px solid rgba(255,255,255,0.2);
@@ -168,9 +179,11 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
           display: flex;
           align-items: center;
           gap: 8px;
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; font-weight: 600;
-          letter-spacing: 0.18em; text-transform: uppercase;
+          font-family: 'Ranade', sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
           color: rgba(255,255,255,0.3);
         }
         .contact-detail-dot {

@@ -4,22 +4,11 @@ interface HeroProps {
 
 export function Hero({ openContactModal }: HeroProps) {
   const companies = [
-    "MICROSOFT",
-    "AMAZON",
-    "GOLDMAN SACHS",
-    "BLACKROCK",
-    "JP MORGAN",
-    "DELOITTE",
-    "MCKINSEY",
-    "BOSTON CONSULTING",
-    "MICROSOFT",
-    "AMAZON",
-    "GOLDMAN SACHS",
-    "BLACKROCK",
-    "JP MORGAN",
-    "DELOITTE",
-    "MCKINSEY",
-    "BOSTON CONSULTING",
+    "The Telegraph",
+    "Growth Business",
+    "Property Week",
+    "Forbes",
+    "The Guardian",
   ];
 
   const handleContactClick = (e: React.MouseEvent) => {
@@ -86,7 +75,7 @@ export function Hero({ openContactModal }: HeroProps) {
                     font-size: 10px;
                   }
                 }
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;900&family=DM+Sans:wght@200;300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;500;600;700&family=Ranade:wght@200;300;400;500;600;700&display=swap');
 
         .hero-root {
           position: relative;
@@ -183,7 +172,7 @@ export function Hero({ openContactModal }: HeroProps) {
           display: flex;
           align-items: center;
           gap: 10px;
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: clamp(9px, 1.5vw, 11px);
           font-weight: 600;
           letter-spacing: 0.28em;
@@ -200,7 +189,7 @@ export function Hero({ openContactModal }: HeroProps) {
 
         /* ── Headline ── */
         .hero-h1 {
-          font-family: 'Orbitron', monospace;
+          font-family: 'Fahkwang', sans-serif;
           font-weight: 700;
           font-size: clamp(30px, 5.5vw, 62px);
           line-height: 1.06;
@@ -216,7 +205,7 @@ export function Hero({ openContactModal }: HeroProps) {
 
         /* ── Sub ── */
         .hero-sub {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Ranade', sans-serif;
           font-size: clamp(14px, 1.8vw, 16px);
           font-weight: 300;
           line-height: 1.7;
@@ -227,7 +216,7 @@ export function Hero({ openContactModal }: HeroProps) {
 
         /* ── Buttons ── */
         .hero-btn-primary {
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.22em;
@@ -243,7 +232,7 @@ export function Hero({ openContactModal }: HeroProps) {
         .hero-btn-primary:hover { background: #a50d25; }
 
         .hero-btn-secondary {
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.22em;
@@ -263,7 +252,7 @@ export function Hero({ openContactModal }: HeroProps) {
 
         /* ── Trusted / Ticker ── */
         .trusted-label {
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 9px;
           font-weight: 600;
           letter-spacing: 0.28em;
@@ -281,7 +270,7 @@ export function Hero({ openContactModal }: HeroProps) {
           animation: ticker-scroll 35s linear infinite;
         }
         .ticker-item {
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 11px;
           font-weight: 600;
           letter-spacing: 0.14em;
@@ -314,15 +303,15 @@ export function Hero({ openContactModal }: HeroProps) {
           opacity: 0.32;
         }
         .stat-number {
-          font-family: 'Orbitron', monospace;
-          font-size: clamp(22px, 4vw, 30px);
+          font-family: 'Fahkwang', sans-serif;
+          font-size: clamp(20px, 2vw, 28px);
           font-weight: 700;
           color: #FFFFFF;
           margin-bottom: 4px;
           letter-spacing: -0.02em;
         }
         .stat-label {
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 0.18em;
@@ -340,7 +329,7 @@ export function Hero({ openContactModal }: HeroProps) {
           padding: 22px 20px;
         }
         .testimonial-quote {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Ranade', sans-serif;
           font-size: 13px;
           font-weight: 300;
           line-height: 1.72;
@@ -348,7 +337,7 @@ export function Hero({ openContactModal }: HeroProps) {
           margin-bottom: 14px;
         }
         .testimonial-attr {
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.2em;
@@ -367,11 +356,6 @@ export function Hero({ openContactModal }: HeroProps) {
 
       <section className="hero-root">
         {/* ── Video — city skyline / financial district at night ── */}
-        {/*
-          Primary:  Pexels #3827392 — slow aerial drift over lit city towers (free licence)
-          Fallback: Pexels #2053855 — financial district skyline timelapse
-          Poster:   Unsplash dark city skyline — loads instantly before video
-        */}
         <video
           className="hero-video"
           autoPlay
@@ -431,10 +415,9 @@ export function Hero({ openContactModal }: HeroProps) {
                     Contact
                   </button>
                 </div>
-                {/* ContactModal is now rendered at App level */}
 
                 <div className="trusted-label">
-                  Trusted by leading organizations
+                  We Were Featured At 
                 </div>
 
                 <div
@@ -461,10 +444,10 @@ export function Hero({ openContactModal }: HeroProps) {
               >
                 <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-1">
                   {[
-                    { n: "$2.5B+", l: "Assets Managed" },
+                    { n: "$300M+", l: "Assets Managed" },
                     { n: "50+", l: "Global Clients" },
                     { n: "15+", l: "Years Experience" },
-                    { n: "12", l: "Industries Served" },
+                    { n: "6", l: "Industries Served" },
                   ].map((s, i) => (
                     <div key={i} className="stat-card">
                       <div className="stat-number">{s.n}</div>
@@ -491,7 +474,7 @@ export function Hero({ openContactModal }: HeroProps) {
                     />
                     <span
                       style={{
-                        fontFamily: "Rajdhani, sans-serif",
+                        fontFamily: "Fahkwang, sans-serif",
                         fontSize: "9px",
                         fontWeight: 600,
                         letterSpacing: "0.2em",

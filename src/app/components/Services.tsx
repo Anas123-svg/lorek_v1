@@ -5,12 +5,13 @@ export function Services() {
   const [contactOpen, setContactOpen] = useState(false);
 
   const services = [
+
     {
       number: "01",
-      name: "Commercialisation and Sales",
-      outcome: "Profitable Growth",
+      name: "Strategy and Organisation",
+      outcome: "Long-Term Competitiveness",
       description:
-        "Lead multi-year journeys with tangible impact, including improved win-rates, increased delivered margin, targeted portfolios, higher resource efficiency, and more profitable and sustainable growth.",
+        "We help enterprises stay ahead of the curve, focusing on operating model review, digital optimisation, AI utilisation, portfolio rebalancing, sustainability and access to future talent.",
     },
     {
       number: "02",
@@ -21,18 +22,20 @@ export function Services() {
     },
     {
       number: "03",
+      name: "Commercialisation and Sales",
+      outcome: "Profitable Growth",
+      description:
+        "Lead multi-year journeys with tangible impact, including improved win-rates, increased delivered margin, targeted portfolios, higher resource efficiency, and more profitable and sustainable growth.",
+    },
+
+    {
+      number: "04",
       name: "Investment Sourcing",
       outcome: "Smart Capital Access",
       description:
         "We prepare companies for the investment process, source the funding and participate with our private equity partners in joint ventures while keeping operations streamlined.",
     },
-    {
-      number: "04",
-      name: "Strategy and Organisation",
-      outcome: "Long-Term Competitiveness",
-      description:
-        "We help enterprises stay ahead of the curve, focusing on operating model review, digital optimisation, AI utilisation, portfolio rebalancing, sustainability and access to future talent.",
-    },
+
   ];
 
   const [, setHovered] = useState<number | null>(null);
@@ -43,7 +46,7 @@ export function Services() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Ranade:wght@200;300;400;500&display=swap');
 
         .svc-root {
           background: #0d0d0d;
@@ -75,7 +78,7 @@ export function Services() {
           display: flex;
           align-items: center;
           gap: 10px;
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 10px; font-weight: 700;
           letter-spacing: 0.3em; text-transform: uppercase;
           color: #C8102E;
@@ -84,7 +87,7 @@ export function Services() {
         .svc-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
 
         .svc-h2 {
-          font-family: 'Orbitron', monospace;
+          font-family: 'Fahkwang', sans-serif;
           font-weight: 700;
           font-size: clamp(22px, 3.2vw, 38px);
           line-height: 1.08;
@@ -129,7 +132,7 @@ export function Services() {
         .svc-num {
           grid-column: 1;
           grid-row: 1;
-          font-family: 'Orbitron', monospace;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 11px; font-weight: 700;
           color: rgba(200,16,46,0.35);
           padding-top: 4px;
@@ -141,7 +144,7 @@ export function Services() {
         .svc-name {
           grid-column: 2;
           grid-row: 1;
-          font-family: 'Orbitron', monospace;
+          font-family: 'Fahkwang', sans-serif;
           font-size: clamp(15px, 1.8vw, 19px);
           font-weight: 700;
           color: rgba(255,255,255,0.85);
@@ -160,7 +163,7 @@ export function Services() {
         }
 
         .svc-outcome {
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 9px; font-weight: 700;
           letter-spacing: 0.26em; text-transform: uppercase;
           color: #C8102E;
@@ -169,7 +172,7 @@ export function Services() {
         .svc-outcome::before { content: ''; width: 14px; height: 1px; background: #C8102E; }
 
         .svc-desc {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Ranade', sans-serif;
           font-size: 14px; font-weight: 300;
           line-height: 1.72;
           color: rgba(255,255,255,0.45);
@@ -210,13 +213,13 @@ export function Services() {
           opacity: 0.3;
         }
         .svc-cta-label {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Ranade', sans-serif;
           font-size: 14px; font-weight: 300;
           color: rgba(255,255,255,0.55);
         }
         .svc-cta-btn {
           flex-shrink: 0;
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 11px; font-weight: 700;
           letter-spacing: 0.22em; text-transform: uppercase;
           color: #FFFFFF;

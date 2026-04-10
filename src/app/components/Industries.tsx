@@ -5,19 +5,19 @@ export function Industries() {
       image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070',
     },
     {
-      name: 'Engineering & Robotics',
+      name: 'Advanced Engineering & Robotics',
       image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070',
     },
     {
       name: 'Media, Arts & Advertising',
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2070',
+      image: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=2070',
     },
     {
-      name: 'Consumer Goods',
+      name: 'Consumer & Retail Goods',
       image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070',
     },
     {
-      name: 'IT & Communication',
+      name: 'Technology, IT & Communications',
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072',
     },
   ];
@@ -27,7 +27,7 @@ export function Industries() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Ranade:wght@400;500;600&display=swap');
 
         .ind-root {
           background: #080808;
@@ -66,30 +66,37 @@ export function Industries() {
           display: flex;
           align-items: center;
           gap: 10px;
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; font-weight: 700;
-          letter-spacing: 0.3em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
           color: #C8102E;
           margin-bottom: 14px;
         }
         .ind-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
 
         .ind-h2 {
-          font-family: 'Orbitron', monospace;
+          font-family: 'Fahkwang', sans-serif;
           font-weight: 700;
-          font-size: clamp(22px, 3.2vw, 38px);
+          font-size: clamp(26px, 3.2vw, 38px);
           line-height: 1.08;
           color: #FFFFFF;
           margin-bottom: 14px;
           letter-spacing: -0.01em;
         }
-        .ind-h2 em { font-style: normal; color: #C8102E; }
+        .ind-h2 em {
+          font-style: normal;
+          color: #C8102E;
+          font-family: 'Fahkwang', sans-serif;
+          font-weight: 700;
+        }
 
         .ind-sub {
-          font-family: 'DM Sans', sans-serif;
-          font-size: clamp(13px, 1.5vw, 15px);
-          font-weight: 300;
-          line-height: 1.75;
+          font-family: 'Ranade', sans-serif;
+          font-size: clamp(14px, 1.5vw, 17px);
+          font-weight: 400;
+          line-height: 1.7;
           color: rgba(255,255,255,0.45);
           max-width: 580px;
         }
@@ -181,9 +188,11 @@ export function Industries() {
           padding: 14px 16px;
           opacity: 0;
           transition: opacity 0.25s;
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; font-weight: 700;
-          letter-spacing: 0.2em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
           color: rgba(255,255,255,0.7);
         }
         .ind-card:hover .ind-card-hover-cta { opacity: 1; }
@@ -193,9 +202,11 @@ export function Industries() {
           padding: 13px 16px;
         }
         .ind-card-name {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 12px; font-weight: 700;
-          letter-spacing: 0.12em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
           color: #FFFFFF;
           line-height: 1.3;
         }
@@ -209,9 +220,11 @@ export function Industries() {
         }
         .ind-footer-line { flex: 1; height: 0.5px; background: rgba(255,255,255,0.06); }
         .ind-footer-link {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 11px; font-weight: 700;
-          letter-spacing: 0.22em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
           color: #C8102E;
           text-decoration: none;
           display: flex; align-items: center; gap: 8px;

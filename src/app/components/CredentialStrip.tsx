@@ -9,7 +9,7 @@ export function CredentialStrip() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Orbitron:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@600;700&family=Ranade:wght@300;400;500&display=swap');
 
         .cred-root {
           background: #0a0a0a;
@@ -27,14 +27,14 @@ export function CredentialStrip() {
           pointer-events: none;
         }
         .cred-number {
-          font-family: 'Orbitron', monospace;
+          font-family: 'Fahkwang', sans-serif;
           font-size: clamp(18px, 2.5vw, 22px);
           font-weight: 700;
           color: #FFFFFF;
           letter-spacing: -0.01em;
         }
         .cred-label {
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 9px;
           font-weight: 600;
           letter-spacing: 0.22em;

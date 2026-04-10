@@ -17,7 +17,7 @@ export function Values() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Orbitron:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@500;600;700&family=Ranade:wght@400;500;600&display=swap');
 
         .val-root {
           background: #080808;
@@ -47,9 +47,11 @@ export function Values() {
           margin-bottom: 28px;
         }
         .val-header-label {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 9px; font-weight: 700;
-          letter-spacing: 0.3em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
           color: #C8102E;
           white-space: nowrap;
         }
@@ -115,8 +117,9 @@ export function Values() {
           clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 0 100%);
         }
         .val-chip-text {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 12px; font-weight: 500;
+          font-family: 'Ranade', sans-serif;
+          font-size: 13px;
+          font-weight: 400;
           letter-spacing: 0.06em;
           color: rgba(255,255,255,0.6);
         }

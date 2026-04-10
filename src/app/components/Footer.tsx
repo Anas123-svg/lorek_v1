@@ -22,7 +22,7 @@ export function Footer() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Ranade:wght@300;400;500;600&display=swap');
 
         .ftr-root {
           background: #050505;
@@ -53,7 +53,7 @@ export function Footer() {
         .ftr-main {
           max-width: 1440px;
           margin: 0 auto;
-          padding: 64px 80px 48px;
+          padding: 64px 0 48px;
           display: grid;
           grid-template-columns: 2fr 1fr 1fr 1.5fr;
           gap: 48px;
@@ -69,16 +69,17 @@ export function Footer() {
         }
         .ftr-logo-bar { width: 3px; height: 20px; background: #C8102E; flex-shrink: 0; }
         .ftr-logo-text {
-          font-family: 'Orbitron', monospace;
-          font-weight: 700;
+          font-family: 'Fahkwang', sans-serif;
+          font-weight: 600;
           font-size: 15px;
           letter-spacing: 0.35em;
           color: #FFFFFF;
         }
 
         .ftr-brand-desc {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px; font-weight: 300;
+          font-family: 'Ranade', sans-serif;
+          font-size: 13px;
+          font-weight: 400;
           line-height: 1.75;
           color: rgba(255,255,255,0.4);
           margin-bottom: 24px;
@@ -91,17 +92,21 @@ export function Footer() {
         }
         .ftr-cert-line { width: 28px; height: 1px; background: #C8102E; flex-shrink: 0; }
         .ftr-cert-label {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 9px; font-weight: 700;
-          letter-spacing: 0.26em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 9px;
+          font-weight: 600;
+          letter-spacing: 0.26em;
+          text-transform: uppercase;
           color: #C8102E;
         }
 
         /* ── Column headings ── */
         .ftr-col-heading {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; font-weight: 700;
-          letter-spacing: 0.28em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
           color: #FFFFFF;
           margin-bottom: 20px;
           display: flex; align-items: center; gap: 8px;
@@ -117,8 +122,9 @@ export function Footer() {
         .ftr-links-col { display: flex; flex-direction: column; gap: 2px; }
 
         .ftr-link {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px; font-weight: 300;
+          font-family: 'Ranade', sans-serif;
+          font-size: 13px;
+          font-weight: 400;
           color: rgba(255,255,255,0.38);
           text-decoration: none;
           display: flex; align-items: center; gap: 8px;
@@ -153,8 +159,9 @@ export function Footer() {
           clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%);
         }
         .ftr-contact-main {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px; font-weight: 400;
+          font-family: 'Ranade', sans-serif;
+          font-size: 13px;
+          font-weight: 400;
           color: #FFFFFF;
           text-decoration: none;
           display: block;
@@ -162,9 +169,11 @@ export function Footer() {
         }
         a.ftr-contact-main:hover { color: #C8102E; }
         .ftr-contact-sub {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 9px; font-weight: 600;
-          letter-spacing: 0.18em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 9px;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
           color: rgba(255,255,255,0.25);
           margin-top: 2px;
         }
@@ -177,17 +186,19 @@ export function Footer() {
         .ftr-bottom-inner {
           max-width: 1440px;
           margin: 0 auto;
-          padding: 16px 80px;
+          padding: 16px 0;
           display: flex;
           align-items: center;
           justify-content: space-between;
           gap: 16px;
           flex-wrap: wrap;
         }
-        .ftr-copyright {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; font-weight: 500;
-          letter-spacing: 0.14em; text-transform: uppercase;
+        .ftrcopyright {
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
           color: rgba(255,255,255,0.22);
         }
         .ftr-legal-links {
@@ -196,9 +207,11 @@ export function Footer() {
           gap: 20px;
         }
         .ftr-legal-link {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; font-weight: 600;
-          letter-spacing: 0.14em; text-transform: uppercase;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
           color: rgba(255,255,255,0.22);
           text-decoration: none;
           transition: color 0.2s;
@@ -211,20 +224,20 @@ export function Footer() {
         }
 
         /* ── Tablet: 2-col ── */
-        @media (max-width: 1100px) {
+        @media (max-width: 1023px) {
           .ftr-main {
             grid-template-columns: 1fr 1fr;
-            padding: 48px 40px 40px;
+            padding: 48px 0 40px;
             gap: 40px 48px;
           }
-          .ftr-bottom-inner { padding: 16px 40px; }
+          .ftr-bottom-inner { padding: 16px 0; }
         }
 
         /* ── Mobile: single col, left-aligned ── */
         @media (max-width: 640px) {
           .ftr-main {
             grid-template-columns: 1fr;
-            padding: 40px 20px 32px;
+            padding: 40px 0 32px;
             gap: 36px;
           }
 
@@ -245,7 +258,7 @@ export function Footer() {
           }
 
           .ftr-bottom-inner {
-            padding: 16px 20px;
+            padding: 16px 0;
             flex-direction: column;
             align-items: flex-start;
             gap: 10px;
@@ -255,8 +268,8 @@ export function Footer() {
 
         /* ── Small mobile ── */
         @media (max-width: 380px) {
-          .ftr-main { padding: 32px 16px 24px; }
-          .ftr-bottom-inner { padding: 14px 16px; }
+          .ftr-main { padding: 32px 0 24px; }
+          .ftr-bottom-inner { padding: 14px 0; }
           .ftr-links-col { grid-template-columns: 1fr; }
           .ftr-logo-text { font-size: 13px; }
           .ftr-brand-desc { font-size: 12px; }
@@ -265,13 +278,25 @@ export function Footer() {
       `}</style>
 
       <footer className="ftr-root">
-        <div className="ftr-main">
+        <div className="px-8 sm:px-16 xl:px-20 nav-bar-padding">
+          <div className="ftr-main">
 
           {/* Brand */}
           <div>
             <div className="ftr-logo">
               <div className="ftr-logo-bar" />
-              <span className="ftr-logo-text">LOREK</span>
+                <span
+                  style={{
+                    fontFamily: '"Trajan Pro 3", "Times New Roman", serif',
+                    fontStyle: 'italic',
+                    fontWeight: 400,
+                    fontSize: 'clamp(12px, 2.2vw, 20px)',
+                    letterSpacing: '0.35em',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  LOREK
+                </span>
             </div>
             <p className="ftr-brand-desc">
               Strategic advisory and private equity for ambitious organisations. We deliver sustainable growth, operational excellence, and capital access across industries.
@@ -339,17 +364,19 @@ export function Footer() {
               </div>
             </div>
           </div>
-
+        </div>
         </div>
 
         {/* Bottom bar */}
         <div className="ftr-bottom">
-          <div className="ftr-bottom-inner">
-            <span className="ftr-copyright">© 2026 LOREK Strategic Partners. All Rights Reserved.</span>
-            <div className="ftr-legal-links">
-              <a href="#" className="ftr-legal-link">Privacy Policy</a>
-              <div className="ftr-legal-sep" />
-              <a href="#" className="ftr-legal-link">Terms & Conditions</a>
+          <div className="px-8 sm:px-16 xl:px-20 nav-bar-padding">
+            <div className="ftr-bottom-inner">
+              <span className="ftr-copyright">© 2026 LOREK Strategic Partners. All Rights Reserved.</span>
+              <div className="ftr-legal-links">
+                <a href="#" className="ftr-legal-link">Privacy Policy</a>
+                <div className="ftr-legal-sep" />
+                <a href="#" className="ftr-legal-link">Terms & Conditions</a>
+              </div>
             </div>
           </div>
         </div>

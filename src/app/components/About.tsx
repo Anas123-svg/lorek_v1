@@ -30,7 +30,7 @@ export function About() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700&family=DM+Sans:wght@200;300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Ranade:wght@300;400;500;600&display=swap');
 
         .about-root {
           background: #080808;
@@ -55,10 +55,10 @@ export function About() {
           display: flex;
           align-items: center;
           gap: 10px;
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Ranade', sans-serif;
           font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 0.3em;
+          font-weight: 600;
+          letter-spacing: 0.32em;
           text-transform: uppercase;
           color: #C8102E;
           margin-bottom: 14px;
@@ -66,22 +66,22 @@ export function About() {
         .about-eyebrow-line { width: 24px; height: 1px; background: #C8102E; flex-shrink: 0; }
 
         .about-h2 {
-          font-family: 'Orbitron', monospace;
-          font-weight: 700;
-          font-size: clamp(22px, 3.2vw, 38px);
-          line-height: 1.08;
+          font-family: 'Fahkwang', sans-serif;
+          font-weight: 600;
+          font-size: clamp(24px, 3.5vw, 42px);
+          line-height: 1.1;
           color: #FFFFFF;
           max-width: 700px;
           margin-bottom: 16px;
-          letter-spacing: -0.01em;
+          letter-spacing: 0;
         }
-        .about-h2 em { font-style: normal; color: #C8102E; }
+        .about-h2 em { font-style: normal; color: #C8102E; font-weight: 700; }
 
         .about-sub {
-          font-family: 'DM Sans', sans-serif;
-          font-size: clamp(14px, 1.6vw, 15px);
-          font-weight: 300;
-          line-height: 1.75;
+          font-family: 'Ranade', sans-serif;
+          font-size: clamp(14px, 1.6vw, 16px);
+          font-weight: 400;
+          line-height: 1.7;
           color: rgba(255,255,255,0.48);
           max-width: 640px;
           margin-bottom: 48px;
@@ -120,9 +120,9 @@ export function About() {
           bottom: 22px; left: 22px; right: 22px;
         }
         .about-img-tag {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 9px; font-weight: 700;
-          letter-spacing: 0.26em;
+          font-family: 'Ranade', sans-serif;
+          font-size: 9px; font-weight: 600;
+          letter-spacing: 0.28em;
           text-transform: uppercase;
           color: #C8102E;
           margin-bottom: 8px;
@@ -130,16 +130,16 @@ export function About() {
         }
         .about-img-tag::before { content: ''; width: 14px; height: 1px; background: #C8102E; }
         .about-img-body {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 14px; font-weight: 300;
-          line-height: 1.65; color: rgba(255,255,255,0.9);
+          font-family: 'Ranade', sans-serif;
+          font-size: 14px; font-weight: 400;
+          line-height: 1.6; color: rgba(255,255,255,0.9);
           max-width: 460px;
         }
         .about-img-cta {
           margin-top: 12px;
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; font-weight: 700;
-          letter-spacing: 0.22em; text-transform: uppercase;
+          font-family: 'Ranade', sans-serif;
+          font-size: 10px; font-weight: 600;
+          letter-spacing: 0.24em; text-transform: uppercase;
           color: rgba(255,255,255,0.5);
           opacity: 0;
           transition: opacity 0.25s;
@@ -164,15 +164,15 @@ export function About() {
           opacity: 0.3;
         }
         .about-text-card-tag {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 9px; font-weight: 700;
-          letter-spacing: 0.26em; text-transform: uppercase;
+          font-family: 'Ranade', sans-serif;
+          font-size: 9px; font-weight: 600;
+          letter-spacing: 0.28em; text-transform: uppercase;
           color: #C8102E; margin-bottom: 10px;
         }
         .about-text-card-body {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px; font-weight: 300;
-          line-height: 1.7; color: rgba(255,255,255,0.65);
+          font-family: 'Ranade', sans-serif;
+          font-size: 13px; font-weight: 400;
+          line-height: 1.65; color: rgba(255,255,255,0.65);
         }
 
         /* ── Small image cards ── */
@@ -203,15 +203,15 @@ export function About() {
           position: absolute; bottom: 14px; left: 14px; right: 14px;
         }
         .about-img-sm-tag {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 9px; font-weight: 700;
-          letter-spacing: 0.22em; text-transform: uppercase;
+          font-family: 'Ranade', sans-serif;
+          font-size: 9px; font-weight: 600;
+          letter-spacing: 0.24em; text-transform: uppercase;
           color: #C8102E; margin-bottom: 5px;
         }
         .about-img-sm-body {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 12px; font-weight: 300;
-          line-height: 1.55; color: rgba(255,255,255,0.85);
+          font-family: 'Ranade', sans-serif;
+          font-size: 12px; font-weight: 400;
+          line-height: 1.5; color: rgba(255,255,255,0.85);
         }
         .about-img-sm-cta {
           position: absolute; inset: 0;
@@ -219,9 +219,9 @@ export function About() {
           display: flex; align-items: flex-end;
           padding: 14px;
           opacity: 0; transition: opacity 0.25s;
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; font-weight: 700;
-          letter-spacing: 0.2em; text-transform: uppercase;
+          font-family: 'Ranade', sans-serif;
+          font-size: 10px; font-weight: 600;
+          letter-spacing: 0.22em; text-transform: uppercase;
           color: rgba(255,255,255,0.7);
         }
         .about-img-sm:hover .about-img-sm-cta { opacity: 1; }
@@ -246,9 +246,9 @@ export function About() {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 9px; font-weight: 700;
-          letter-spacing: 0.22em; text-transform: uppercase;
+          font-family: 'Ranade', sans-serif;
+          font-size: 9px; font-weight: 600;
+          letter-spacing: 0.24em; text-transform: uppercase;
           color: #C8102E;
           border: 0.5px solid rgba(200,16,46,0.35);
           padding: 4px 10px;
@@ -257,18 +257,18 @@ export function About() {
         .about-feature-pill::before { content: ''; width: 4px; height: 4px; background: #C8102E; }
 
         .about-feature-title {
-          font-family: 'Orbitron', monospace;
-          font-size: clamp(16px, 2vw, 22px);
-          font-weight: 700;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: clamp(18px, 2.2vw, 24px);
+          font-weight: 600;
           color: #FFFFFF;
-          line-height: 1.1;
+          line-height: 1.15;
           margin-bottom: 12px;
-          letter-spacing: -0.01em;
+          letter-spacing: 0;
         }
         .about-feature-desc {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px; font-weight: 300;
-          line-height: 1.7; color: rgba(255,255,255,0.6);
+          font-family: 'Ranade', sans-serif;
+          font-size: 13px; font-weight: 400;
+          line-height: 1.65; color: rgba(255,255,255,0.6);
           margin-bottom: 16px;
           max-width: 500px;
         }
@@ -281,9 +281,9 @@ export function About() {
         }
         .about-bullet {
           display: flex; align-items: center; gap: 7px;
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Ranade', sans-serif;
           font-size: 11px; font-weight: 500;
-          letter-spacing: 0.06em;
+          letter-spacing: 0.04em;
           color: rgba(255,255,255,0.65);
         }
         .about-bullet::before { content: ''; width: 4px; height: 4px; background: #C8102E; flex-shrink: 0; }
@@ -302,26 +302,26 @@ export function About() {
           display: flex; flex-direction: column; align-items: center; gap: 3px;
         }
         .about-mini-stat-n {
-          font-family: 'Orbitron', monospace;
-          font-size: 16px; font-weight: 700;
-          color: #C8102E; letter-spacing: -0.01em;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 17px; font-weight: 600;
+          color: #C8102E; letter-spacing: 0;
         }
         .about-mini-stat-label {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 9px; font-weight: 700;
-          letter-spacing: 0.16em; text-transform: uppercase;
+          font-family: 'Ranade', sans-serif;
+          font-size: 9px; font-weight: 600;
+          letter-spacing: 0.18em; text-transform: uppercase;
           color: #FFFFFF;
         }
         .about-mini-stat-desc {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 10px; font-weight: 300;
+          font-family: 'Ranade', sans-serif;
+          font-size: 10px; font-weight: 400;
           color: rgba(255,255,255,0.38); line-height: 1.4;
         }
 
         .about-link {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 11px; font-weight: 700;
-          letter-spacing: 0.22em; text-transform: uppercase;
+          font-family: 'Ranade', sans-serif;
+          font-size: 11px; font-weight: 600;
+          letter-spacing: 0.24em; text-transform: uppercase;
           color: rgba(255,255,255,0.55);
           display: inline-flex; align-items: center; gap: 8px;
           transition: color 0.2s;
@@ -435,7 +435,7 @@ export function About() {
                 <div className="about-mini-stats">
                   {[
                     { n: '12+', label: 'Advisory Mandates', desc: 'Across growth, transformation & capital strategy' },
-                    { n: '$2B+', label: 'Capital Deployed', desc: 'For clients in diverse sectors' },
+                    { n: '$100M+', label: 'Capital Deployed', desc: 'For clients in diverse sectors' },
                     { n: '3–5×', label: 'Decision Velocity', desc: 'Faster, data-driven outcomes' },
                   ].map((s, i) => (
                     <div key={i} className="about-mini-stat">

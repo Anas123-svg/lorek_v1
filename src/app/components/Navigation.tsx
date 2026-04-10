@@ -7,7 +7,7 @@ interface NavigationProps {
 export function Navigation({ openContactModal }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const navItems = ['Home', 'About', 'Industries', 'Services', 'Values'];
+  const navItems = [ 'About', 'Industries', 'Services', 'Values'];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -15,7 +15,6 @@ export function Navigation({ openContactModal }: NavigationProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu on nav click (mobile)
   const handleNavClick = () => setMenuOpen(false);
   const handleContactClick = (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
@@ -66,8 +65,8 @@ export function Navigation({ openContactModal }: NavigationProps) {
                   transition: opacity 0.3s;
                 }
                 .nav-mobile-link {
-                  font-family: 'Rajdhani', sans-serif;
-                  font-size: 22px;
+                  font-family: 'Fahkwang', sans-serif;
+                  font-size: 18px;
                   font-weight: 700;
                   letter-spacing: 0.18em;
                   text-transform: uppercase;
@@ -81,7 +80,7 @@ export function Navigation({ openContactModal }: NavigationProps) {
                   color: #C8102E;
                 }
                 .nav-mobile-cta {
-                  font-family: 'Rajdhani', sans-serif;
+                  font-family: 'Fahkwang', sans-serif;
                   font-size: 15px;
                   font-weight: 700;
                   letter-spacing: 0.22em;
@@ -105,12 +104,12 @@ export function Navigation({ openContactModal }: NavigationProps) {
                 @media (max-width: 1023px) {
                   .hidden-on-mobile { display: none !important; }
                 }
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;500;600;700&family=Ranade:wght@200;300;400;500;600;700&display=swap');
 
         .nav-link {
           position: relative;
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 13px;
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 11px;
           font-weight: 600;
           letter-spacing: 0.18em;
           text-transform: uppercase;
@@ -137,7 +136,7 @@ export function Navigation({ openContactModal }: NavigationProps) {
         }
 
         .nav-cta-btn {
-          font-family: 'Rajdhani', sans-serif;
+          font-family: 'Fahkwang', sans-serif;
           font-size: 11px;
           font-weight: 600;
           letter-spacing: 0.22em;
@@ -190,19 +189,21 @@ export function Navigation({ openContactModal }: NavigationProps) {
                 `}</style>
           <div className="max-w-[1440px] mx-auto">
             <div className="flex items-center justify-between h-14 sm:h-16 gap-3">
-              {/* Logo */}
+              {/* Logo - matching the uploaded image style */}
               <div className="flex items-center shrink-0" style={{ gap: '10px' }}>
-                <div style={{ width: '3px', height: '18px', background: '#C8102E' }} />
+                                <div style={{ width: '3px', height: '18px', background: '#C8102E' }} />
+
                 <span
                   style={{
-                    fontFamily: 'Orbitron, monospace',
-                    fontWeight: 700,
-                    fontSize: 'clamp(12px, 1.6vw, 15px)',
+                    fontFamily: '"Trajan Pro 3", "Times New Roman", serif',
+                    fontStyle: 'italic',
+                    fontWeight: 400,
+                    fontSize: 'clamp(12px, 2.2vw, 20px)',
                     letterSpacing: '0.35em',
                     color: '#FFFFFF',
                   }}
                 >
-                  L O R E K
+                  LOREK
                 </span>
               </div>
 
@@ -282,7 +283,6 @@ export function Navigation({ openContactModal }: NavigationProps) {
         )}
         <div className="nav-scan-line" />
       </nav>
-      {/* ContactModal is now rendered at App level */}
     </>
   );
 }
