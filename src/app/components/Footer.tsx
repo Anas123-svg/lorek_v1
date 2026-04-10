@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Linkedin, Twitter, Instagram } from "lucide-react";
 
 export function Footer() {
   const isHomePage =
@@ -224,6 +224,45 @@ export function Footer() {
           background: rgba(255,255,255,0.1);
         }
 
+        /* ── Social icons ── */
+        .ftr-bottom-right {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          flex-wrap: wrap;
+        }
+        .ftr-social {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .ftr-social-label {
+          font-family: 'Fahkwang', sans-serif;
+          font-size: 9px;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.32);
+        }
+        .ftr-social-link {
+          width: 26px;
+          height: 26px;
+          border-radius: 999px;
+          border: 1px solid rgba(200,16,46,0.45);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgba(255,255,255,0.7);
+          text-decoration: none;
+          transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .ftr-social-link:hover {
+          background: #C8102E;
+          color: #FFFFFF;
+          border-color: #C8102E;
+          transform: translateY(-1px);
+        }
+
         /* ── Tablet: 2-col ── */
         @media (max-width: 1023px) {
           .ftr-main {
@@ -284,15 +323,14 @@ export function Footer() {
             {/* Brand */}
             <div>
               <div className="ftr-logo">
-                <div className="ftr-logo-bar" />
+                {/* <div className="ftr-logo-bar" /> */}
                 <span
+                  className="ftr-logo-text"
                   style={{
-                    fontFamily: '"Trajan Pro 3", "Times New Roman", serif',
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                    fontSize: "clamp(12px, 2.2vw, 20px)",
-                    letterSpacing: "0.35em",
-                    color: "#FFFFFF",
+                    fontFamily: 'Fahkwang, sans-serif',
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    fontSize: "clamp(12px, 2.2vw, 22px)",
                   }}
                 >
                   LOREK
@@ -350,9 +388,12 @@ export function Footer() {
                     <Phone size={12} color="#C8102E" />
                   </div>
                   <div>
-                    <a href="tel:+  +447512938465" className="ftr-contact-main">
-                        +44 20 7946 0999
-                    </a>{" "}
+                    <a
+                      href="tel:+442079460999"
+                      className="ftr-contact-main"
+                    >
+                      +44 20 7946 0999
+                    </a>
                     <div className="ftr-contact-sub">Mon–Fri 8am–6pm</div>
                   </div>
                 </div>
@@ -362,7 +403,7 @@ export function Footer() {
                   </div>
                   <div>
                     <a
-                      href="mailto:jacob@lorek.com"
+                      href="mailto:info@lorek.com"
                       className="ftr-contact-main"
                     >
                       info@lorek.com
@@ -388,17 +429,49 @@ export function Footer() {
         <div className="ftr-bottom">
           <div className="px-8 sm:px-16 xl:px-20 nav-bar-padding">
             <div className="ftr-bottom-inner">
-              <span className="ftr-copyright">
-                © 2026 LOREK Strategic Partners. All Rights Reserved.
+              <span className="ftrcopyright">
+                © 2026 LOREK PARTNERS LIMITED. All Rights Reserved.
               </span>
-              <div className="ftr-legal-links">
-                <a href="#" className="ftr-legal-link">
-                  Privacy Policy
-                </a>
-                <div className="ftr-legal-sep" />
-                <a href="#" className="ftr-legal-link">
-                  Terms & Conditions
-                </a>
+              <div className="ftr-bottom-right">
+                <div className="ftr-social">
+                  <span className="ftr-social-label">Follow</span>
+                  <a
+                    href="https://www.linkedin.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Lorek on LinkedIn"
+                    className="ftr-social-link"
+                  >
+                    <Linkedin size={14} />
+                  </a>
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Lorek on X"
+                    className="ftr-social-link"
+                  >
+                    <Twitter size={14} />
+                  </a>
+                  <a
+                    href="https://www.instagram.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Lorek on Instagram"
+                    className="ftr-social-link"
+                  >
+                    <Instagram size={14} />
+                  </a>
+                </div>
+                <div className="ftr-legal-links">
+                  <a href="#" className="ftr-legal-link">
+                    Privacy Policy
+                  </a>
+                  <div className="ftr-legal-sep" />
+                  <a href="#" className="ftr-legal-link">
+                    Terms & Conditions
+                  </a>
+                </div>
               </div>
             </div>
           </div>
