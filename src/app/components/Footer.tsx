@@ -324,7 +324,16 @@ export function Footer() {
             <div>
               <div className="ftr-logo">
                 {/* <div className="ftr-logo-bar" /> */}
-                <span
+                <img
+  src="logo/logo.png" // replace with your actual logo path
+  alt="Lorek Logo"
+  style={{
+    width: "clamp(80px, 10vw, 100px)", // responsive size
+    height: "auto",
+    objectFit: "contain",
+  }}
+/>
+                {/* <span
                   className="ftr-logo-text"
                   style={{
                     fontFamily: 'Fahkwang, sans-serif',
@@ -334,7 +343,7 @@ export function Footer() {
                   }}
                 >
                   LOREK
-                </span>
+                </span> */}
               </div>
               <p className="ftr-brand-desc">
                 Strategic advisory and private equity for ambitious
