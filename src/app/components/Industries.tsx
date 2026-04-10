@@ -78,7 +78,7 @@ export function Industries() {
 
         .ind-h2 {
           font-family: 'Fahkwang', sans-serif;
-          font-weight: 700;
+          font-weight: 500;
           font-size: clamp(26px, 3.2vw, 38px);
           line-height: 1.08;
           color: #FFFFFF;

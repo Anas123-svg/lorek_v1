@@ -190,7 +190,7 @@ export function Hero({ openContactModal }: HeroProps) {
         /* ── Headline ── */
         .hero-h1 {
           font-family: 'Fahkwang', sans-serif;
-          font-weight: 700;
+          font-weight: 500;
           font-size: clamp(30px, 5.5vw, 62px);
           line-height: 1.06;
           color: #FFFFFF;
@@ -305,7 +305,7 @@ export function Hero({ openContactModal }: HeroProps) {
         .stat-number {
           font-family: 'Fahkwang', sans-serif;
           font-size: clamp(20px, 2vw, 28px);
-          font-weight: 700;
+          font-weight: 500;
           color: #FFFFFF;
           margin-bottom: 4px;
           letter-spacing: -0.02em;
@@ -394,11 +394,11 @@ export function Hero({ openContactModal }: HeroProps) {
                 </div>
 
                 <h1 className="hero-h1">
-                  Strategic
+                  Strategy
                   <br />
-                  Partners
+                  Commerce
                   <br />
-                  <em>Globally</em>
+                  <em>Future</em>
                 </h1>
 
                 <p className="hero-sub">

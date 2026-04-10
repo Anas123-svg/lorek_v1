@@ -88,7 +88,7 @@ export function Services() {
 
         .svc-h2 {
           font-family: 'Fahkwang', sans-serif;
-          font-weight: 700;
+          font-weight: 500;
           font-size: clamp(22px, 3.2vw, 38px);
           line-height: 1.08;
           color: #FFFFFF;
@@ -146,7 +146,7 @@ export function Services() {
           grid-row: 1;
           font-family: 'Fahkwang', sans-serif;
           font-size: clamp(15px, 1.8vw, 19px);
-          font-weight: 700;
+          font-weight: 500;
           color: rgba(255,255,255,0.85);
           line-height: 1.15;
           letter-spacing: -0.01em;

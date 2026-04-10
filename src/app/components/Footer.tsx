@@ -350,8 +350,8 @@ export function Footer() {
                     <Phone size={12} color="#C8102E" />
                   </div>
                   <div>
-                    <a href="tel:+447737077777" className="ftr-contact-main">
-                      +44 (0) 7737 077777
+                    <a href="tel:+  +447512938465" className="ftr-contact-main">
+                        +44 20 7946 0999
                     </a>{" "}
                     <div className="ftr-contact-sub">Mon–Fri 8am–6pm</div>
                   </div>
@@ -365,7 +365,7 @@ export function Footer() {
                       href="mailto:jacob@lorek.com"
                       className="ftr-contact-main"
                     >
-                      jacob@lorek.com
+                      info@lorek.com
                     </a>
                     <div className="ftr-contact-sub">24/7 email support</div>
                   </div>

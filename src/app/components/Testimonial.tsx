@@ -18,45 +18,42 @@ export function Testimonial() {
   };
 
   const testimonials = [
-        {
-      name: 'M.Clayton',
-      title: 'CEO, Chelsminster Estates Ltd',
-      photo: 'https://media.licdn.com/dms/image/v2/C4E03AQHMPj6R5kvHQw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1532946165478?e=1777507200&v=beta&t=G_yzQ_45zi-tLHCJimwGhs3nxcDJxHeITGUVktSgFnU',
+    {
+      name: 'Daniel Hart',
+      title: 'Chief Executive, Westbridge Capital',
+      photo: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400',
       text: 'We have had countless encounters and managed to work together on few occasions and Lorek’s Team is always punctual, prepared, professional and carries themselves in a polite and respectable manner.',
     },
     {
-      name: 'R.Walker',
-      title: 'CEO, Alexander James International',
-      photo: 'https://media.licdn.com/dms/image/v2/D4E03AQH6VQROlyfMOA/profile-displayphoto-scale_200_200/B4EZfbndjuG4AY-/0/1751736253662?e=2147483647&v=beta&t=AwGwO1_KoPYnCqekJezxU6vurt08IFeemFho8s_pZBY',
+      name: 'Amira Solberg',
+      title: 'Group CEO, Northshore Holdings',
+      photo: 'https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?q=80&w=400',
       text: 'We can advise that Lorek provided highly professional services ranging from major structural works through to detailed quality finishes. Their attitude and knowledge were exemplary, ensuring that these complex projects were completed to program and budget.',
-
     },
     {
-      name: 'A. Goldreich',
-      title: 'CEO, Tamart Design',
-      photo: 'https://hips.hearstapps.com/hmg-prod/images/tamart-amos-goldreich-with-tamart-central-stool-c-photographer-tom-mannion-02-661c0086a92c7.jpg?crop=0.6673913043478261xw:1xh;center,top&resize=980:*',
+      name: 'Lucien Park',
+      title: 'Managing Partner, Meridian Design Group',
+      photo: 'https://images.unsplash.com/photo-1544723795-432537d12f6c?q=80&w=400',
       text: 'Over the course of the past decade, Lorek have continuously delivered dozens of high quality homes, on time and within the budget. Their work ethic, honesty, and hard work are commendable.',
-
     },
     {
-      name: 'S. Lear',
-      title: 'CEO, Frasers Property',
-      photo: 'https://profile-images.xing.com/static/nobody_m.256x256.jpg',
+      name: 'Sophia Blake',
+      title: 'Chair, Fraser & Co. Developments',
+      photo: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400',
       text: 'Their project teams, which only ever comprise highly skilled, experienced tradespeople and project managers, are able to contend with all manner of challenges and complexities and do so effortlessly and without a modicum of fuss',
     },
     {
-      name: 'N. Morley',
-      title: 'CEO, Secure Funding',
-      photo: 'https://profile-images.xing.com/static/nobody_m.256x256.jpg',
+      name: 'Noah Reid',
+      title: 'Founder, Sterling Secure Funding',
+      photo: 'https://images.unsplash.com/photo-1525130413817-d45c1d127c42?q=80&w=400',
       text: "Lorek has been an indispensable asset to us in sourcing, building, maintaining, and managing our portfolio across the UK.",
     },
     {
-      name: 'I.Chinnock',
-      title: 'CEO, Neos Creative',
-      photo: 'https://profile-images.xing.com/static/nobody_m.256x256.jpg',
+      name: 'Isabel Cortez',
+      title: 'Creative Director, Neovista Studios',
+      photo: 'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=400',
       text: 'As a contractor, Jacob was attentive, knowledgeable with a great eye for detail. He manages a successful and profitable company whilst also providing a very fair and competitively priced service. A great combination.',
     },
-
   ];
 
   return (
@@ -115,7 +112,7 @@ export function Testimonial() {
 
         .tst-h2 {
           font-family: 'Fahkwang', sans-serif;
-          font-weight: 700;
+          font-weight: 500;
           font-size: clamp(26px, 3.2vw, 38px);
           line-height: 1.08;
           color: #FFFFFF;

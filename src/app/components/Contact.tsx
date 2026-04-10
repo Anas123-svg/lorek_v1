@@ -1,8 +1,4 @@
-export function Contact({
-  openContactModal,
-}: {
-  openContactModal: (e?: React.MouseEvent) => void;
-}) {
+export function Contact({ openContactModal }: { openContactModal: (e?: React.MouseEvent) => void }) {
   const handleContactClick = (e: React.MouseEvent) => {
     if (e) e.preventDefault();
     openContactModal(e);
@@ -101,7 +97,7 @@ export function Contact({
 
         .contact-h2 {
           font-family: 'Fahkwang', sans-serif;
-          font-weight: 600;
+          font-weight: 500;
           font-size: clamp(26px, 3.6vw, 44px);
           line-height: 1.08;
           color: #FFFFFF;
@@ -228,40 +224,25 @@ export function Contact({
           </div>
 
           <h2 className="contact-h2">
-            Let's talk about
-            <br />
+            Let's talk about<br />
             your <em>business.</em>
           </h2>
 
           <p className="contact-sub">
-            Our experienced team will advise you on the potential way forward —
-            from capital strategy to full operational transformation.
+            Our experienced team will advise you on the potential way forward — from capital strategy to full operational transformation.
           </p>
 
           <div className="contact-cta-row">
-            <button
-              className="contact-btn-primary"
-              onClick={handleContactClick}
-            >
-              Contact Us
-            </button>
-            <a href="mailto:jacob@lorek.com" className="contact-btn-secondary">
-              jacob@lorek.com
-            </a>
+            <button className="contact-btn-primary" onClick={handleContactClick}>Contact Us</button>
+            <a href="mailto:info@lorek.com" className="contact-btn-secondary">info@lorek.com</a>
           </div>
-          {/* ContactModal is now rendered at App level */}
+  {/* ContactModal is now rendered at App level */}
 
           <div className="contact-details">
             <div className="contact-detail-item">
               <div className="contact-detail-dot" />
-              Lorek Holdings (UK) Ltd
+              London, UK
             </div>
-            <div className="contact-detail-sep" />
-            <div className="contact-detail-item">
-              <div className="contact-detail-dot" /> 35 Buckingham Gate,
-              London, SW1E 6PA{" "}
-            </div>
-
             <div className="contact-detail-sep" />
             <div className="contact-detail-item">
               <div className="contact-detail-dot" />
@@ -270,12 +251,7 @@ export function Contact({
             <div className="contact-detail-sep" />
             <div className="contact-detail-item">
               <div className="contact-detail-dot" />
-              +44 (0)20 3130 4621
-            </div>
-            <div className="contact-detail-sep" />
-            <div className="contact-detail-item">
-              <div className="contact-detail-dot" />
-              +44 (0) 7737 0 77777
+              +44 20 7946 0999
             </div>
           </div>
         </div>

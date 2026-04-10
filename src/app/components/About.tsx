@@ -67,7 +67,7 @@ export function About() {
 
         .about-h2 {
           font-family: 'Fahkwang', sans-serif;
-          font-weight: 600;
+          font-weight: 500;
           font-size: clamp(24px, 3.5vw, 42px);
           line-height: 1.1;
           color: #FFFFFF;

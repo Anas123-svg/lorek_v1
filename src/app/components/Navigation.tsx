@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 interface NavigationProps {
   openContactModal: (e?: React.MouseEvent) => void;
@@ -7,12 +7,12 @@ interface NavigationProps {
 export function Navigation({ openContactModal }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const navItems = [ 'About', 'Industries', 'Services', 'Values'];
+  const navItems = ["About", "Industries", "Services", "Values"];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = () => setMenuOpen(false);
@@ -171,15 +171,15 @@ export function Navigation({ openContactModal }: NavigationProps) {
       `}</style>
 
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'nav-scrolled' : ''}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "nav-scrolled" : ""}`}
         style={{
-          backgroundColor: scrolled ? 'rgba(8,8,8,0.98)' : 'rgba(8,8,8,0.85)',
-          backdropFilter: 'blur(12px)',
-          borderBottom: '0.5px solid rgba(200,16,46,0.12)',
+          backgroundColor: scrolled ? "rgba(8,8,8,0.98)" : "rgba(8,8,8,0.85)",
+          backdropFilter: "blur(12px)",
+          borderBottom: "0.5px solid rgba(200,16,46,0.12)",
         }}
       >
         <div className="px-8 sm:px-16 xl:px-20 nav-bar-padding">
-                <style>{`
+          <style>{`
                   @media (max-width: 1023px) {
                     .nav-bar-padding {
                       padding-left: 16px !important;
@@ -190,17 +190,20 @@ export function Navigation({ openContactModal }: NavigationProps) {
           <div className="max-w-[1440px] mx-auto">
             <div className="flex items-center justify-between h-14 sm:h-16 gap-3">
               {/* Logo - matching the uploaded image style */}
-              <div className="flex items-center shrink-0" style={{ gap: '10px' }}>
-                                <div style={{ width: '3px', height: '18px', background: '#C8102E' }} />
+              <div
+                className="flex items-center shrink-0"
+                style={{ gap: "10px" }}
+              >
+                {/* <div style={{ width: '3px', height: '18px', background: '#C8102E' }} /> */}
 
                 <span
                   style={{
-                    fontFamily: '"Trajan Pro 3", "Times New Roman", serif',
-                    fontStyle: 'italic',
-                    fontWeight: 400,
-                    fontSize: 'clamp(12px, 2.2vw, 20px)',
-                    letterSpacing: '0.35em',
-                    color: '#FFFFFF',
+                    fontFamily: '"Fahkwang" sans-serif',
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    fontSize: "clamp(12px, 2.2vw, 22px)",
+                    letterSpacing: "0.35em",
+                    color: "#FFFFFF",
                   }}
                 >
                   LOREK
@@ -209,35 +212,69 @@ export function Navigation({ openContactModal }: NavigationProps) {
 
               {/* Hamburger Button (mobile) */}
               <button
-                className={`nav-mobile-btn${menuOpen ? ' open' : ''}`}
+                className={`nav-mobile-btn${menuOpen ? " open" : ""}`}
                 aria-label="Open navigation menu"
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen((v) => !v)}
                 type="button"
               >
-                <span className={`nav-mobile-bar bar1${menuOpen ? ' open' : ''}`}></span>
-                <span className={`nav-mobile-bar bar2${menuOpen ? ' open' : ''}`}></span>
-                <span className={`nav-mobile-bar bar3${menuOpen ? ' open' : ''}`}></span>
+                <span
+                  className={`nav-mobile-bar bar1${menuOpen ? " open" : ""}`}
+                ></span>
+                <span
+                  className={`nav-mobile-bar bar2${menuOpen ? " open" : ""}`}
+                ></span>
+                <span
+                  className={`nav-mobile-bar bar3${menuOpen ? " open" : ""}`}
+                ></span>
               </button>
 
               {/* Center Nav (desktop) */}
               <div className="hidden lg:flex items-center gap-7 xl:gap-9 hidden-on-mobile">
                 {navItems.map((item) => (
-                  <a key={item} href={`#${item.toLowerCase()}`} className="nav-link">
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className="nav-link"
+                  >
                     {item}
                   </a>
                 ))}
               </div>
 
               {/* CTA (desktop) */}
-              <button className="nav-cta-btn hidden-on-mobile" onClick={handleContactClick}>Contact</button>
+              <button
+                className="nav-cta-btn hidden-on-mobile"
+                onClick={handleContactClick}
+              >
+                Contact
+              </button>
             </div>
           </div>
         </div>
         {/* Mobile Menu Overlay */}
         {menuOpen && (
-          <div className="nav-mobile-menu" style={{top: '56px', height: 'calc(100vh - 56px)', paddingTop: 0, alignItems: 'center', justifyContent: 'flex-start', overflowY: 'auto'}}>
-            <div style={{display:'flex', flexDirection:'column', alignItems:'center', gap:'0', width:'100%', paddingTop: '24px'}}>
+          <div
+            className="nav-mobile-menu"
+            style={{
+              top: "56px",
+              height: "calc(100vh - 56px)",
+              paddingTop: 0,
+              alignItems: "center",
+              justifyContent: "flex-start",
+              overflowY: "auto",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "0",
+                width: "100%",
+                paddingTop: "24px",
+              }}
+            >
               {navItems.map((item, idx) => (
                 <a
                   key={item}
@@ -246,14 +283,14 @@ export function Navigation({ openContactModal }: NavigationProps) {
                   style={{
                     fontSize: 13,
                     fontWeight: 600,
-                    color: 'rgba(255,255,255,0.42)',
-                    width: '100%',
-                    textAlign: 'center',
-                    letterSpacing: '0.18em',
-                    textTransform: 'uppercase',
-                    padding: '12px 0',
-                    borderBottom: idx !== navItems.length - 1 ? 'none' : 'none',
-                    position: 'relative',
+                    color: "rgba(255,255,255,0.42)",
+                    width: "100%",
+                    textAlign: "center",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    padding: "12px 0",
+                    borderBottom: idx !== navItems.length - 1 ? "none" : "none",
+                    position: "relative",
                   }}
                   onClick={handleNavClick}
                 >
@@ -264,15 +301,16 @@ export function Navigation({ openContactModal }: NavigationProps) {
                 className="nav-cta-btn"
                 style={{
                   marginTop: 24,
-                  width: 'auto',
+                  width: "auto",
                   fontSize: 11,
-                  padding: '8px 20px',
+                  padding: "8px 20px",
                   borderRadius: 0,
                   fontWeight: 600,
-                  letterSpacing: '0.22em',
-                  textTransform: 'uppercase',
-                  alignSelf: 'center',
-                  clipPath: 'polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)',
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  alignSelf: "center",
+                  clipPath:
+                    "polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)",
                 }}
                 onClick={handleContactClick}
               >
