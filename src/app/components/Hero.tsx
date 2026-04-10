@@ -406,7 +406,7 @@ export function Hero({ openContactModal }: HeroProps) {
         {/* ── Content ── */}
         <div className="relative px-4 sm:px-8 xl:px-20" style={{ zIndex: 6 }}>
           <div className="max-w-[1440px] mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6 pt-20 sm:pt-28 pb-10 sm:pb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6 pt-24 sm:pt-34 pb-10 sm:pb-16">
               {/* LEFT */}
               <div className="lg:col-span-7 flex flex-col justify-center mb-8 lg:mb-0">
                 <div className="hero-eyebrow">
