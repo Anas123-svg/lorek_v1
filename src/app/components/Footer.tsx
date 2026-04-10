@@ -1,22 +1,23 @@
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
-  const isHomePage = typeof window !== 'undefined' && window.location.pathname === '/';
+  const isHomePage =
+    typeof window !== "undefined" && window.location.pathname === "/";
   const homeAnchor = (hash: string) => (isHomePage ? hash : `/${hash}`);
 
   const quickLinks = [
-    { label: 'Services',   href: '#services' },
-    { label: 'Industries', href: '#industries' },
-    { label: 'Values',     href: '#values' },
-    { label: 'Contact',    href: '#contact' },
-    { label: 'About Us',   href: '#about' },
+    { label: "Services", href: "#services" },
+    { label: "Industries", href: "#industries" },
+    { label: "Values", href: "#values" },
+    { label: "Contact", href: "#contact" },
+    { label: "About Us", href: "#about" },
   ];
 
   const serviceLinks = [
-    'Commercialisation & Sales',
-    'Operational Transformation',
-    'Investment Sourcing',
-    'Strategy & Organisation',
+    "Commercialisation & Sales",
+    "Operational Transformation",
+    "Investment Sourcing",
+    "Strategy & Organisation",
   ];
 
   return (
@@ -280,102 +281,124 @@ export function Footer() {
       <footer className="ftr-root">
         <div className="px-8 sm:px-16 xl:px-20 nav-bar-padding">
           <div className="ftr-main">
-
-          {/* Brand */}
-          <div>
-            <div className="ftr-logo">
-              <div className="ftr-logo-bar" />
+            {/* Brand */}
+            <div>
+              <div className="ftr-logo">
+                <div className="ftr-logo-bar" />
                 <span
                   style={{
                     fontFamily: '"Trajan Pro 3", "Times New Roman", serif',
-                    fontStyle: 'italic',
+                    fontStyle: "italic",
                     fontWeight: 400,
-                    fontSize: 'clamp(12px, 2.2vw, 20px)',
-                    letterSpacing: '0.35em',
-                    color: '#FFFFFF',
+                    fontSize: "clamp(12px, 2.2vw, 20px)",
+                    letterSpacing: "0.35em",
+                    color: "#FFFFFF",
                   }}
                 >
                   LOREK
                 </span>
+              </div>
+              <p className="ftr-brand-desc">
+                Strategic advisory and private equity for ambitious
+                organisations. We deliver sustainable growth, operational
+                excellence, and capital access across industries.
+              </p>
+              <div className="ftr-cert">
+                <div className="ftr-cert-line" />
+                <span className="ftr-cert-label">Certified Experts</span>
+              </div>
             </div>
-            <p className="ftr-brand-desc">
-              Strategic advisory and private equity for ambitious organisations. We deliver sustainable growth, operational excellence, and capital access across industries.
-            </p>
-            <div className="ftr-cert">
-              <div className="ftr-cert-line" />
-              <span className="ftr-cert-label">Certified Experts</span>
-            </div>
-          </div>
 
-          {/* Quick Links */}
-          <div>
-            <div className="ftr-col-heading">Quick Links</div>
-            <div className="ftr-links-col">
-              {quickLinks.map((link) => (
-                <a key={link.label} href={homeAnchor(link.href)} className="ftr-link">
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <div className="ftr-col-heading">Services</div>
-            <div className="ftr-links-col">
-              {serviceLinks.map((svc) => (
-                <a key={svc} href={homeAnchor('#services')} className="ftr-link">
-                  {svc}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <div className="ftr-col-heading">Contact</div>
+            {/* Quick Links */}
             <div>
-              <div className="ftr-contact-item">
-                <div className="ftr-contact-icon">
-                  <Phone size={12} color="#C8102E" />
-                </div>
-                <div>
-                  <a href="tel:+442079460999" className="ftr-contact-main">+44 20 7946 0999</a>
-                  <div className="ftr-contact-sub">Mon–Fri 8am–6pm</div>
-                </div>
+              <div className="ftr-col-heading">Quick Links</div>
+              <div className="ftr-links-col">
+                {quickLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={homeAnchor(link.href)}
+                    className="ftr-link"
+                  >
+                    {link.label}
+                  </a>
+                ))}
               </div>
-              <div className="ftr-contact-item">
-                <div className="ftr-contact-icon">
-                  <Mail size={12} color="#C8102E" />
-                </div>
-                <div>
-                  <a href="mailto:info@lorek.com" className="ftr-contact-main">info@lorek.com</a>
-                  <div className="ftr-contact-sub">24/7 email support</div>
-                </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <div className="ftr-col-heading">Services</div>
+              <div className="ftr-links-col">
+                {serviceLinks.map((svc) => (
+                  <a
+                    key={svc}
+                    href={homeAnchor("#services")}
+                    className="ftr-link"
+                  >
+                    {svc}
+                  </a>
+                ))}
               </div>
-              <div className="ftr-contact-item">
-                <div className="ftr-contact-icon">
-                  <MapPin size={12} color="#C8102E" />
+            </div>
+
+            {/* Contact */}
+            <div>
+              <div className="ftr-col-heading">Contact</div>
+              <div>
+                <div className="ftr-contact-item">
+                  <div className="ftr-contact-icon">
+                    <Phone size={12} color="#C8102E" />
+                  </div>
+                  <div>
+                    <a href="tel:+447737077777" className="ftr-contact-main">
+                      +44 (0) 7737 077777
+                    </a>{" "}
+                    <div className="ftr-contact-sub">Mon–Fri 8am–6pm</div>
+                  </div>
                 </div>
-                <div>
-                  <span className="ftr-contact-main">London, UK</span>
-                  <div className="ftr-contact-sub">All boroughs covered</div>
+                <div className="ftr-contact-item">
+                  <div className="ftr-contact-icon">
+                    <Mail size={12} color="#C8102E" />
+                  </div>
+                  <div>
+                    <a
+                      href="mailto:jacob@lorek.com"
+                      className="ftr-contact-main"
+                    >
+                      jacob@lorek.com
+                    </a>
+                    <div className="ftr-contact-sub">24/7 email support</div>
+                  </div>
+                </div>
+                <div className="ftr-contact-item">
+                  <div className="ftr-contact-icon">
+                    <MapPin size={12} color="#C8102E" />
+                  </div>
+                  <div>
+                    <span className="ftr-contact-main">London, UK</span>
+                    <div className="ftr-contact-sub">All boroughs covered</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
 
         {/* Bottom bar */}
         <div className="ftr-bottom">
           <div className="px-8 sm:px-16 xl:px-20 nav-bar-padding">
             <div className="ftr-bottom-inner">
-              <span className="ftr-copyright">© 2026 LOREK Strategic Partners. All Rights Reserved.</span>
+              <span className="ftr-copyright">
+                © 2026 LOREK Strategic Partners. All Rights Reserved.
+              </span>
               <div className="ftr-legal-links">
-                <a href="#" className="ftr-legal-link">Privacy Policy</a>
+                <a href="#" className="ftr-legal-link">
+                  Privacy Policy
+                </a>
                 <div className="ftr-legal-sep" />
-                <a href="#" className="ftr-legal-link">Terms & Conditions</a>
+                <a href="#" className="ftr-legal-link">
+                  Terms & Conditions
+                </a>
               </div>
             </div>
           </div>
