@@ -4,11 +4,26 @@ interface HeroProps {
 
 export function Hero({ openContactModal }: HeroProps) {
   const companies = [
-    "The Telegraph",
-    "Growth Business",
-    "Property Week",
-    "Forbes",
-    "The Guardian",
+    {
+      name: "The Telegraph",
+      logo: "/logo/the_telegraph.png",
+    },
+    {
+      name: "Growth Business",
+      logo: "/logo/growth_b_logo.png",
+    },
+    {
+      name: "Property Week",
+      logo: "/logo/pw-logo.png",
+    },
+    {
+      name: "Forbes",
+      logo: "/logo/forbes.png",
+    },
+    {
+      name: "The Guardian",
+      logo: "/logo/the_guadian.png",
+    },
   ];
 
   const handleContactClick = (e: React.MouseEvent) => {
@@ -270,17 +285,23 @@ export function Hero({ openContactModal }: HeroProps) {
           animation: ticker-scroll 35s linear infinite;
         }
         .ticker-item {
-          font-family: 'Fahkwang', sans-serif;
-          font-size: 11px;
-          font-weight: 600;
-          letter-spacing: 0.14em;
-          color: rgba(255,255,255,0.20);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 90px;
           white-space: nowrap;
         }
         .ticker-item::before {
           content: '/ ';
           color: rgba(200,16,46,0.38);
           margin-right: 2px;
+        }
+
+        .ticker-logo {
+          height: 18px;
+          width: auto;
+          object-fit: contain;
+          filter: grayscale(1) opacity(0.8);
         }
 
         /* ── Stat cards — frosted glass over footage ── */
@@ -428,9 +449,13 @@ export function Hero({ openContactModal }: HeroProps) {
                   }}
                 >
                   <div className="ticker-track">
-                    {companies.map((co, i) => (
-                      <span key={i} className="ticker-item">
-                        {co}
+                    {companies.map((co) => (
+                      <span key={co.name} className="ticker-item">
+                        <img
+                          src={co.logo}
+                          alt={co.name}
+                          className="ticker-logo"
+                        />
                       </span>
                     ))}
                   </div>
