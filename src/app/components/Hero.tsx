@@ -127,8 +127,8 @@ export function Hero({ openContactModal }: HeroProps) {
           inset: 0;
           background: radial-gradient(
             ellipse 50% 26% at 63% 50%,
-            rgba(180,10,30,0.20) 0%,
-            rgba(140,0,20,0.07) 52%,
+            rgba(181,32,36,0.20) 0%,
+            rgba(181,32,36,0.07) 52%,
             transparent 78%
           );
           transform: rotate(-18deg) scale(1.5);
@@ -144,8 +144,8 @@ export function Hero({ openContactModal }: HeroProps) {
             -55deg,
             transparent,
             transparent 3px,
-            rgba(200,16,46,0.016) 3px,
-            rgba(200,16,46,0.016) 4px
+            rgba(181,32,36,0.016) 3px,
+            rgba(181,32,36,0.016) 4px
           );
           z-index: 3;
           pointer-events: none;
@@ -156,8 +156,8 @@ export function Hero({ openContactModal }: HeroProps) {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(200,16,46,0.035) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200,16,46,0.035) 1px, transparent 1px);
+            linear-gradient(rgba(181,32,36,0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(181,32,36,0.035) 1px, transparent 1px);
           background-size: 80px 80px;
           z-index: 3;
           pointer-events: none;
@@ -192,13 +192,13 @@ export function Hero({ openContactModal }: HeroProps) {
           font-weight: 600;
           letter-spacing: 0.28em;
           text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
           margin-bottom: 18px;
         }
         .hero-eyebrow-line {
           width: 28px;
           height: 1px;
-          background: #C8102E;
+          background: #B52024;
           flex-shrink: 0;
         }
 
@@ -215,7 +215,7 @@ export function Hero({ openContactModal }: HeroProps) {
         }
         .hero-h1 em {
           font-style: normal;
-          color: #C8102E;
+          color: #B52024;
         }
 
         /* ── Sub ── */
@@ -237,14 +237,14 @@ export function Hero({ openContactModal }: HeroProps) {
           letter-spacing: 0.22em;
           text-transform: uppercase;
           color: #FFFFFF;
-          background: #C8102E;
+          background: #B52024;
           border: none;
           padding: 13px 30px;
           cursor: pointer;
           transition: background 0.2s;
           clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
         }
-        .hero-btn-primary:hover { background: #a50d25; }
+        .hero-btn-primary:hover { background: #8F1D21; }
 
         .hero-btn-secondary {
           font-family: 'Fahkwang', sans-serif;
@@ -261,8 +261,8 @@ export function Hero({ openContactModal }: HeroProps) {
           clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
         }
         .hero-btn-secondary:hover {
-          border-color: #C8102E;
-          color: #C8102E;
+          border-color: #B52024;
+          color: #B52024;
         }
 
         /* ── Trusted / Ticker ── */
@@ -293,7 +293,7 @@ export function Hero({ openContactModal }: HeroProps) {
         }
         .ticker-item::before {
           content: '/ ';
-          color: rgba(200,16,46,0.38);
+          color: rgba(181,32,36,0.38);
           margin-right: 2px;
         }
 
@@ -309,8 +309,8 @@ export function Hero({ openContactModal }: HeroProps) {
           background: rgba(6,6,8,0.72);
           backdrop-filter: blur(10px);
           -webkit-backdrop-filter: blur(10px);
-          border: 0.5px solid rgba(200,16,46,0.14);
-          border-left: 2px solid #C8102E;
+          border: 0.5px solid rgba(181,32,36,0.14);
+          border-left: 2px solid #B52024;
           padding: 18px 16px;
           position: relative;
           overflow: hidden;
@@ -320,7 +320,7 @@ export function Hero({ openContactModal }: HeroProps) {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 1px;
-          background: linear-gradient(90deg, #C8102E, transparent);
+          background: linear-gradient(90deg, #B52024, transparent);
           opacity: 0.32;
         }
         .stat-number {
@@ -346,7 +346,7 @@ export function Hero({ openContactModal }: HeroProps) {
           backdrop-filter: blur(10px);
           -webkit-backdrop-filter: blur(10px);
           border: 0.5px solid rgba(255,255,255,0.055);
-          border-left: 2px solid rgba(200,16,46,0.38);
+          border-left: 2px solid rgba(181,32,36,0.38);
           padding: 22px 20px;
         }
         .testimonial-quote {
@@ -371,7 +371,7 @@ export function Hero({ openContactModal }: HeroProps) {
           position: absolute;
           bottom: 0; left: 0; right: 0;
           height: 2px;
-          background: linear-gradient(90deg, transparent 0%, #C8102E 30%, rgba(200,16,46,0.45) 70%, transparent 100%);
+          background: linear-gradient(90deg, transparent 0%, #B52024 30%, rgba(181,32,36,0.45) 70%, transparent 100%);
         }
       `}</style>
 

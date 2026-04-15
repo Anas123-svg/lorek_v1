@@ -32,7 +32,7 @@ export function Industries() {
         .ind-root {
           background: #080808;
           padding: 96px 0;
-          border-top: 0.5px solid rgba(200,16,46,0.12);
+          border-top: 0.5px solid rgba(181,32,36,0.12);
           position: relative;
           overflow: hidden;
         }
@@ -41,8 +41,8 @@ export function Industries() {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(200,16,46,0.025) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200,16,46,0.025) 1px, transparent 1px);
+            linear-gradient(rgba(181,32,36,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(181,32,36,0.025) 1px, transparent 1px);
           background-size: 80px 80px;
           pointer-events: none;
         }
@@ -51,7 +51,7 @@ export function Industries() {
           position: absolute;
           bottom: -60px; left: -100px;
           width: 460px; height: 320px;
-          background: radial-gradient(ellipse, rgba(200,16,46,0.07) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(181,32,36,0.07) 0%, transparent 70%);
           pointer-events: none;
         }
 
@@ -71,10 +71,10 @@ export function Industries() {
           font-weight: 600;
           letter-spacing: 0.28em;
           text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
           margin-bottom: 14px;
         }
-        .ind-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
+        .ind-eyebrow-line { width: 24px; height: 1px; background: #B52024; }
 
         .ind-h2 {
           font-family: 'Fahkwang', sans-serif;
@@ -87,7 +87,7 @@ export function Industries() {
         }
         .ind-h2 em {
           font-style: normal;
-          color: #C8102E;
+          color: #B52024;
           font-family: 'Fahkwang', sans-serif;
           font-weight: 700;
         }
@@ -138,7 +138,7 @@ export function Industries() {
           flex-shrink: 0;
           position: relative;
           overflow: hidden;
-          border: 0.5px solid rgba(200,16,46,0.12);
+          border: 0.5px solid rgba(181,32,36,0.12);
           cursor: pointer;
           background: #0c0c0c;
           clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
@@ -148,7 +148,7 @@ export function Industries() {
           position: absolute;
           left: 0; top: 0; bottom: 0;
           width: 2px;
-          background: #C8102E;
+          background: #B52024;
           z-index: 3;
         }
 
@@ -198,7 +198,7 @@ export function Industries() {
         .ind-card:hover .ind-card-hover-cta { opacity: 1; }
 
         .ind-card-footer {
-          background: #C8102E;
+          background: #B52024;
           padding: 13px 16px;
         }
         .ind-card-name {
@@ -225,7 +225,7 @@ export function Industries() {
           font-weight: 600;
           letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
           text-decoration: none;
           display: flex; align-items: center; gap: 8px;
           transition: color 0.2s;

@@ -201,7 +201,7 @@ export function Navigation({ openContactModal }: NavigationProps) {
               >
                 {/* <div style={{ width: '3px', height: '18px', background: '#C8102E' }} /> */}
 <img
-  src="logo/logo.png" // replace with your actual logo path
+  src="logo.png" // replace with your actual logo path
   alt="Lorek Logo"
   style={{
     width: "clamp(80px, 10vw, 100px)", // responsive size

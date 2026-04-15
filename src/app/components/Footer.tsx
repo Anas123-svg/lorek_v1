@@ -27,7 +27,7 @@ export function Footer() {
 
         .ftr-root {
           background: #050505;
-          border-top: 2px solid #C8102E;
+          border-top: 2px solid #B52024;
           position: relative;
           overflow: hidden;
         }
@@ -36,8 +36,8 @@ export function Footer() {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(200,16,46,0.025) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200,16,46,0.025) 1px, transparent 1px);
+            linear-gradient(rgba(181,32,36,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(181,32,36,0.025) 1px, transparent 1px);
           background-size: 80px 80px;
           pointer-events: none;
         }
@@ -46,7 +46,7 @@ export function Footer() {
           position: absolute;
           bottom: -80px; right: -100px;
           width: 420px; height: 320px;
-          background: radial-gradient(ellipse, rgba(200,16,46,0.06) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(181,32,36,0.06) 0%, transparent 70%);
           pointer-events: none;
         }
 
@@ -68,7 +68,7 @@ export function Footer() {
           gap: 10px;
           margin-bottom: 20px;
         }
-        .ftr-logo-bar { width: 3px; height: 20px; background: #C8102E; flex-shrink: 0; }
+        .ftr-logo-bar { width: 3px; height: 20px; background: #B52024; flex-shrink: 0; }
         .ftr-logo-text {
           font-family: 'Fahkwang', sans-serif;
           font-weight: 600;
@@ -91,14 +91,14 @@ export function Footer() {
           align-items: center;
           gap: 10px;
         }
-        .ftr-cert-line { width: 28px; height: 1px; background: #C8102E; flex-shrink: 0; }
+        .ftr-cert-line { width: 28px; height: 1px; background: #B52024; flex-shrink: 0; }
         .ftr-cert-label {
           font-family: 'Fahkwang', sans-serif;
           font-size: 9px;
           font-weight: 600;
           letter-spacing: 0.26em;
           text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
         }
 
         /* ── Column headings ── */
@@ -116,7 +116,7 @@ export function Footer() {
           content: '';
           flex: 1;
           height: 0.5px;
-          background: linear-gradient(90deg, rgba(200,16,46,0.3), transparent);
+          background: linear-gradient(90deg, rgba(181,32,36,0.3), transparent);
         }
 
         /* ── Links ── */
@@ -140,7 +140,7 @@ export function Footer() {
           transition: background 0.2s;
         }
         .ftr-link:hover { color: #FFFFFF; }
-        .ftr-link:hover::before { background: #C8102E; }
+        .ftr-link:hover::before { background: #B52024; }
 
         /* ── Contact items ── */
         .ftr-contact-item {
@@ -153,7 +153,7 @@ export function Footer() {
         .ftr-contact-item:last-child { border-bottom: none; }
         .ftr-contact-icon {
           width: 28px; height: 28px;
-          border: 0.5px solid rgba(200,16,46,0.3);
+          border: 0.5px solid rgba(181,32,36,0.3);
           display: flex; align-items: center; justify-content: center;
           flex-shrink: 0;
           margin-top: 2px;
@@ -168,7 +168,7 @@ export function Footer() {
           display: block;
           transition: color 0.2s;
         }
-        a.ftr-contact-main:hover { color: #C8102E; }
+        a.ftr-contact-main:hover { color: #B52024; }
         .ftr-contact-sub {
           font-family: 'Fahkwang', sans-serif;
           font-size: 9px;
@@ -218,7 +218,7 @@ export function Footer() {
           transition: color 0.2s;
           white-space: nowrap;
         }
-        .ftr-legal-link:hover { color: #C8102E; }
+        .ftr-legal-link:hover { color: #B52024; }
         .ftr-legal-sep {
           width: 1px; height: 10px;
           background: rgba(255,255,255,0.1);
@@ -248,7 +248,7 @@ export function Footer() {
           width: 26px;
           height: 26px;
           border-radius: 999px;
-          border: 1px solid rgba(200,16,46,0.45);
+          border: 1px solid rgba(181,32,36,0.45);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -257,9 +257,9 @@ export function Footer() {
           transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
         }
         .ftr-social-link:hover {
-          background: #C8102E;
+          background: #B52024;
           color: #FFFFFF;
-          border-color: #C8102E;
+          border-color: #B52024;
           transform: translateY(-1px);
         }
 
@@ -394,7 +394,7 @@ export function Footer() {
               <div>
                 <div className="ftr-contact-item">
                   <div className="ftr-contact-icon">
-                    <Phone size={12} color="#C8102E" />
+                      <Phone size={12} color="#B52024" />
                   </div>
                   <div>
                     <a
@@ -408,7 +408,7 @@ export function Footer() {
                 </div>
                 <div className="ftr-contact-item">
                   <div className="ftr-contact-icon">
-                    <Mail size={12} color="#C8102E" />
+                      <Mail size={12} color="#B52024" />
                   </div>
                   <div>
                     <a
@@ -422,7 +422,7 @@ export function Footer() {
                 </div>
                 <div className="ftr-contact-item">
                   <div className="ftr-contact-icon">
-                    <MapPin size={12} color="#C8102E" />
+                      <MapPin size={12} color="#B52024" />
                   </div>
                   <div>
                     <span className="ftr-contact-main">London, UK</span>

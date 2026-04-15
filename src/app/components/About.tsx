@@ -35,7 +35,7 @@ export function About() {
         .about-root {
           background: #080808;
           padding: 96px 80px;
-          border-top: 0.5px solid rgba(200,16,46,0.12);
+          border-top: 0.5px solid rgba(181,32,36,0.12);
           position: relative;
           overflow: hidden;
         }
@@ -45,8 +45,8 @@ export function About() {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(200,16,46,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200,16,46,0.03) 1px, transparent 1px);
+            linear-gradient(rgba(181,32,36,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(181,32,36,0.03) 1px, transparent 1px);
           background-size: 80px 80px;
           pointer-events: none;
         }
@@ -60,10 +60,10 @@ export function About() {
           font-weight: 600;
           letter-spacing: 0.32em;
           text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
           margin-bottom: 14px;
         }
-        .about-eyebrow-line { width: 24px; height: 1px; background: #C8102E; flex-shrink: 0; }
+        .about-eyebrow-line { width: 24px; height: 1px; background: #B52024; flex-shrink: 0; }
 
         .about-h2 {
           font-family: 'Fahkwang', sans-serif;
@@ -75,7 +75,7 @@ export function About() {
           margin-bottom: 16px;
           letter-spacing: 0;
         }
-        .about-h2 em { font-style: normal; color: #C8102E; font-weight: 700; }
+        .about-h2 em { font-style: normal; color: #B52024; font-weight: 700; }
 
         .about-sub {
           font-family: 'Ranade', sans-serif;
@@ -92,7 +92,7 @@ export function About() {
           position: relative;
           border-radius: 0;
           overflow: hidden;
-          border: 0.5px solid rgba(200,16,46,0.12);
+          border: 0.5px solid rgba(181,32,36,0.12);
           min-height: 360px;
           flex: 1;
         }
@@ -113,7 +113,7 @@ export function About() {
           position: absolute;
           left: 0; top: 0; bottom: 0;
           width: 2px;
-          background: #C8102E;
+          background: #B52024;
         }
         .about-img-main-content {
           position: absolute;
@@ -124,11 +124,11 @@ export function About() {
           font-size: 9px; font-weight: 600;
           letter-spacing: 0.28em;
           text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
           margin-bottom: 8px;
           display: flex; align-items: center; gap: 8px;
         }
-        .about-img-tag::before { content: ''; width: 14px; height: 1px; background: #C8102E; }
+        .about-img-tag::before { content: ''; width: 14px; height: 1px; background: #B52024; }
         .about-img-body {
           font-family: 'Ranade', sans-serif;
           font-size: 14px; font-weight: 400;
@@ -149,8 +149,8 @@ export function About() {
         /* ── Purpose / Mission cards ── */
         .about-text-card {
           background: #0e0e0e;
-          border: 0.5px solid rgba(200,16,46,0.1);
-          border-left: 2px solid #C8102E;
+          border: 0.5px solid rgba(181,32,36,0.1);
+          border-left: 2px solid #B52024;
           padding: 20px 18px;
           position: relative;
           overflow: hidden;
@@ -160,14 +160,14 @@ export function About() {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 1px;
-          background: linear-gradient(90deg, #C8102E, transparent);
+          background: linear-gradient(90deg, #B52024, transparent);
           opacity: 0.3;
         }
         .about-text-card-tag {
           font-family: 'Ranade', sans-serif;
           font-size: 9px; font-weight: 600;
           letter-spacing: 0.28em; text-transform: uppercase;
-          color: #C8102E; margin-bottom: 10px;
+          color: #B52024; margin-bottom: 10px;
         }
         .about-text-card-body {
           font-family: 'Ranade', sans-serif;
@@ -179,7 +179,7 @@ export function About() {
         .about-img-sm {
           position: relative;
           overflow: hidden;
-          border: 0.5px solid rgba(200,16,46,0.1);
+          border: 0.5px solid rgba(181,32,36,0.1);
           min-height: 190px;
         }
         .about-img-sm img {
@@ -197,7 +197,7 @@ export function About() {
           content: '';
           position: absolute;
           left: 0; top: 0; bottom: 0;
-          width: 2px; background: #C8102E;
+          width: 2px; background: #B52024;
         }
         .about-img-sm-content {
           position: absolute; bottom: 14px; left: 14px; right: 14px;
@@ -206,7 +206,7 @@ export function About() {
           font-family: 'Ranade', sans-serif;
           font-size: 9px; font-weight: 600;
           letter-spacing: 0.24em; text-transform: uppercase;
-          color: #C8102E; margin-bottom: 5px;
+          color: #B52024; margin-bottom: 5px;
         }
         .about-img-sm-body {
           font-family: 'Ranade', sans-serif;
@@ -229,8 +229,8 @@ export function About() {
         /* ── Featured capability card ── */
         .about-feature-card {
           background: #0c0c0c;
-          border: 0.5px solid rgba(200,16,46,0.12);
-          border-left: 2px solid #C8102E;
+          border: 0.5px solid rgba(181,32,36,0.12);
+          border-left: 2px solid #B52024;
           padding: 26px 22px;
           position: relative;
           overflow: hidden;
@@ -240,7 +240,7 @@ export function About() {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 1px;
-          background: linear-gradient(90deg, #C8102E 0%, rgba(200,16,46,0.2) 60%, transparent 100%);
+          background: linear-gradient(90deg, #B52024 0%, rgba(181,32,36,0.2) 60%, transparent 100%);
         }
         .about-feature-pill {
           display: inline-flex;
@@ -249,12 +249,12 @@ export function About() {
           font-family: 'Ranade', sans-serif;
           font-size: 9px; font-weight: 600;
           letter-spacing: 0.24em; text-transform: uppercase;
-          color: #C8102E;
-          border: 0.5px solid rgba(200,16,46,0.35);
+          color: #B52024;
+          border: 0.5px solid rgba(181,32,36,0.35);
           padding: 4px 10px;
           margin-bottom: 14px;
         }
-        .about-feature-pill::before { content: ''; width: 4px; height: 4px; background: #C8102E; }
+        .about-feature-pill::before { content: ''; width: 4px; height: 4px; background: #B52024; }
 
         .about-feature-title {
           font-family: 'Fahkwang', sans-serif;
@@ -286,7 +286,7 @@ export function About() {
           letter-spacing: 0.04em;
           color: rgba(255,255,255,0.65);
         }
-        .about-bullet::before { content: ''; width: 4px; height: 4px; background: #C8102E; flex-shrink: 0; }
+        .about-bullet::before { content: ''; width: 4px; height: 4px; background: #B52024; flex-shrink: 0; }
 
         .about-mini-stats {
           display: grid;
@@ -304,7 +304,7 @@ export function About() {
         .about-mini-stat-n {
           font-family: 'Fahkwang', sans-serif;
           font-size: 17px; font-weight: 600;
-          color: #C8102E; letter-spacing: 0;
+          color: #B52024; letter-spacing: 0;
         }
         .about-mini-stat-label {
           font-family: 'Ranade', sans-serif;
@@ -328,7 +328,7 @@ export function About() {
           cursor: pointer;
           background: none; border: none; padding: 0;
         }
-        .about-link::after { content: '→'; color: #C8102E; }
+        .about-link::after { content: '→'; color: #B52024; }
         .about-link:hover { color: #FFFFFF; }
 
         @media (max-width: 1024px) {

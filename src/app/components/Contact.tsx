@@ -12,7 +12,7 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
           position: relative;
           background: #050505;
           padding: 120px 80px;
-          border-top: 0.5px solid rgba(200,16,46,0.14);
+          border-top: 0.5px solid rgba(181,32,36,0.14);
           overflow: hidden;
         }
 
@@ -37,8 +37,8 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
           position: absolute; inset: 0;
           background: radial-gradient(
             ellipse 60% 40% at 50% 55%,
-            rgba(180,10,30,0.18) 0%,
-            rgba(140,0,20,0.06) 50%,
+            rgba(181,32,36,0.18) 0%,
+            rgba(181,32,36,0.06) 50%,
             transparent 78%
           );
           pointer-events: none;
@@ -48,8 +48,8 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
         .contact-grid {
           position: absolute; inset: 0;
           background-image:
-            linear-gradient(rgba(200,16,46,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200,16,46,0.04) 1px, transparent 1px);
+            linear-gradient(rgba(181,32,36,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(181,32,36,0.04) 1px, transparent 1px);
           background-size: 80px 80px;
           pointer-events: none;
         }
@@ -59,7 +59,7 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
           position: absolute; inset: 0;
           background-image: repeating-linear-gradient(
             -55deg, transparent, transparent 3px,
-            rgba(200,16,46,0.015) 3px, rgba(200,16,46,0.015) 4px
+            rgba(181,32,36,0.015) 3px, rgba(181,32,36,0.015) 4px
           );
           pointer-events: none;
         }
@@ -89,11 +89,11 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
           font-weight: 600;
           letter-spacing: 0.28em;
           text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
           margin-bottom: 24px;
           justify-content: center;
         }
-        .contact-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
+        .contact-eyebrow-line { width: 24px; height: 1px; background: #B52024; }
 
         .contact-h2 {
           font-family: 'Fahkwang', sans-serif;
@@ -106,7 +106,7 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
         }
         .contact-h2 em {
           font-style: normal;
-          color: #C8102E;
+          color: #B52024;
           font-family: 'Fahkwang', sans-serif;
           font-weight: 700;
         }
@@ -136,14 +136,14 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
           letter-spacing: 0.24em;
           text-transform: uppercase;
           color: #FFFFFF;
-          background: #C8102E;
+          background: #B52024;
           border: none;
           padding: 14px 40px;
           cursor: pointer;
           transition: background 0.2s;
           clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
         }
-        .contact-btn-primary:hover { background: #a50d25; }
+        .contact-btn-primary:hover { background: #8F1D21; }
 
         .contact-btn-secondary {
           font-family: 'Fahkwang', sans-serif;
@@ -162,8 +162,8 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
           display: inline-block;
         }
         .contact-btn-secondary:hover {
-          border-color: #C8102E;
-          color: #C8102E;
+          border-color: #B52024;
+          color: #B52024;
         }
 
         /* detail chips below CTAs */
@@ -188,7 +188,7 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
         }
         .contact-detail-dot {
           width: 4px; height: 4px;
-          background: #C8102E;
+          background: #B52024;
           flex-shrink: 0;
         }
         .contact-detail-sep {
@@ -201,7 +201,7 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
           position: absolute;
           bottom: 0; left: 0; right: 0;
           height: 2px;
-          background: linear-gradient(90deg, transparent, #C8102E 30%, rgba(200,16,46,0.4) 70%, transparent);
+          background: linear-gradient(90deg, transparent, #B52024 30%, rgba(181,32,36,0.4) 70%, transparent);
         }
 
         @media (max-width: 1024px) { .contact-root { padding: 80px 24px; } }

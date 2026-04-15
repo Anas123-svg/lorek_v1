@@ -51,7 +51,7 @@ export function Services() {
         .svc-root {
           background: #0d0d0d;
           padding: 96px 80px;
-          border-top: 0.5px solid rgba(200,16,46,0.12);
+          border-top: 0.5px solid rgba(181,32,36,0.12);
           position: relative;
           overflow: hidden;
         }
@@ -60,8 +60,8 @@ export function Services() {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(200,16,46,0.025) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200,16,46,0.025) 1px, transparent 1px);
+            linear-gradient(rgba(181,32,36,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(181,32,36,0.025) 1px, transparent 1px);
           background-size: 80px 80px;
           pointer-events: none;
         }
@@ -70,7 +70,7 @@ export function Services() {
           position: absolute;
           top: -120px; right: -180px;
           width: 520px; height: 520px;
-          background: radial-gradient(ellipse, rgba(200,16,46,0.07) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(181,32,36,0.07) 0%, transparent 70%);
           pointer-events: none;
         }
 
@@ -81,10 +81,10 @@ export function Services() {
           font-family: 'Fahkwang', sans-serif;
           font-size: 10px; font-weight: 700;
           letter-spacing: 0.3em; text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
           margin-bottom: 14px;
         }
-        .svc-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
+        .svc-eyebrow-line { width: 24px; height: 1px; background: #B52024; }
 
         .svc-h2 {
           font-family: 'Fahkwang', sans-serif;
@@ -95,7 +95,7 @@ export function Services() {
           margin-bottom: 48px;
           letter-spacing: -0.01em;
         }
-        .svc-h2 em { font-style: normal; color: #C8102E; }
+        .svc-h2 em { font-style: normal; color: #B52024; }
 
         /* ── Service rows — desktop 4-col grid ── */
         .svc-row {
@@ -122,7 +122,7 @@ export function Services() {
           position: absolute;
           left: 0; top: 0; bottom: 0;
           width: 2px;
-          background: #C8102E;
+          background: #B52024;
           transform: scaleY(0);
           transform-origin: top;
           transition: transform 0.25s ease;
@@ -134,12 +134,12 @@ export function Services() {
           grid-row: 1;
           font-family: 'Fahkwang', sans-serif;
           font-size: 11px; font-weight: 700;
-          color: rgba(200,16,46,0.35);
+          color: rgba(181,32,36,0.35);
           padding-top: 4px;
           letter-spacing: 0.05em;
           transition: color 0.2s;
         }
-        .svc-row:hover .svc-num { color: #C8102E; }
+        .svc-row:hover .svc-num { color: #B52024; }
 
         .svc-name {
           grid-column: 2;
@@ -166,10 +166,10 @@ export function Services() {
           font-family: 'Fahkwang', sans-serif;
           font-size: 9px; font-weight: 700;
           letter-spacing: 0.26em; text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
           display: flex; align-items: center; gap: 8px;
         }
-        .svc-outcome::before { content: ''; width: 14px; height: 1px; background: #C8102E; }
+        .svc-outcome::before { content: ''; width: 14px; height: 1px; background: #B52024; }
 
         .svc-desc {
           font-family: 'Ranade', sans-serif;
@@ -188,7 +188,7 @@ export function Services() {
           padding-top: 3px;
           transition: color 0.2s, transform 0.2s;
         }
-        .svc-row:hover .svc-arrow { color: #C8102E; transform: translateX(4px); }
+        .svc-row:hover .svc-arrow { color: #B52024; transform: translateX(4px); }
 
         /* ── Bottom CTA band ── */
         .svc-cta-band {
@@ -199,8 +199,8 @@ export function Services() {
           margin-top: 48px;
           padding: 22px 24px;
           background: #0a0a0a;
-          border: 0.5px solid rgba(200,16,46,0.14);
-          border-left: 2px solid #C8102E;
+          border: 0.5px solid rgba(181,32,36,0.14);
+          border-left: 2px solid #B52024;
           position: relative;
           overflow: hidden;
         }
@@ -209,7 +209,7 @@ export function Services() {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 1px;
-          background: linear-gradient(90deg, #C8102E, transparent);
+          background: linear-gradient(90deg, #B52024, transparent);
           opacity: 0.3;
         }
         .svc-cta-label {
@@ -223,14 +223,14 @@ export function Services() {
           font-size: 11px; font-weight: 700;
           letter-spacing: 0.22em; text-transform: uppercase;
           color: #FFFFFF;
-          background: #C8102E;
+          background: #B52024;
           border: none;
           padding: 11px 26px;
           cursor: pointer;
           transition: background 0.2s;
           clip-path: polygon(9px 0%,100% 0%,calc(100% - 9px) 100%,0% 100%);
         }
-        .svc-cta-btn:hover { background: #a50d25; }
+        .svc-cta-btn:hover { background: #8F1D21; }
 
         /* ── Tablet: collapse to 2-col, description below name ── */
         @media (max-width: 1024px) {

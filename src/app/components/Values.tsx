@@ -22,7 +22,7 @@ export function Values() {
         .val-root {
           background: #080808;
           padding: 48px 0;
-          border-top: 0.5px solid rgba(200,16,46,0.12);
+          border-top: 0.5px solid rgba(181,32,36,0.12);
           position: relative;
           overflow: hidden;
         }
@@ -33,7 +33,7 @@ export function Values() {
           inset: 0;
           background-image: repeating-linear-gradient(
             -55deg, transparent, transparent 4px,
-            rgba(200,16,46,0.012) 4px, rgba(200,16,46,0.012) 5px
+            rgba(181,32,36,0.012) 4px, rgba(181,32,36,0.012) 5px
           );
           pointer-events: none;
         }
@@ -52,13 +52,13 @@ export function Values() {
           font-weight: 600;
           letter-spacing: 0.28em;
           text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
           white-space: nowrap;
         }
         .val-header-line {
           flex: 1;
           height: 0.5px;
-          background: linear-gradient(90deg, rgba(200,16,46,0.35), transparent);
+          background: linear-gradient(90deg, rgba(181,32,36,0.35), transparent);
         }
 
         /* fade edges */
@@ -94,8 +94,8 @@ export function Values() {
           align-items: center;
           gap: 10px;
           background: #0e0e0e;
-          border: 0.5px solid rgba(200,16,46,0.14);
-          border-left: 2px solid rgba(200,16,46,0.5);
+          border: 0.5px solid rgba(181,32,36,0.14);
+          border-left: 2px solid rgba(181,32,36,0.5);
           padding: 8px 16px 8px 12px;
           white-space: nowrap;
           position: relative;
@@ -106,12 +106,12 @@ export function Values() {
         }
         .val-chip:hover {
           background: #131313;
-          border-left-color: #C8102E;
+          border-left-color: #B52024;
         }
         .val-chip-icon {
           flex-shrink: 0;
           width: 14px; height: 14px;
-          border: 1.5px solid #C8102E;
+          border: 1.5px solid #B52024;
           border-radius: 0;
           display: flex; align-items: center; justify-content: center;
           clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 0 100%);
@@ -129,7 +129,7 @@ export function Values() {
         .val-bottom-bar {
           margin-top: 28px;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(200,16,46,0.25) 30%, rgba(200,16,46,0.1) 70%, transparent);
+          background: linear-gradient(90deg, transparent, rgba(181,32,36,0.25) 30%, rgba(181,32,36,0.1) 70%, transparent);
         }
 
         @media (max-width: 1024px) {
@@ -154,7 +154,7 @@ export function Values() {
               <div key={i} className="val-chip">
                 <div className="val-chip-icon">
                   <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
-                    <path d="M2 5.5L4 7.5L8 3" stroke="#C8102E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M2 5.5L4 7.5L8 3" stroke="#B52024" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <span className="val-chip-text">{value}</span>

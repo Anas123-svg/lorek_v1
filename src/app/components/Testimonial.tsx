@@ -64,7 +64,7 @@ export function Testimonial() {
         .tst-root {
           background: #0d0d0d;
           padding: 96px 80px;
-          border-top: 0.5px solid rgba(200,16,46,0.12);
+          border-top: 0.5px solid rgba(181,32,36,0.12);
           position: relative;
           overflow: hidden;
         }
@@ -73,8 +73,8 @@ export function Testimonial() {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(200,16,46,0.025) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200,16,46,0.025) 1px, transparent 1px);
+            linear-gradient(rgba(181,32,36,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(181,32,36,0.025) 1px, transparent 1px);
           background-size: 80px 80px;
           pointer-events: none;
         }
@@ -83,7 +83,7 @@ export function Testimonial() {
           position: absolute;
           top: -100px; right: -120px;
           width: 500px; height: 400px;
-          background: radial-gradient(ellipse, rgba(200,16,46,0.07) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(181,32,36,0.07) 0%, transparent 70%);
           pointer-events: none;
         }
 
@@ -105,10 +105,10 @@ export function Testimonial() {
           font-weight: 600;
           letter-spacing: 0.28em;
           text-transform: uppercase;
-          color: #C8102E;
+          color: #B52024;
           margin-bottom: 14px;
         }
-        .tst-eyebrow-line { width: 24px; height: 1px; background: #C8102E; }
+        .tst-eyebrow-line { width: 24px; height: 1px; background: #B52024; }
 
         .tst-h2 {
           font-family: 'Fahkwang', sans-serif;
@@ -120,7 +120,7 @@ export function Testimonial() {
         }
         .tst-h2 em {
           font-style: normal;
-          color: #C8102E;
+          color: #B52024;
           font-family: 'Fahkwang', sans-serif;
           font-weight: 700;
         }
@@ -141,8 +141,8 @@ export function Testimonial() {
         /* ── Card ── */
         .tst-card {
           background: #0a0a0a;
-          border: 0.5px solid rgba(200,16,46,0.1);
-          border-left: 2px solid #C8102E;
+          border: 0.5px solid rgba(181,32,36,0.1);
+          border-left: 2px solid #B52024;
           padding: 28px 22px;
           position: relative;
           overflow: hidden;
@@ -159,7 +159,7 @@ export function Testimonial() {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 1px;
-          background: linear-gradient(90deg, #C8102E, transparent);
+          background: linear-gradient(90deg, #B52024, transparent);
           opacity: 0.3;
         }
         .tst-card::after {
@@ -168,13 +168,13 @@ export function Testimonial() {
           inset: 0;
           background-image: repeating-linear-gradient(
             -55deg, transparent, transparent 6px,
-            rgba(200,16,46,0.012) 6px, rgba(200,16,46,0.012) 7px
+            rgba(181,32,36,0.012) 6px, rgba(181,32,36,0.012) 7px
           );
           pointer-events: none;
         }
         .tst-card:hover {
           background: #0e0e0e;
-          border-left-color: #e01535;
+          border-left-color: #8F1D21;
         }
 
         /* Avatar + name row */
@@ -201,7 +201,7 @@ export function Testimonial() {
           position: absolute;
           bottom: -3px; left: -3px;
           width: 14px; height: 2px;
-          background: #C8102E;
+          background: #B52024;
         }
         .tst-name {
           font-family: 'Fahkwang', sans-serif;
@@ -224,7 +224,7 @@ export function Testimonial() {
         .tst-quote-mark {
           font-family: 'Orbitron', monospace;
           font-size: 32px; font-weight: 700;
-          color: rgba(200,16,46,0.25);
+          color: rgba(181,32,36,0.25);
           line-height: 1;
           margin-bottom: 8px;
           letter-spacing: -0.05em;
@@ -254,19 +254,19 @@ export function Testimonial() {
           width: 32px;
           height: 32px;
           border-radius: 999px;
-          border: 1px solid rgba(200,16,46,0.4);
+          border: 1px solid rgba(181,32,36,0.4);
           display: flex;
           align-items: center;
           justify-content: center;
           background: transparent;
-          color: #C8102E;
+          color: #B52024;
           cursor: pointer;
           transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
         }
         .tst-arrow-btn:hover {
-          background: #C8102E;
+          background: #B52024;
           color: #FFFFFF;
-          border-color: #C8102E;
+          border-color: #B52024;
           transform: translateY(-1px);
         }
         .tst-arrow-icon {
@@ -278,7 +278,7 @@ export function Testimonial() {
         .tst-bottom-bar {
           margin-top: 48px;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(200,16,46,0.3) 30%, rgba(200,16,46,0.15) 70%, transparent);
+          background: linear-gradient(90deg, transparent, rgba(181,32,36,0.3) 30%, rgba(181,32,36,0.15) 70%, transparent);
         }
 
         @media (max-width: 1024px) {
