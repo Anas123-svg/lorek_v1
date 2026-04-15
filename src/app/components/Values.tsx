@@ -142,7 +142,7 @@ export function Values() {
 
       <section id="values" className="val-root">
         <div className="val-header">
-          <span className="val-header-label">Our Values</span>
+          <span className="val-header-label">Our Mission</span>
           <div className="val-header-line" />
         </div>
 

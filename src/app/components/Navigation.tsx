@@ -7,7 +7,12 @@ interface NavigationProps {
 export function Navigation({ openContactModal }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const navItems = ["About", "Industries", "Services", "Values"];
+  const navItems = [
+    { label: "About", href: "#about" },
+    { label: "Industries", href: "#industries" },
+    { label: "Services", href: "#services" },
+    { label: "MISSION", href: "#values" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -241,11 +246,11 @@ export function Navigation({ openContactModal }: NavigationProps) {
               <div className="hidden lg:flex items-center gap-7 xl:gap-9 hidden-on-mobile">
                 {navItems.map((item) => (
                   <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
+                    key={item.label}
+                    href={item.href}
                     className="nav-link"
                   >
-                    {item}
+                    {item.label}
                   </a>
                 ))}
               </div>
@@ -285,8 +290,8 @@ export function Navigation({ openContactModal }: NavigationProps) {
             >
               {navItems.map((item, idx) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.label}
+                  href={item.href}
                   className="nav-link"
                   style={{
                     fontSize: 13,
@@ -302,7 +307,7 @@ export function Navigation({ openContactModal }: NavigationProps) {
                   }}
                   onClick={handleNavClick}
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
               <button

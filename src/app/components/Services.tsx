@@ -18,14 +18,14 @@ export function Services() {
       name: "Operational Transformation",
       outcome: "EBITDA Margin Improvement",
       description:
-        "Launch effective transformations, resulting in EBITDA margin improvement, minimized cost and time overruns, and increased win rates.",
+        "We launch effective transformations, resulting in EBITDA margin improvement, minimized cost and time overruns, and increased win rates.",
     },
     {
       number: "03",
       name: "Commercialisation and Sales",
       outcome: "Profitable Growth",
       description:
-        "Lead multi-year journeys with tangible impact, including improved win-rates, increased delivered margin, targeted portfolios, higher resource efficiency, and more profitable and sustainable growth.",
+        "We lead multi-year journeys with tangible impact, including improved win-rates, increased delivered margin, targeted portfolios, higher resource efficiency, and more profitable and sustainable growth.",
     },
 
     {

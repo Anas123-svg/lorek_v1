@@ -241,7 +241,7 @@ export function Contact({ openContactModal }: { openContactModal: (e?: React.Mou
           <div className="contact-details">
             <div className="contact-detail-item">
               <div className="contact-detail-dot" />
-              London, UK
+              11 Old Bond St., London, W1S 4PN, United Kingdom
             </div>
             <div className="contact-detail-sep" />
             <div className="contact-detail-item">
