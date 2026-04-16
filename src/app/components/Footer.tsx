@@ -236,6 +236,19 @@ export function Footer() {
           align-items: center;
           gap: 10px;
         }
+        .ftr-social-handles {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        .ftr-social-handle {
+          font-family: 'Ranade', sans-serif;
+          font-size: 11px;
+          font-weight: 400;
+          color: rgba(255,255,255,0.5);
+          white-space: nowrap;
+        }
         .ftr-social-label {
           font-family: 'Fahkwang', sans-serif;
           font-size: 9px;
@@ -325,7 +338,7 @@ export function Footer() {
               <div className="ftr-logo">
                 {/* <div className="ftr-logo-bar" /> */}
                 <img
-  src="logo/logo.png" // replace with your actual logo path
+  src="logo.png" // replace with your actual logo path
   alt="Lorek Logo"
   style={{
     width: "clamp(80px, 10vw, 100px)", // responsive size
@@ -426,7 +439,7 @@ export function Footer() {
                   </div>
                   <div>
                     <span className="ftr-contact-main">London, UK</span>
-                    <div className="ftr-contact-sub">All boroughs covered</div>
+                    <div className="ftr-contact-sub">Serving clients globally.</div>
                   </div>
                 </div>
               </div>
@@ -445,32 +458,37 @@ export function Footer() {
                 <div className="ftr-social">
                   <span className="ftr-social-label">Follow</span>
                   <a
-                    href="https://www.linkedin.com"
+                    href="https://www.linkedin.com/company/lorekpartners"
                     target="_blank"
                     rel="noreferrer"
-                    aria-label="Lorek on LinkedIn"
+                    aria-label="Lorek on LinkedIn (@lorekpartners)"
                     className="ftr-social-link"
                   >
                     <Linkedin size={14} />
                   </a>
                   <a
-                    href="https://twitter.com"
+                    href="https://twitter.com/lorekpartners"
                     target="_blank"
                     rel="noreferrer"
-                    aria-label="Lorek on X"
+                    aria-label="Lorek on X (@lorekpartners)"
                     className="ftr-social-link"
                   >
                     <Twitter size={14} />
                   </a>
                   <a
-                    href="https://www.instagram.com"
+                    href="https://www.instagram.com/lorekpartners"
                     target="_blank"
                     rel="noreferrer"
-                    aria-label="Lorek on Instagram"
+                    aria-label="Lorek on Instagram (@lorekpartners)"
                     className="ftr-social-link"
                   >
                     <Instagram size={14} />
                   </a>
+                </div>
+                <div className="ftr-social-handles">
+                  <span className="ftr-social-handle">Instagram: @lorekpartners</span>
+                  <span className="ftr-social-handle">Twitter: @lorekpartners</span>
+                  <span className="ftr-social-handle">LinkedIn: @lorekpartners</span>
                 </div>
                 <div className="ftr-legal-links">
                   <a href="#" className="ftr-legal-link">

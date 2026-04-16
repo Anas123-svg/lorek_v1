@@ -37,7 +37,7 @@ export function Hero({ openContactModal }: HeroProps) {
                 @media (max-width: 1023px) {
                   .hero-root {
                     min-height: 600px;
-                    padding-top: 70px;
+                    padding-top: 78px;
                   }
                   .hero-h1 {
                     font-size: clamp(22px, 7vw, 36px);
@@ -60,11 +60,14 @@ export function Hero({ openContactModal }: HeroProps) {
                   .ticker-track {
                     gap: 18px;
                   }
+                  .hero-content-grid {
+                    padding-top: 78px;
+                  }
                 }
                 @media (max-width: 767px) {
                   .hero-root {
                     min-height: 480px;
-                    padding-top: 60px;
+                    padding-top: 68px;
                   }
                   .hero-h1 {
                     font-size: clamp(18px, 8vw, 28px);
@@ -88,6 +91,9 @@ export function Hero({ openContactModal }: HeroProps) {
                   .hero-btn-primary, .hero-btn-secondary {
                     padding: 9px 16px;
                     font-size: 10px;
+                  }
+                  .hero-content-grid {
+                    padding-top: 56px;
                   }
                 }
         @import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;500;600;700&family=Ranade:wght@200;300;400;500;600;700&display=swap');
@@ -406,7 +412,7 @@ export function Hero({ openContactModal }: HeroProps) {
         {/* ── Content ── */}
         <div className="relative px-4 sm:px-8 xl:px-20" style={{ zIndex: 6 }}>
           <div className="max-w-[1440px] mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6 pt-24 sm:pt-34 pb-10 sm:pb-16">
+            <div className="hero-content-grid grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6 pt-24 sm:pt-34 pb-10 sm:pb-16">
               {/* LEFT */}
               <div className="lg:col-span-7 flex flex-col justify-center mb-8 lg:mb-0">
                 <div className="hero-eyebrow">

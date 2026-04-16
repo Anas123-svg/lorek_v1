@@ -20,38 +20,36 @@ export function Testimonial() {
   const testimonials = [
     {
       name: 'Daniel',
-      title: 'Chief Executive, Real Estate',
-      photo:'https://media.istockphoto.com/id/1413766112/photo/successful-mature-businessman-looking-at-camera-with-confidence.jpg?s=612x612&w=0&k=20&c=NJSugBzNuZqb7DJ8ZgLfYKb3qPr2EJMvKZ21Sj5Sfq4=',
-      text: 'We have had countless encounters and managed to work together on few occasions and Lorek’s Team is always punctual, prepared, professional and carries themselves in a polite and respectable manner.',
+      title: 'Chief Executive, Real Estate',      sector: 'realestate',      text: 'We have had countless encounters and managed to work together on few occasions and Lorek’s Team is always punctual, prepared, professional and carries themselves in a polite and respectable manner.',
     },
     {
       name: 'Amira',
       title: 'Group CEO, Property Development',
-      photo: 'https://media.istockphoto.com/id/831902150/photo/ive-solidified-my-name-in-the-business-world.jpg?s=612x612&w=0&k=20&c=GCkoeN4GXE9W3EgNmwnInZpvGEepUSPd7N8NMKGBGFs=',
+      sector: 'property',
       text: 'We can advise that Lorek provided highly professional consulting services across complex, multi-stakeholder initiatives. Their attitude and knowledge were exemplary, ensuring that these projects were delivered to plan and within budget.',
     },
     {
       name: 'Lucien',
-      title: 'Managing Partner, Architecture & Design',
-      photo: 'https://plus.unsplash.com/premium_photo-1661297460381-f75b8ae69a0f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29ycG9yYXRlJTIwbWFufGVufDB8fDB8fHww',
+      title: 'Managing Partner, Architecture and Design',
+      sector: 'design',
       text: 'Over the course of the past decade, Lorek have continuously delivered dozens of business transformation exercises, on time and within the budget. Their work ethic, honesty, and hard work are commendable.',
     },
     {
       name: 'Sophia',
       title: 'Chair, Property Development',
-      photo: 'https://static.vecteezy.com/system/resources/thumbnails/046/850/078/small/confident-businesswoman-in-a-gray-suit-standing-with-arms-crossed-outside-an-office-building-professional-female-leader-in-the-business-district-photo.jpg',
+      sector: 'property',
       text: 'Their consulting teams, which comprise highly skilled, experienced consultants and project managers, are able to contend with all manner of challenges and complexities and do so effortlessly and without a modicum of fuss.',
     },
     {
       name: 'Noah',
       title: 'Founder, Real Estate Investment',
-      photo: 'https://images.peopleimages.com/picture/202212/2564599-success-corporate-leadership-and-portrait-of-black-man-sitting-on-desk-in-modern-office-for-startup.-management-marketing-ceo-and-happy-male-entrepreneur-with-business-vision-in-creative-workplace-fit_400_400.jpg',
+      sector: 'realestate',
       text: "Lorek has been an indispensable asset to us in sourcing, building, maintaining, and managing our portfolio across the UK.",
     },
     {
       name: 'Isabel',
       title: 'Creative Director, Design & Branding',
-      photo: 'https://media.istockphoto.com/id/1371934584/photo/portrait-of-a-confident-mature-businesswoman-working-in-a-modern-office.jpg?s=612x612&w=0&k=20&c=NF_IO6IEXY3HifRIhRqP0KDFJFdlFwaMwo3zfOOvKnQ=',
+      sector: 'design',
       text: 'As a management consultant, Jacob was attentive, knowledgeable with a great eye for detail. He manages a successful and profitable company whilst also providing a very fair and competitively priced service. A great combination.',
     },
   ];
@@ -177,48 +175,28 @@ export function Testimonial() {
           border-left-color: #8F1D21;
         }
 
-        /* Avatar + name row */
-        .tst-avatar-row {
+        .tst-title {
           display: flex;
-          align-items: center;
-          gap: 14px;
+          flex-direction: column;
+          gap: 1px;
           margin-bottom: 20px;
         }
-        .tst-avatar-wrap {
-          position: relative;
-          flex-shrink: 0;
-        }
-        .tst-avatar {
-          width: 48px; height: 48px;
-          border-radius: 0;
-          object-fit: cover;
-          display: block;
-          clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
-          filter: grayscale(0.3);
-        }
-        .tst-avatar-wrap::after {
-          content: '';
-          position: absolute;
-          bottom: -3px; left: -3px;
-          width: 14px; height: 2px;
-          background: #B52024;
-        }
-        .tst-name {
+        .tst-title-role {
           font-family: 'Fahkwang', sans-serif;
-          font-size: 13px;
-          font-weight: 600;
-          letter-spacing: 0.12em;
+          font-size: 11px;
+          font-weight: 700;
+          color: rgba(255,255,255,0.88);
+          line-height: 1.35;
+          margin-top: 2px;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: #FFFFFF;
-          line-height: 1.2;
         }
-        .tst-title {
+        .tst-title-org {
           font-family: 'Ranade', sans-serif;
           font-size: 11px;
           font-weight: 400;
           color: rgba(255,255,255,0.35);
-          line-height: 1.4;
-          margin-top: 2px;
+          line-height: 1.35;
         }
 
         .tst-quote-mark {
@@ -344,14 +322,9 @@ export function Testimonial() {
           <div className="tst-grid" ref={trackRef}>
             {testimonials.map((t, i) => (
               <div key={i} className="tst-card">
-                <div className="tst-avatar-row">
-                  <div className="tst-avatar-wrap">
-                    <img src={t.photo} alt={t.name} className="tst-avatar" />
-                  </div>
-                  <div>
-                    <div className="tst-name">{t.name}</div>
-                    <div className="tst-title">{t.title}</div>
-                  </div>
+                <div className="tst-title">
+                  <div className="tst-title-role">{t.title.split(',')[0]?.trim()}</div>
+                  <div className="tst-title-org">{t.title.split(',').slice(1).join(',').trim()}</div>
                 </div>
                 <div className="tst-quote-mark">"</div>
                 <p className="tst-text">{t.text}</p>

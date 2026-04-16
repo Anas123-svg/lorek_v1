@@ -48,6 +48,34 @@ export function CredentialStrip() {
           background: linear-gradient(to bottom, transparent, rgba(200,16,46,0.3), transparent);
           flex-shrink: 0;
         }
+        @media (max-width: 768px) {
+          .cred-root {
+            height: 76px;
+          }
+          .cred-number {
+            font-size: clamp(14px, 4.2vw, 18px);
+          }
+          .cred-label {
+            font-size: clamp(7px, 1.8vw, 8px);
+            letter-spacing: 0.16em;
+            margin-top: 2px;
+          }
+          .cred-divider {
+            height: 22px;
+          }
+        }
+        @media (max-width: 480px) {
+          .cred-root {
+            height: 72px;
+          }
+          .cred-number {
+            font-size: clamp(12px, 4vw, 14px);
+          }
+          .cred-label {
+            font-size: 6px;
+            letter-spacing: 0.12em;
+          }
+        }
       `}</style>
 
       <section className="cred-root">
