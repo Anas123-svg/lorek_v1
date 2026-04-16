@@ -389,7 +389,7 @@ export function Hero({ openContactModal }: HeroProps) {
           muted
           loop
           playsInline
-          poster="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2560&auto=format&fit=crop"
+          poster="https://res.cloudinary.com/dbywwhzot/image/upload/v1776351848/hero_img_ipqcc9.png"
         >
           <source
             src="https://videos.pexels.com/video-files/3827392/3827392-uhd_2560_1440_25fps.mp4"
