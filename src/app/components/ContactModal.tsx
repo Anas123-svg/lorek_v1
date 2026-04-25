@@ -2,14 +2,67 @@ import { useEffect, useState } from 'react';
 
 export function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
   useEffect(() => {
-    if (!open) return;
+    if (!open) {
+      // Reset states when modal closes
+      setSubmitted(false);
+      setError(null);
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      return;
+    }
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [open, onClose]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL ;
+      if (!apiUrl) {
+        throw new Error('API URL not configured');
+      }
+
+      const response = await fetch(`${apiUrl}/lorek/contact-us`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || null,
+          message: formData.message || null,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to send message');
+      }
+
+      setSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (!open) return null;
 
@@ -147,24 +200,74 @@ export function ContactModal({ open, onClose }: { open: boolean; onClose: () => 
               We'd love to hear from you. Fill out the form below and our team will respond promptly.<br/>
               <span style={{color:'#fff', fontWeight:600}}>info@lorek.com</span>
             </div>
-            <form onSubmit={e => { e.preventDefault(); setSubmitted(true); }} autoComplete="off">
+            <form onSubmit={handleSubmit} autoComplete="off">
+              {error && (
+                <div style={{
+                  color: '#ff6b6b',
+                  fontSize: '13px',
+                  marginBottom: '16px',
+                  padding: '10px 12px',
+                  backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                  borderRadius: '6px',
+                  border: '1px solid rgba(255, 107, 107, 0.3)'
+                }}>
+                  {error}
+                </div>
+              )}
               <div>
                 <label className="contact-modal-label">Name</label>
-                <input className="contact-modal-input" type="text" required placeholder="Your Name" />
+                <input 
+                  className="contact-modal-input" 
+                  type="text" 
+                  required 
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  disabled={loading}
+                />
               </div>
               <div>
                 <label className="contact-modal-label">Email</label>
-                <input className="contact-modal-input" type="email" required placeholder="you@email.com" />
+                <input 
+                  className="contact-modal-input" 
+                  type="email" 
+                  required 
+                  placeholder="you@email.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  disabled={loading}
+                />
               </div>
               <div>
                 <label className="contact-modal-label">Phone <span style={{color:'#666',fontWeight:400}}>(optional)</span></label>
-                <input className="contact-modal-input" type="tel" placeholder="e.g. +44 20 7946 0999" />
+                <input 
+                  className="contact-modal-input" 
+                  type="tel" 
+                  placeholder="e.g. +44 20 7946 0999"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  disabled={loading}
+                />
               </div>
               <div>
                 <label className="contact-modal-label">Message</label>
-                <textarea className="contact-modal-textarea" required placeholder="How can we help you?" />
+                <textarea 
+                  className="contact-modal-textarea" 
+                  required 
+                  placeholder="How can we help you?"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  disabled={loading}
+                />
               </div>
-              <button className="contact-modal-submit" type="submit">Send Message</button>
+              <button 
+                className="contact-modal-submit" 
+                type="submit"
+                disabled={loading}
+                style={{ opacity: loading ? 0.6 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
+              >
+                {loading ? 'Sending...' : 'Send Message'}
+              </button>
             </form>
           </>
         )}
